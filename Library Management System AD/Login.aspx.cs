@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Library_Management_System_AD
+{
+    public partial class Login : System.Web.UI.Page
+    {
+        User newUser = new User();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            DataTable dt = newUser.CheckUserLogin(txtUsername.Text, txtPassword.Text);
+            if (dt.Rows.Count > 0)
+            {
+                Session.Add("userid", dt.Rows[0]["id"].ToString());
+                Session.Add("username", dt.Rows[0]["Username"].ToString());
+                Session.Add("Fullname", dt.Rows[0]["name"].ToString());
+                if (dt.Rows[0]["role"].ToString() == "Admin")
+                {
+                    Response.Redirect("~/Admin/Register.aspx");
+                }
+                else if (dt.Rows[0]["role"].ToString() == "User")
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
+            }
+        }
+    }
+}
