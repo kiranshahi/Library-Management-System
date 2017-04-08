@@ -45,5 +45,25 @@ namespace Library_Management_System_AD
             da.Fill(dt);
             return dt;
         }
+        public bool UsernameCheck(string username, string email)
+        {
+            bool isUserExisted = false;
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
+            string sql = "select username, email from users where username=@username and email=@email";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@Username", username);
+            cmd.Parameters.AddWithValue("@email", email);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                if (dr.HasRows == true)
+                {
+                    isUserExisted = true;
+                    break;
+                }
+            }
+            return isUserExisted;
+        }
     }
 }

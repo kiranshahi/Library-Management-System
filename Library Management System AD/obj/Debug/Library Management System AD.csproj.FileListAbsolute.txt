@@ -60,3 +60,25 @@ c:\users\kirans\documents\visual studio 2017\Projects\Library Management System 
 c:\users\kirans\documents\visual studio 2017\Projects\Library Management System AD\Library Management System AD\obj\Debug\Library Management System AD.dll
 c:\users\kirans\documents\visual studio 2017\Projects\Library Management System AD\Library Management System AD\obj\Debug\Library Management System AD.pdb
 c:\users\kirans\documents\visual studio 2017\Projects\Library Management System AD\Library Management System AD\obj\Debug\Library Management System AD.csprojResolveAssemblyReference.cache
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\csi.exe.config
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Console.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.IO.Compression.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.IO.Pipes.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Security.Claims.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Threading.Thread.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.ValueTuple.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Xml.XPath.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Xml.XPath.XDocument.dll

@@ -23,7 +23,7 @@ namespace Library_Management_System_AD
             {
                 Session.Add("userid", dt.Rows[0]["id"].ToString());
                 Session.Add("username", dt.Rows[0]["Username"].ToString());
-                Session.Add("Fullname", dt.Rows[0]["name"].ToString());
+                Session.Add("name", dt.Rows[0]["name"].ToString());
                 if (dt.Rows[0]["role"].ToString() == "Admin")
                 {
                     Response.Redirect("~/Admin/Register.aspx");
