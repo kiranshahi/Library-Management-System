@@ -45,7 +45,7 @@ namespace Library_Management_System_AD.Admin
                         SmtpClient smtp = new SmtpClient();
                         smtp.Host = "smtp.gmail.com";
                         smtp.EnableSsl = true;
-                        NetworkCredential NetworkCred = new NetworkCredential("kiran.shahi.c3@gmail.com", "P0kzk1r@N1");
+                        NetworkCredential NetworkCred = new NetworkCredential("librarymgmtsys@gmail.com", "testing!@12");
                         smtp.UseDefaultCredentials = true;
                         smtp.Credentials = NetworkCred;
                         smtp.Port = 587;
