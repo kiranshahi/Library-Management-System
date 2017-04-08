@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -32,6 +33,11 @@ namespace Library_Management_System_AD
                 {
                     Response.Redirect("~/Default.aspx");
                 }
+            }
+            else
+            {
+                lblMessage.Text = "Username or password do not match.";
+                lblMessage.ForeColor = Color.Red;
             }
         }
     }

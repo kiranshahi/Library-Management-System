@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Library_Management_System_AD.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ResetPassword.aspx.cs" Inherits="Library_Management_System_AD.ResetPassword" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,8 +9,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login</title>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <title>Reset Password</title>
+     <webopt:bundlereference runat="server" path="~/Content/css" />
 </head>
 <body class="login">
 <div>
@@ -17,7 +18,7 @@
         <div class="animate form login_form">
             <section class="login_content">
                 <form id="form1" runat="server">
-                    <h1>Login</h1>
+                    <h1>Reset Password</h1>
                     <div>
                         <asp:Label ID="lblMessage" runat="server"></asp:Label>
                     </div>
@@ -25,16 +26,13 @@
                         <asp:TextBox ID="txtUsername" CssClass="form-control" placeholder="Username" runat="server"></asp:TextBox>
                     </div>
                     <div>
-                        <asp:TextBox ID="txtPassword" CssClass="form-control" placeholder="Password" TextMode="Password" runat="server"></asp:TextBox>
-                    </div>
-                    <div>
-                        <asp:Button ID="btnLogin" CssClass="btn btn-default submit"  runat="server" Text="Sign In" OnClick="btnLogin_Click" />
+                        <asp:Button ID="btnReset" CssClass="btn btn-default submit"  runat="server" Text="Reset"/>
                         <a class="reset_pass"  runat="server" href="~/">← Back to Home Page.</a>
                     </div>
                     <div class="clearfix"></div>
                     <div class="separator">
-                        <p class="change_link">Lost your password?
-                            <a runat="server" href="~/ResetPassword"> Reset </a>
+                        <p class="change_link">Remembered your password?
+                            <a runat="server" href="~/Login"> Login </a>
                         </p>
                         <div class="clearfix"></div>
                         <br />

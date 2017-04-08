@@ -82,3 +82,4 @@ C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System 
 C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Xml.XmlDocument.dll
 C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Xml.XPath.dll
 C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\Library Management System AD\bin\favicon.ico
