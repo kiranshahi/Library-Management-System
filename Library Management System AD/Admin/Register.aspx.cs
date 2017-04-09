@@ -32,7 +32,7 @@ namespace Library_Management_System_AD.Admin
                     lblMessage.Text = "User Registered SUccessfully";
                     lblMessage.ForeColor = Color.Green;
 
-                    using (MailMessage mm = new MailMessage("kiran.shahi.c3@gmail.com", txtEmailID.Text))
+                    using (MailMessage mm = new MailMessage("librarymgmtsys@gmail.com", txtEmailID.Text))
                     {
                         mm.Subject = "Library Management System Credential";
 

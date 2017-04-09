@@ -23,10 +23,10 @@
                         <asp:Label ID="lblMessage" runat="server"></asp:Label>
                     </div>
                     <div>
-                        <asp:TextBox ID="txtUsername" CssClass="form-control" placeholder="Username" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" CssClass="form-control" placeholder="Email" runat="server" required="required"></asp:TextBox>
                     </div>
                     <div>
-                        <asp:Button ID="btnReset" CssClass="btn btn-default submit"  runat="server" Text="Reset"/>
+                        <asp:Button ID="btnReset" CssClass="btn btn-default submit"  runat="server" Text="Reset" OnClick="btnReset_Click"/>
                         <a class="reset_pass"  runat="server" href="~/">← Back to Home Page.</a>
                     </div>
                     <div class="clearfix"></div>

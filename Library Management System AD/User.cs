@@ -49,7 +49,7 @@ namespace Library_Management_System_AD
         {
             bool isUserExisted = false;
             SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
-            string sql = "select username, email from users where username=@username and email=@email";
+            string sql = "select username, email from users where username=@username or email=@email";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@Username", username);
             cmd.Parameters.AddWithValue("@email", email);
@@ -64,6 +64,20 @@ namespace Library_Management_System_AD
                 }
             }
             return isUserExisted;
+        }
+
+        public int resetPassword(string email,string password)
+        {
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
+            string sql = "UPDATE users SET password=@pass WHERE email=@email;";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@pass", password);
+
+            con.Open();
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            return i;
         }
     }
 }

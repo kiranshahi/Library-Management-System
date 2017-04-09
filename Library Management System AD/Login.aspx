@@ -22,10 +22,10 @@
                         <asp:Label ID="lblMessage" runat="server"></asp:Label>
                     </div>
                     <div>
-                        <asp:TextBox ID="txtUsername" CssClass="form-control" placeholder="Username" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtUsername" CssClass="form-control" placeholder="Username" runat="server" required="required" ValidateRequestMode="Enabled"></asp:TextBox>
                     </div>
                     <div>
-                        <asp:TextBox ID="txtPassword" CssClass="form-control" placeholder="Password" TextMode="Password" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtPassword" CssClass="form-control" placeholder="Password" TextMode="Password" runat="server" required="required" ValidateRequestMode="Enabled"></asp:TextBox>
                     </div>
                     <div>
                         <asp:Button ID="btnLogin" CssClass="btn btn-default submit"  runat="server" Text="Sign In" OnClick="btnLogin_Click" />
