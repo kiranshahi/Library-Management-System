@@ -31,7 +31,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="separator">
-                        <p class="change_link">Remembered your password?
+                        <p class="change_link">Back to
                             <a runat="server" href="~/Login"> Login </a>
                         </p>
                         <div class="clearfix"></div>

@@ -29,9 +29,6 @@ namespace Library_Management_System_AD.Admin
                     strpassword, "User", Convert.ToDateTime(txtJoinedDate.Text));
                 if (i > 0)
                 {
-                    lblMessage.Text = "User Registered SUccessfully";
-                    lblMessage.ForeColor = Color.Green;
-
                     using (MailMessage mm = new MailMessage("librarymgmtsys@gmail.com", txtEmailID.Text))
                     {
                         mm.Subject = "Library Management System Credential";

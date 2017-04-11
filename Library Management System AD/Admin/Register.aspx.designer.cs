@@ -67,6 +67,15 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtJoinedDate;
         
         /// <summary>
+        /// Reset_Button control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Reset_Button;
+        
+        /// <summary>
         /// btnSingup control.
         /// </summary>
         /// <remarks>

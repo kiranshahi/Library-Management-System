@@ -1,28 +1,27 @@
-﻿<%@ Page Title="Create User" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Library_Management_System_AD.Admin.Register" %>
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %></h2>
+﻿<%@ Page Title="Create User" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Library_Management_System_AD.Admin.Register" %>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="AdminContent" runat="server">
     <div class = "panel panel-warning">
-       <div class = "panel-heading">
-          <h3 class = "panel-title">Create User </h3> <asp:Label ID="lblMessage" runat="server" Font-Bold="True"></asp:Label>
-       </div>
+        <div class = "panel-heading">
+            <h3 class = "panel-title"><%: Title %> </h3> <asp:Label ID="lblMessage" runat="server" Font-Bold="True"></asp:Label>
+        </div>
        <div class = "panel-body" >
            <table class="table" style="width:100%">
                <tr>
                    <td>Full Name</td>
                    <td>
-                       <asp:TextBox ID="txtFUllName" CssClass="form-control" placeHolder="Enter Name" runat="server" Width="364px" ></asp:TextBox>
+                       <asp:TextBox ID="txtFUllName" CssClass="form-control" placeHolder="Enter Name" runat="server" Width="364px"  required="required"></asp:TextBox>
                    </td>
                </tr>
                <tr>
                    <td>Username</td>
                    <td>
-                       <asp:TextBox ID="txtUsername" CssClass="form-control" placeHolder="Enter Username" runat="server" Width="364px"></asp:TextBox>
+                       <asp:TextBox ID="txtUsername" CssClass="form-control" placeHolder="Enter Username" runat="server" Width="364px" required="required"></asp:TextBox>
                    </td>
                </tr>
                <tr>
                    <td>Email Id:</td>
                    <td>
-                       <asp:TextBox ID="txtEmailID" CssClass="form-control" placeHolder="Enter EMail Id" runat="server" Width="364px" TextMode="Email"></asp:TextBox>
+                       <asp:TextBox ID="txtEmailID" CssClass="form-control" placeHolder="Enter EMail Id" runat="server" Width="364px" TextMode="Email" required="required"></asp:TextBox>
                    </td>
                </tr>
                <tr>
@@ -40,7 +39,8 @@
                <tr>
                    <td>&nbsp;</td>
                    <td>
-                       <asp:Button ID="btnSingup" runat="server" Text="Register" CssClass="btn btn-warning" OnClick="btnSingup_Click" />
+                       <asp:Button ID="Reset_Button" runat="server" Text="Reset" CssClass="btn btn-primary" OnClientClick="this.form.reset();return false;" />
+                       <asp:Button ID="btnSingup" runat="server" Text="Register" CssClass="btn btn-success" OnClick="btnSingup_Click" />
                    </td>
                </tr>
            </table>
