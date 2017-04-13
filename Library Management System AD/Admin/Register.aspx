@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="Create User" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Library_Management_System_AD.Admin.Register" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
+    Add New User <small>Enter User's Details here</small>
+</asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="AdminContent" runat="server">
     <div class = "panel panel-warning">
         <div class = "panel-heading">

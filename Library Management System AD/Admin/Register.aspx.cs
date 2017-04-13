@@ -29,28 +29,36 @@ namespace Library_Management_System_AD.Admin
                     strpassword, "User", Convert.ToDateTime(txtJoinedDate.Text));
                 if (i > 0)
                 {
-                    using (MailMessage mm = new MailMessage("librarymgmtsys@gmail.com", txtEmailID.Text))
+                    try
                     {
-                        mm.Subject = "Library Management System Credential";
+                        using (MailMessage mm = new MailMessage("librarymgmtsys@gmail.com", txtEmailID.Text))
+                        {
+                            mm.Subject = "Library Management System Credential";
 
-                        mm.Body = "Hi " + txtFUllName.Text + ",\n";
-                        mm.Body += "Username:" + txtUsername.Text + "\n" + "Password:" + strpassword + "\n";
-                        mm.Body += "Your account on Library Management System has been created. \n";
-                        mm.Body += "Please update your password immediately.";
+                            mm.Body = "Hi " + txtFUllName.Text + ",\n";
+                            mm.Body += "Username:" + txtUsername.Text + "\n" + "Password:" + strpassword + "\n";
+                            mm.Body += "Your account on Library Management System has been created. \n";
+                            mm.Body += "Please update your password immediately.";
 
-                        mm.IsBodyHtml = false;
-                        SmtpClient smtp = new SmtpClient();
-                        smtp.Host = "smtp.gmail.com";
-                        smtp.EnableSsl = true;
-                        NetworkCredential NetworkCred = new NetworkCredential("librarymgmtsys@gmail.com", "testing!@12");
-                        smtp.UseDefaultCredentials = true;
-                        smtp.Credentials = NetworkCred;
-                        smtp.Port = 587;
-                        smtp.Send(mm);
+                            mm.IsBodyHtml = false;
+                            SmtpClient smtp = new SmtpClient();
+                            smtp.Host = "smtp.gmail.com";
+                            smtp.EnableSsl = true;
+                            NetworkCredential NetworkCred = new NetworkCredential("librarymgmtsys@gmail.com", "testing!@12");
+                            smtp.UseDefaultCredentials = true;
+                            smtp.Credentials = NetworkCred;
+                            smtp.Port = 587;
+                            smtp.Send(mm);
+                            lblMessage.Text = "User Created Successfully. Login Credential is sent to an user\'s email. ";
+                            lblMessage.ForeColor = Color.Green;
 
+                        }
                     }
-                    lblMessage.Text = "User Created Successfully. Login Credential is sent to an user\'s email. ";
-                    lblMessage.ForeColor = Color.Green;
+                    catch (System.Net.Mail.SmtpException exception)
+                    {
+                        lblMessage.Text = "User created but could not send email. Please provide credentials manually."+exception.Message;
+                        lblMessage.ForeColor = Color.Red;
+                    }
 
                 }
             }
