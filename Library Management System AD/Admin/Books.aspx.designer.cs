@@ -10,7 +10,7 @@
 namespace Library_Management_System_AD.Admin {
     
     
-    public partial class Authors {
+    public partial class Books {
         
         /// <summary>
         /// lblMessage control.
@@ -22,22 +22,49 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// txtFUllName control.
+        /// txtTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFUllName;
+        protected global::System.Web.UI.WebControls.TextBox txtTitle;
         
         /// <summary>
-        /// txtAddress control.
+        /// txtOverview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtOverview;
+        
+        /// <summary>
+        /// txtIsbn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIsbn;
+        
+        /// <summary>
+        /// txtPublisher control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPublisher;
+        
+        /// <summary>
+        /// txtPublishedDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPublishedDate;
         
         /// <summary>
         /// Reset_Button control.

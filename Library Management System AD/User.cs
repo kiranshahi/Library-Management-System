@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace Library_Management_System_AD
 {
     public class User
     {
-        public User()
-        {
-            
-        }
-        public int CreateUser(string name, string username, string email, string phone, string password, string role, DateTime joined_date)
+        public int CreateUser(string name, string username, string email, string phone, string password, string role, DateTime joinedDate)
         {
             SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
             string sql = "insert into users values(@a,@b,@c,@d,@e,@f,@g)";
@@ -25,7 +18,7 @@ namespace Library_Management_System_AD
             cmd.Parameters.AddWithValue("@d", phone);
             cmd.Parameters.AddWithValue("@e", password);
             cmd.Parameters.AddWithValue("@f", role);
-            cmd.Parameters.AddWithValue("@g", joined_date);
+            cmd.Parameters.AddWithValue("@g", joinedDate);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();
@@ -66,7 +59,7 @@ namespace Library_Management_System_AD
             return isUserExisted;
         }
 
-        public int resetPassword(string email,string password)
+        public int ResetPassword(string email,string password)
         {
             SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
             string sql = "UPDATE users SET password=@pass WHERE email=@email;";

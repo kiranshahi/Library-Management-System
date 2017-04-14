@@ -126,6 +126,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Admin\Authors.aspx" />
+    <Content Include="Admin\Books.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\Register.aspx" />
     <Content Include="Contact.aspx" />
@@ -217,6 +218,13 @@
     </Compile>
     <Compile Include="Admin\Authors.aspx.designer.cs">
       <DependentUpon>Authors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Books.aspx.cs">
+      <DependentUpon>Books.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Books.aspx.designer.cs">
+      <DependentUpon>Books.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

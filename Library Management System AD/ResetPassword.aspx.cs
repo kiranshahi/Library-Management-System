@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Library_Management_System_AD
 {
@@ -23,7 +18,7 @@ namespace Library_Management_System_AD
             string strpassword = System.Web.Security.Membership.GeneratePassword(12, 6);
             if (newUser.UsernameCheck(txtEmail.Text, txtEmail.Text))
             {
-                int i = newUser.resetPassword(txtEmail.Text, strpassword);
+                int i = newUser.ResetPassword(txtEmail.Text, strpassword);
                 if (i > 0)
                 {
 
@@ -39,9 +34,9 @@ namespace Library_Management_System_AD
                         SmtpClient smtp = new SmtpClient();
                         smtp.Host = "smtp.gmail.com";
                         smtp.EnableSsl = true;
-                        NetworkCredential NetworkCred = new NetworkCredential("librarymgmtsys@gmail.com", "testing!@12");
+                        NetworkCredential networkCred = new NetworkCredential("librarymgmtsys@gmail.com", "testing!@12");
                         smtp.UseDefaultCredentials = true;
-                        smtp.Credentials = NetworkCred;
+                        smtp.Credentials = networkCred;
                         smtp.Port = 587;
                         smtp.Send(mm);
 
