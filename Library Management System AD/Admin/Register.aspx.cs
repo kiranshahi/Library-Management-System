@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Library_Management_System_AD.Admin
 {
@@ -19,7 +13,7 @@ namespace Library_Management_System_AD.Admin
 
         }
 
-        protected void btnSingup_Click(object sender, EventArgs e)
+        protected void BtnAddUser(object sender, EventArgs e)
         {
             string strpassword = System.Web.Security.Membership.GeneratePassword(12, 6);
             if (!newUser.UsernameCheck(txtUsername.Text, txtEmailID.Text))
@@ -44,9 +38,9 @@ namespace Library_Management_System_AD.Admin
                             SmtpClient smtp = new SmtpClient();
                             smtp.Host = "smtp.gmail.com";
                             smtp.EnableSsl = true;
-                            NetworkCredential NetworkCred = new NetworkCredential("librarymgmtsys@gmail.com", "testing!@12");
+                            NetworkCredential networkCred = new NetworkCredential("librarymgmtsys@gmail.com", "testing!@12");
                             smtp.UseDefaultCredentials = true;
-                            smtp.Credentials = NetworkCred;
+                            smtp.Credentials = networkCred;
                             smtp.Port = 587;
                             smtp.Send(mm);
                             lblMessage.Text = "User Created Successfully. Login Credential is sent to an user\'s email. ";
@@ -54,7 +48,7 @@ namespace Library_Management_System_AD.Admin
 
                         }
                     }
-                    catch (System.Net.Mail.SmtpException exception)
+                    catch (SmtpException exception)
                     {
                         lblMessage.Text = "User created but could not send email. Please provide credentials manually."+exception.Message;
                         lblMessage.ForeColor = Color.Red;

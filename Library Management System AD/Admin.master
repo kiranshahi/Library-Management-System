@@ -38,10 +38,10 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
-                                <li><a href="index.html"><i class="fa fa-home"></i> Home </a></li>
+                                <li><a href="Default"><i class="fa fa-home"></i> Home </a></li>
                                 <li><a><i class="fa fa-edit"></i> Books <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="add-new-book.html">Add New Books</a></li>
+                                        <li><a href="Books">Add New Books</a></li>
                                         <li><a href="list-book.html">List all Books</a></li>
                                     </ul>
                                 </li>
@@ -111,7 +111,7 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <form data-parsley-validate class="form-horizontal form-label-left" id="form1" runat="server" >
+                                    <form data-parsley-validate class="form-horizontal" id="form1" runat="server" >
                                         <asp:ScriptManager runat="server">
                                             <Scripts>
                                                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>

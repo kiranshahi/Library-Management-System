@@ -128,6 +128,9 @@
     <Content Include="Admin\Authors.aspx" />
     <Content Include="Admin\Books.aspx" />
     <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\Loans.aspx" />
+    <Content Include="Admin\Members.aspx" />
+    <Content Include="Admin\Publishers.aspx" />
     <Content Include="Admin\Register.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -232,6 +235,27 @@
     </Compile>
     <Compile Include="Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Loans.aspx.cs">
+      <DependentUpon>Loans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Loans.aspx.designer.cs">
+      <DependentUpon>Loans.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Members.aspx.cs">
+      <DependentUpon>Members.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Members.aspx.designer.cs">
+      <DependentUpon>Members.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Publishers.aspx.cs">
+      <DependentUpon>Publishers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Publishers.aspx.designer.cs">
+      <DependentUpon>Publishers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>

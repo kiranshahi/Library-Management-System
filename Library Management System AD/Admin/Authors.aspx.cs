@@ -14,7 +14,7 @@ namespace Library_Management_System_AD.Admin
 
         }
 
-        protected void btnAddAuthor_Click(object sender, EventArgs e)
+        protected void BtnAddAuthor(object sender, EventArgs e)
         {
 
         }
