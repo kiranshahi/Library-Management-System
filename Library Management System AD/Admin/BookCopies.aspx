@@ -12,7 +12,7 @@
            <div class="form-group row">
                <label for="book" class="col-sm-2">Books</label>
                <div class="col-sm-8">
-                   <select id="book" class="form-control">
+                   <select id="bookOption" class="form-control" name="bookOption" runat="server">
                        
                    </select>
                </div>
@@ -21,7 +21,7 @@
            <div class="form-group row">
                <label for="txtPurchasedDate" class="col-sm-2">Purchased Date:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtPurchasedDate" CssClass="form-control" placeHolder="Purchased Date" runat="server" required="required" TextMode="Date"></asp:TextBox>
+                   <asp:TextBox ID="txtPurchasedDate" CssClass="form-control" placeHolder="YYYY-MM-DD" runat="server" required="required" TextMode="Date"></asp:TextBox>
                </div>
            </div>
            

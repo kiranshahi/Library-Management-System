@@ -49,13 +49,13 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtIsbn;
         
         /// <summary>
-        /// txtPublisher control.
+        /// publisherList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPublisher;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect publisherList;
         
         /// <summary>
         /// txtPublishedDate control.

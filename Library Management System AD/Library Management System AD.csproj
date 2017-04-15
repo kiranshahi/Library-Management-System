@@ -306,6 +306,8 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Author.cs" />
+    <Compile Include="Book.cs" />
+    <Compile Include="BookCopy.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

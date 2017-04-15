@@ -32,7 +32,7 @@
            <div class="form-group row">
                <label for="txtJoinedDate" class="col-sm-2">Joined Date:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtJoinedDate" CssClass="form-control" placeHolder="Joined Date" runat="server" required="required" TextMode="Date"></asp:TextBox>
+                   <asp:TextBox ID="txtJoinedDate" CssClass="form-control" placeHolder="YYYY-MM-DD" runat="server" required="required" TextMode="Date"></asp:TextBox>
                </div>
            </div>
            <div class="form-group row">

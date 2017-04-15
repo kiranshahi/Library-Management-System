@@ -30,14 +30,16 @@
                <div class="form-group row">
                <label for="txtPublisher" class="col-sm-2">Publisher:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtPublisher" CssClass="form-control" placeHolder="Publisher" runat="server" required="required"></asp:TextBox>
+                   <select id="publisherList" class="form-control" name="publisherList" runat="server">
+                       
+                   </select>
                </div>
            </div>
            
            <div class="form-group row">
                <label for="txtPublishedDate" class="col-sm-2">Published Date:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtPublishedDate" CssClass="form-control" placeHolder="Published Date" runat="server" required="required" TextMode="Date"></asp:TextBox>
+                   <asp:TextBox ID="txtPublishedDate" CssClass="form-control" placeHolder="YYYY-MM-DD" runat="server" required="required" TextMode="Date"></asp:TextBox>
                </div>
            </div>
            

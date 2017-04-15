@@ -21,5 +21,24 @@ namespace Library_Management_System_AD
             con.Close();
             return i;
         }
+        public bool CheckAuthor(string name)
+        {
+            bool isAuthorExisted = false;
+            SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
+            string sql = "select name from authors where name=@name";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@name", name);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                if (dr.HasRows == true)
+                {
+                    isAuthorExisted = true;
+                    break;
+                }
+            }
+            return isAuthorExisted;
+        }
     }
 }
