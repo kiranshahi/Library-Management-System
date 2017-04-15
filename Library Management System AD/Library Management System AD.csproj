@@ -133,6 +133,7 @@
     <Content Include="Admin\Loans.aspx" />
     <Content Include="Admin\LoanTypes.aspx" />
     <Content Include="Admin\Members.aspx" />
+    <Content Include="Admin\MembershipType.aspx" />
     <Content Include="Admin\Publishers.aspx" />
     <Content Include="Admin\Register.aspx" />
     <Content Include="Contact.aspx" />
@@ -273,6 +274,13 @@
     </Compile>
     <Compile Include="Admin\Members.aspx.designer.cs">
       <DependentUpon>Members.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MembershipType.aspx.cs">
+      <DependentUpon>MembershipType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MembershipType.aspx.designer.cs">
+      <DependentUpon>MembershipType.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Publishers.aspx.cs">
       <DependentUpon>Publishers.aspx</DependentUpon>
