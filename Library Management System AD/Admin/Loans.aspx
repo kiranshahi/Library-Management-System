@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Add Authors" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Loans.aspx.cs" Inherits="Library_Management_System_AD.Admin.Loans" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
-    Add New Author <small>Enter Author's Details here</small>
+    Add Books to Loan <small>Enter Book's and User's Details here</small>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="AdminContent" runat="server">
     <div class = "panel panel-warning">

@@ -59,7 +59,7 @@
                                 </li>
                                 <li><a><i class="fa fa-male"></i> Publisher <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="Publisher">Add New Publisher</a></li>
+                                        <li><a href="Publishers">Add New Publisher</a></li>
                                         <li><a href="list-book.html">List all Books</a></li>
                                     </ul>
                                 </li>
@@ -169,6 +169,8 @@
                                         </div>
                                     </form>
                                 </div>
+                                 <asp:ContentPlaceHolder id="AdminHome" runat="server">
+                                    </asp:ContentPlaceHolder>
                             </div>
                         </div>
                     </div>
