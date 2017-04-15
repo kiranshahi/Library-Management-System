@@ -39,9 +39,39 @@
                             <h3>General</h3>
                             <ul class="nav side-menu">
                                 <li><a href="Default"><i class="fa fa-home"></i> Home </a></li>
-                                <li><a><i class="fa fa-edit"></i> Books <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-book"></i> Book <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="Books">Add New Books</a></li>
+                                        <li><a href="Books">Add New Book</a></li>
+                                        <li><a href="list-book.html">List all Books</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-edit"></i> Authors <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="Authors">Add New Author</a></li>
+                                        <li><a href="list-book.html">List all Books</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-shopping-cart"></i> Loan <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="Loans">Add Book to Loan</a></li>
+                                        <li><a href="list-book.html">List all Books</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-male"></i> Publisher <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="Publisher">Add New Publisher</a></li>
+                                        <li><a href="list-book.html">List all Books</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-users"></i> Member <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="Members">Add New Member</a></li>
+                                        <li><a href="list-book.html">List all Books</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-user"></i> User <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="Register">Add New User</a></li>
                                         <li><a href="list-book.html">List all Books</a></li>
                                     </ul>
                                 </li>
