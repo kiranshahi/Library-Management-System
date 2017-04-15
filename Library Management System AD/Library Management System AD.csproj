@@ -126,9 +126,12 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Admin\Authors.aspx" />
+    <Content Include="Admin\BookCopies.aspx" />
     <Content Include="Admin\Books.aspx" />
     <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\Fines.aspx" />
     <Content Include="Admin\Loans.aspx" />
+    <Content Include="Admin\LoanTypes.aspx" />
     <Content Include="Admin\Members.aspx" />
     <Content Include="Admin\Publishers.aspx" />
     <Content Include="Admin\Register.aspx" />
@@ -222,6 +225,13 @@
     <Compile Include="Admin\Authors.aspx.designer.cs">
       <DependentUpon>Authors.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\BookCopies.aspx.cs">
+      <DependentUpon>BookCopies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BookCopies.aspx.designer.cs">
+      <DependentUpon>BookCopies.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Books.aspx.cs">
       <DependentUpon>Books.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -236,12 +246,26 @@
     <Compile Include="Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Fines.aspx.cs">
+      <DependentUpon>Fines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Fines.aspx.designer.cs">
+      <DependentUpon>Fines.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Loans.aspx.cs">
       <DependentUpon>Loans.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Loans.aspx.designer.cs">
       <DependentUpon>Loans.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LoanTypes.aspx.cs">
+      <DependentUpon>LoanTypes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LoanTypes.aspx.designer.cs">
+      <DependentUpon>LoanTypes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Members.aspx.cs">
       <DependentUpon>Members.aspx</DependentUpon>

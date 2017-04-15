@@ -1,6 +1,6 @@
-﻿<%@ Page Title="Add Authors" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Authors.aspx.cs" Inherits="Library_Management_System_AD.Admin.Authors" %>
+﻿<%@ Page Title="Charge Fine" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Fines.aspx.cs" Inherits="Library_Management_System_AD.Admin.Fines" %>
 <asp:Content ID="Content" ContentPlaceHolderID="Title" runat="server">
-    Add New Author <small>Enter Author's Details here</small>
+    Add New Fine <small>Enter Fine's Details here</small>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="AdminContent" runat="server">
     <div class = "panel panel-warning">
@@ -9,22 +9,22 @@
         </div>
        <div class = "panel-body" >
            <div class="form-group row">
-               <label for="txtFUllName" class="col-sm-2">Full Name:</label>
+               <label for="txtRate" class="col-sm-2">Rate:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtFUllName" CssClass="form-control" placeHolder="Enter Name" runat="server" required="required"></asp:TextBox>
+                   <asp:TextBox ID="txtRate" CssClass="form-control" placeHolder="Rate" runat="server" required="required"></asp:TextBox>
                </div>
            </div>
            
            <div class="form-group row">
-               <label for="txtAddress" class="col-sm-2">Author's Address:</label>
+               <label for="loan" class="col-sm-2">Loan :</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtAddress" CssClass="form-control" placeHolder="Author's Address" runat="server" required="required"></asp:TextBox>
+                   <select id="loan" class="form-control"></select>
                </div>
            </div>
 
             <div class="form-group row">
                 <asp:Button ID="Reset_Button" runat="server" Text="Reset" CssClass="btn btn-primary" OnClientClick="this.form.reset();return false;" />
-                <asp:Button ID="btnSingup" runat="server" Text="Add Author" CssClass="btn btn-success" OnClick="BtnAddAuthor" />
+                <asp:Button ID="btnSingup" runat="server" Text="Charge Fine" CssClass="btn btn-success" OnClick="BtnAddFines" />
             </div>
        </div>
     </div>
