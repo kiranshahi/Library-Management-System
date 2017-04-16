@@ -9,6 +9,7 @@ namespace Library_Management_System_AD.Admin
     public partial class Books : System.Web.UI.Page
     {
         Book newBook = new Book();
+        Author newAuthor = new Author();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -39,6 +40,29 @@ namespace Library_Management_System_AD.Admin
             catch (Exception exception)
             {
                 lblMessage.Text = "Error occurred while saving data. Error details : " + exception.Message;
+                lblMessage.ForeColor = Color.Red;
+            }
+        }
+
+        protected void BtnAddAuthor(object sender, EventArgs e)
+        {
+            if (!newAuthor.CheckAuthor(txtFUllName.Text))
+            {
+                try
+                {
+                    newAuthor.CreateAuthor(txtFUllName.Text, txtAddress.Text);
+                    lblMessage.Text = "Author added successfully.";
+                    lblMessage.ForeColor = Color.Green;
+                }
+                catch (Exception exception)
+                {
+                    lblMessage.Text = "Some error has been occured. Error details: " + exception.Message;
+                    lblMessage.ForeColor = Color.Red;
+                }
+            }
+            else
+            {
+                lblMessage.Text = "Author already exist!";
                 lblMessage.ForeColor = Color.Red;
             }
         }
