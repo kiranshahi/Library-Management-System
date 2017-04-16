@@ -6,13 +6,13 @@ namespace Library_Management_System_AD
 {
     public class LoanType
     {
-        public int ChargeFine(Int32 rate, Int32 loan)
+        public int AddLoanType(String type, Int32 maxDuration)
         {
             SqlConnection connStr = new SqlConnection(WebConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString);
-            string sql = "insert into fines values(@a,@b)";
+            string sql = "insert into loan_types values(@a,@b)";
             SqlCommand cmd = new SqlCommand(sql, connStr);
-            cmd.Parameters.AddWithValue("@a", rate);
-            cmd.Parameters.AddWithValue("@b", loan);
+            cmd.Parameters.AddWithValue("@a", type);
+            cmd.Parameters.AddWithValue("@b", maxDuration);
 
             connStr.Open();
             int i = cmd.ExecuteNonQuery();

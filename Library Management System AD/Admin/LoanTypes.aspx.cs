@@ -9,6 +9,7 @@ namespace Library_Management_System_AD.Admin
 {
     public partial class LoanTypes : System.Web.UI.Page
     {
+        LoanType newLoanType = new LoanType();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,7 +17,7 @@ namespace Library_Management_System_AD.Admin
 
         protected void BtnAddLoanType(object sender, EventArgs e)
         {
-
+            newLoanType.AddLoanType(txtType.Text, Convert.ToInt32(txtMaxDuration.Text));
         }
     }
 }
