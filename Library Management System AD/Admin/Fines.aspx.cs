@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -17,10 +18,10 @@ namespace Library_Management_System_AD.Admin
         {
             if (!IsPostBack)
             {
-                string ConnectString = "Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True";
+                string connectString = WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
                 string QueryString = "select * from loans";
 
-                SqlConnection myConnection = new SqlConnection(ConnectString);
+                SqlConnection myConnection = new SqlConnection(connectString);
                 SqlDataAdapter myCommand = new SqlDataAdapter(QueryString, myConnection);
                 DataSet ds = new DataSet();
                 myCommand.Fill(ds, "loans");

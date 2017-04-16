@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,7 +18,17 @@ namespace Library_Management_System_AD.Admin
 
         protected void BtnAddLoanType(object sender, EventArgs e)
         {
-            newLoanType.AddLoanType(txtType.Text, Convert.ToInt32(txtMaxDuration.Text));
+            try
+            {
+                newLoanType.AddLoanType(txtType.Text, Convert.ToInt32(txtMaxDuration.Text));
+                lblMessage.Text = "Loan type added successfully.";
+                lblMessage.ForeColor = Color.Green;
+            }
+            catch (Exception exception)
+            {
+                lblMessage.Text = exception.Message;
+                lblMessage.ForeColor = Color.Red;
+            }
         }
     }
 }

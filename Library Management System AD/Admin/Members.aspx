@@ -24,9 +24,10 @@
                </div>
            </div>
            <div class="form-group row">
-               <label for="txtMembershipType" class="col-sm-2">Membership Type:</label>
+               <label for="membershipType" class="col-sm-2">Membership Type:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtMembershipType" CssClass="form-control" placeHolder="Membership Type" runat="server" required="required"></asp:TextBox>
+                   <select id="membershipType" class="form-control" runat="server" name="membershipType">
+                   </select>
                </div>
            </div>
            <div class="form-group row">

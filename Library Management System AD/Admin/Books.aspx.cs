@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Web.Configuration;
 
 namespace Library_Management_System_AD.Admin
 {
@@ -12,10 +13,10 @@ namespace Library_Management_System_AD.Admin
         {
             if (!IsPostBack)
             {
-                string ConnectString = "Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True";
+                string connectString = WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
                 string QueryString = "select * from publishers";
 
-                SqlConnection myConnection = new SqlConnection(ConnectString);
+                SqlConnection myConnection = new SqlConnection(connectString);
                 SqlDataAdapter myCommand = new SqlDataAdapter(QueryString, myConnection);
                 DataSet ds = new DataSet();
                 myCommand.Fill(ds, "publishers");
