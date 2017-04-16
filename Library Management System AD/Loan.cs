@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
+using System.Web.Configuration;
 
 namespace Library_Management_System_AD
 {
@@ -10,7 +8,7 @@ namespace Library_Management_System_AD
     {
         public int AddToLoan(Int32 loanType, Int32 bookCopy, Int32 member, Int32 user, DateTime issuedDate, DateTime returnDate, String location)
         {
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
             string sql = "insert into loans values(@a,@b,@c,@d,@e,@f,@g)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@a", loanType);

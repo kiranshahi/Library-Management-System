@@ -4,19 +4,19 @@ using System.Web.Configuration;
 
 namespace Library_Management_System_AD
 {
-    public class Fine
+    public class LoanType
     {
         public int ChargeFine(Int32 rate, Int32 loan)
         {
-            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
+            SqlConnection connStr = new SqlConnection(WebConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString);
             string sql = "insert into fines values(@a,@b)";
-            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlCommand cmd = new SqlCommand(sql, connStr);
             cmd.Parameters.AddWithValue("@a", rate);
             cmd.Parameters.AddWithValue("@b", loan);
 
-            con.Open();
+            connStr.Open();
             int i = cmd.ExecuteNonQuery();
-            con.Close();
+            connStr.Close();
             return i;
         }
     }

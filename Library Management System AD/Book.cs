@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 
 namespace Library_Management_System_AD
 {
@@ -10,7 +11,7 @@ namespace Library_Management_System_AD
     {
         public int CreateBook(String title, String overview, String isbn, Int32 publisherId, DateTime publishedDate, Int32 edition, String barCode)
         {
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
             string sql = "insert into books values(@a,@b, @c, @d, @e, @f, @g)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@a", title);

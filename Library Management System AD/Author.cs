@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
+using System.Web.Configuration;
 
 namespace Library_Management_System_AD
 {
@@ -10,7 +8,7 @@ namespace Library_Management_System_AD
     {
         public int CreateAuthor(String name, String address)
         {
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
             string sql = "insert into authors values(@a,@b)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@a", name);
@@ -24,7 +22,7 @@ namespace Library_Management_System_AD
         public bool CheckAuthor(string name)
         {
             bool isAuthorExisted = false;
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
             string sql = "select name from authors where name=@name";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@name", name);

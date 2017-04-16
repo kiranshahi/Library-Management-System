@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Configuration;
 
 namespace Library_Management_System_AD
 {
@@ -8,7 +9,7 @@ namespace Library_Management_System_AD
     {
         public int CreateUser(string name, string username, string email, string phone, string password, string role, DateTime joinedDate)
         {
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
             string sql = "insert into users values(@a,@b,@c,@d,@e,@f,@g)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@a", name);
@@ -28,7 +29,7 @@ namespace Library_Management_System_AD
         }
         public DataTable CheckUserLogin(string username, string password)
         {
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
             string sql = "select *from users where username=@username and password=@password";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@username", username);
@@ -41,7 +42,7 @@ namespace Library_Management_System_AD
         public bool UsernameCheck(string username, string email)
         {
             bool isUserExisted = false;
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
             string sql = "select username, email from users where username=@username or email=@email";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@Username", username);
@@ -61,7 +62,7 @@ namespace Library_Management_System_AD
 
         public int ResetPassword(string email,string password)
         {
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-CK5EETK;Initial Catalog=LMSdb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
             string sql = "UPDATE users SET password=@pass WHERE email=@email;";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@email", email);
