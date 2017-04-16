@@ -76,6 +76,15 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtEdition;
         
         /// <summary>
+        /// txtBarCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBarCode;
+        
+        /// <summary>
         /// Reset_Button control.
         /// </summary>
         /// <remarks>

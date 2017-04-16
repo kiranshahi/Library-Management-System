@@ -31,7 +31,7 @@ namespace Library_Management_System_AD.Admin
         {
             try
             {
-                newBook.CreateBook(txtTitle.Text, txtOverview.Text, txtIsbn.Text, Convert.ToInt32(publisherList.Value), Convert.ToDateTime(txtPublishedDate.Text), Convert.ToInt32(txtEdition.Text));
+                newBook.CreateBook(txtTitle.Text, txtOverview.Text, txtIsbn.Text, Convert.ToInt32(publisherList.Value), Convert.ToDateTime(txtPublishedDate.Text), Convert.ToInt32(txtEdition.Text), txtBarCode.Text);
                 lblMessage.Text = "Book added successfully.";
                 lblMessage.ForeColor = Color.Green;
             }

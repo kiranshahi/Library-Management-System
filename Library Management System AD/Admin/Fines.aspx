@@ -18,7 +18,7 @@
            <div class="form-group row">
                <label for="loan" class="col-sm-2">Loan :</label>
                <div class="col-sm-8">
-                   <select id="loan" class="form-control"></select>
+                   <select id="loanList" class="form-control" runat="server"></select>
                </div>
            </div>
 

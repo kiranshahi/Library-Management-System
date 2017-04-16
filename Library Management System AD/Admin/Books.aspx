@@ -51,6 +51,13 @@
            </div>
            
            <div class="form-group row">
+               <label for="txtBarCode" class="col-sm-2">Bar Code:</label>
+               <div class="col-sm-8">
+                   <asp:TextBox ID="txtBarCode" CssClass="form-control" placeHolder="Bar Code" runat="server" required="required"></asp:TextBox>
+               </div>
+           </div>
+           
+           <div class="form-group row">
                <asp:Button ID="Reset_Button" runat="server" Text="Reset" CssClass="btn btn-primary" OnClientClick="this.form.reset();return false;" />
                <asp:Button ID="btnSingup" runat="server" Text="Add Book" CssClass="btn btn-success" OnClick="BtnAddBooks" />
            </div>
