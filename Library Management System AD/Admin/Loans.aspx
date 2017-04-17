@@ -1,4 +1,12 @@
-﻿    <%@ Page Title="Add Books to Loan" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Loans.aspx.cs" Inherits="Library_Management_System_AD.Admin.Loans" %>
+﻿<%@ Page Title="Add Books to Loan" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Loans.aspx.cs" Inherits="Library_Management_System_AD.Admin.Loans" %>
+
+<asp:Content ID="userName" ContentPlaceHolderID="userName" runat="server">
+    <asp:Label ID="lblUserName" runat="server"></asp:Label>
+</asp:Content>
+<asp:Content ID="userName1" ContentPlaceHolderID="userName1" runat="server">
+    <asp:Label ID="lblUserName1" runat="server"></asp:Label>
+</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
     Add Books to Loan <small>Enter Book's and User's Details here</small>
 </asp:Content>

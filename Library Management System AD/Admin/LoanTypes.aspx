@@ -1,4 +1,12 @@
 ﻿<%@ Page Title="Add Loan Type" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="LoanTypes.aspx.cs" Inherits="Library_Management_System_AD.Admin.LoanTypes" %>
+
+<asp:Content ID="userName" ContentPlaceHolderID="userName" runat="server">
+    <asp:Label ID="lblUserName" runat="server"></asp:Label>
+</asp:Content>
+<asp:Content ID="userName1" ContentPlaceHolderID="userName1" runat="server">
+    <asp:Label ID="lblUserName1" runat="server"></asp:Label>
+</asp:Content>
+
 <asp:Content ID="Content" ContentPlaceHolderID="Title" runat="server">
     Add New Loan Type <small>Enter Loan Type's Details here</small>
 </asp:Content>

@@ -12,20 +12,30 @@ namespace Library_Management_System_AD.Admin
         Author newAuthor = new Author();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["name"] != null)
             {
-                string connectString = WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
-                string QueryString = "select * from publishers";
+                lblUserName.Text = Session["name"].ToString();
+                lblUserName1.Text = Session["name"].ToString();
+                if (!IsPostBack)
+                {
+                    string connectString =
+                        WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
+                    string QueryString = "select * from publishers";
 
-                SqlConnection myConnection = new SqlConnection(connectString);
-                SqlDataAdapter myCommand = new SqlDataAdapter(QueryString, myConnection);
-                DataSet ds = new DataSet();
-                myCommand.Fill(ds, "publishers");
+                    SqlConnection myConnection = new SqlConnection(connectString);
+                    SqlDataAdapter myCommand = new SqlDataAdapter(QueryString, myConnection);
+                    DataSet ds = new DataSet();
+                    myCommand.Fill(ds, "publishers");
 
-                publisherList.DataSource = ds;
-                publisherList.DataTextField = "name";
-                publisherList.DataValueField = "id";
-                publisherList.DataBind();
+                    publisherList.DataSource = ds;
+                    publisherList.DataTextField = "name";
+                    publisherList.DataValueField = "id";
+                    publisherList.DataBind();
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx");
             }
         }
 

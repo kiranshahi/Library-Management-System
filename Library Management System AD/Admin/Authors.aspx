@@ -1,4 +1,10 @@
 ﻿<%@ Page Title="Add Authors" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Authors.aspx.cs" Inherits="Library_Management_System_AD.Admin.Authors" %>
+<asp:Content ID="userName" ContentPlaceHolderID="userName" runat="server">
+    <asp:Label ID="lblUserName" runat="server"></asp:Label>
+</asp:Content>
+<asp:Content ID="userName1" ContentPlaceHolderID="userName1" runat="server">
+    <asp:Label ID="lblUserName1" runat="server"></asp:Label>
+</asp:Content>
 <asp:Content ID="Content" ContentPlaceHolderID="Title" runat="server">
     Add New Author <small>Enter Author's Details here</small>
 </asp:Content>

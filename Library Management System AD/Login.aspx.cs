@@ -23,7 +23,6 @@ namespace Library_Management_System_AD
             if (dt.Rows.Count > 0)
             {
                 Session.Add("userid", dt.Rows[0]["id"].ToString());
-                Session.Add("username", dt.Rows[0]["Username"].ToString());
                 Session.Add("name", dt.Rows[0]["name"].ToString());
                 if (dt.Rows[0]["role"].ToString() == "Admin")
                 {
@@ -31,7 +30,7 @@ namespace Library_Management_System_AD
                 }
                 else if (dt.Rows[0]["role"].ToString() == "User")
                 {
-                    Response.Redirect("~/Default.aspx");
+                    Response.Redirect("~/Admin/Default.aspx");
                 }
             }
             else

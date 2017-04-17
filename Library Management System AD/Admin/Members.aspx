@@ -1,4 +1,12 @@
 ﻿<%@ Page Title="Add Members" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Members.aspx.cs" Inherits="Library_Management_System_AD.Admin.Members" %>
+
+<asp:Content ID="userName" ContentPlaceHolderID="userName" runat="server">
+    <asp:Label ID="lblUserName" runat="server"></asp:Label>
+</asp:Content>
+<asp:Content ID="userName1" ContentPlaceHolderID="userName1" runat="server">
+    <asp:Label ID="lblUserName1" runat="server"></asp:Label>
+</asp:Content>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="AdminContent" runat="server">
     <div class = "panel panel-warning">
         <div class = "panel-heading">

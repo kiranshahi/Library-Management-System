@@ -1,5 +1,12 @@
 ﻿<%@ Page Title="Add Book Copies" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="BookCopies.aspx.cs" Inherits="Library_Management_System_AD.Admin.BookCopies" %>
 
+<asp:Content ID="userName" ContentPlaceHolderID="userName" runat="server">
+    <asp:Label ID="lblUserName" runat="server"></asp:Label>
+</asp:Content>
+<asp:Content ID="userName1" ContentPlaceHolderID="userName1" runat="server">
+    <asp:Label ID="lblUserName1" runat="server"></asp:Label>
+</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Title" runat="server">
     Add New Book Copies <small>Enter Book Copies' Details here</small>
 </asp:Content>

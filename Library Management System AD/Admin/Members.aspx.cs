@@ -11,20 +11,30 @@ namespace Library_Management_System_AD.Admin
         Member newMember = new Member();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["name"] != null)
             {
-                string connectString = WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
-                string QueryString = "select * from membership_types";
+                lblUserName.Text = Session["name"].ToString();
+                lblUserName1.Text = Session["name"].ToString();
+                if (!IsPostBack)
+                {
+                    string connectString =
+                        WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
+                    string QueryString = "select * from membership_types";
 
-                SqlConnection myConnection = new SqlConnection(connectString);
-                SqlDataAdapter myCommand = new SqlDataAdapter(QueryString, myConnection);
-                DataSet ds = new DataSet();
-                myCommand.Fill(ds, "membershipTypes");
+                    SqlConnection myConnection = new SqlConnection(connectString);
+                    SqlDataAdapter myCommand = new SqlDataAdapter(QueryString, myConnection);
+                    DataSet ds = new DataSet();
+                    myCommand.Fill(ds, "membershipTypes");
 
-                membershipType.DataSource = ds;
-                membershipType.DataTextField = "type";
-                membershipType.DataValueField = "id";
-                membershipType.DataBind();
+                    membershipType.DataSource = ds;
+                    membershipType.DataTextField = "type";
+                    membershipType.DataValueField = "id";
+                    membershipType.DataBind();
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx");
             }
         }
 

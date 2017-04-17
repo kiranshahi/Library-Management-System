@@ -1,4 +1,10 @@
 ﻿<%@ Page Title="Admin Dashboard" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Library_Management_System_AD.Admin.Default" %>
+<asp:Content ID="userName" ContentPlaceHolderID="userName" runat="server">
+    <asp:Label ID="lblUserName" runat="server"></asp:Label>
+</asp:Content>
+<asp:Content ID="userName1" ContentPlaceHolderID="userName1" runat="server">
+    <asp:Label ID="lblUserName1" runat="server"></asp:Label>
+</asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="AdminHome" runat="server">
     <!-- page content -->
             <div class="row top_tiles">

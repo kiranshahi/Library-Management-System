@@ -11,22 +11,31 @@ namespace Library_Management_System_AD.Admin
         BookCopy newBookCopies = new BookCopy();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["name"] != null)
             {
-                string connectString = WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
-                string QueryString = "select * from books";
+                lblUserName.Text = Session["name"].ToString();
+                lblUserName1.Text = Session["name"].ToString();
 
-                SqlConnection myConnection = new SqlConnection(connectString);
-                SqlDataAdapter myCommand = new SqlDataAdapter(QueryString, myConnection);
-                DataSet ds = new DataSet();
-                myCommand.Fill(ds, "book");
+                if (!IsPostBack)
+                {
+                    string connectString = WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
+                    string QueryString = "select * from books";
 
-                bookOption.DataSource = ds;
-                bookOption.DataTextField = "title";
-                bookOption.DataValueField = "id";
-                bookOption.DataBind();
+                    SqlConnection myConnection = new SqlConnection(connectString);
+                    SqlDataAdapter myCommand = new SqlDataAdapter(QueryString, myConnection);
+                    DataSet ds = new DataSet();
+                    myCommand.Fill(ds, "book");
+
+                    bookOption.DataSource = ds;
+                    bookOption.DataTextField = "title";
+                    bookOption.DataValueField = "id";
+                    bookOption.DataBind();
+                }
             }
-
+            else
+            {
+                Response.Redirect("~/Login.aspx");
+            }
         }
 
         protected void BtnAddBookCopies(object sender, EventArgs e)

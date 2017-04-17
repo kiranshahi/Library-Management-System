@@ -13,7 +13,15 @@ namespace Library_Management_System_AD.Admin
         MemberType newMemberType = new MemberType();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["name"] != null)
+            {
+                lblUserName.Text = Session["name"].ToString();
+                lblUserName1.Text = Session["name"].ToString();
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx");
+            }
         }
 
         protected void BtnAddMembershipType(object sender, EventArgs e)

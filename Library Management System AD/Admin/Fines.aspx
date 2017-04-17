@@ -1,4 +1,12 @@
 ﻿<%@ Page Title="Charge Fine" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Fines.aspx.cs" Inherits="Library_Management_System_AD.Admin.Fines" %>
+
+<asp:Content ID="userName" ContentPlaceHolderID="userName" runat="server">
+    <asp:Label ID="lblUserName" runat="server"></asp:Label>
+</asp:Content>
+<asp:Content ID="userName1" ContentPlaceHolderID="userName1" runat="server">
+    <asp:Label ID="lblUserName1" runat="server"></asp:Label>
+</asp:Content>
+
 <asp:Content ID="Content" ContentPlaceHolderID="Title" runat="server">
     Add New Fine <small>Enter Fine's Details here</small>
 </asp:Content>

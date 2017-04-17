@@ -16,51 +16,61 @@ namespace Library_Management_System_AD.Admin
         Loan newLoan = new Loan();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["name"] != null)
             {
-                string connectString = WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
-                string LoanTypeQueryString = "select * from loan_types";
+                lblUserName.Text = Session["name"].ToString();
+                lblUserName1.Text = Session["name"].ToString();
+                if (!IsPostBack)
+                {
+                    string connectString =
+                        WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
+                    string LoanTypeQueryString = "select * from loan_types";
 
-                SqlConnection myConnection = new SqlConnection(connectString);
-                SqlDataAdapter loanTypeQueryCommand = new SqlDataAdapter(LoanTypeQueryString, myConnection);
-                DataSet loanTypeDs = new DataSet();
-                loanTypeQueryCommand.Fill(loanTypeDs, "loan_types");
+                    SqlConnection myConnection = new SqlConnection(connectString);
+                    SqlDataAdapter loanTypeQueryCommand = new SqlDataAdapter(LoanTypeQueryString, myConnection);
+                    DataSet loanTypeDs = new DataSet();
+                    loanTypeQueryCommand.Fill(loanTypeDs, "loan_types");
 
-                loanType.DataSource = loanTypeDs;
-                loanType.DataTextField = "type";
-                loanType.DataValueField = "id";
-                loanType.DataBind();
+                    loanType.DataSource = loanTypeDs;
+                    loanType.DataTextField = "type";
+                    loanType.DataValueField = "id";
+                    loanType.DataBind();
 
-                /**
-                 * bookCopy Query
-                 */
+                    /**
+                     * bookCopy Query
+                     */
 
-                string BookCopyQueryString = "select * from book_copies";
-                SqlDataAdapter bookCopyQueryCommand = new SqlDataAdapter(BookCopyQueryString, myConnection);
-                DataSet bookCopyDs = new DataSet();
-                bookCopyQueryCommand.Fill(bookCopyDs, "bookCopy");
-                bookCopy.DataSource = bookCopyDs;
-                bookCopy.DataTextField = "id";
-                bookCopy.DataValueField = "id";
-                bookCopy.DataBind();
+                    string BookCopyQueryString = "select * from book_copies";
+                    SqlDataAdapter bookCopyQueryCommand = new SqlDataAdapter(BookCopyQueryString, myConnection);
+                    DataSet bookCopyDs = new DataSet();
+                    bookCopyQueryCommand.Fill(bookCopyDs, "bookCopy");
+                    bookCopy.DataSource = bookCopyDs;
+                    bookCopy.DataTextField = "id";
+                    bookCopy.DataValueField = "id";
+                    bookCopy.DataBind();
 
-                string MemberQueryString = "select * from members";
-                SqlDataAdapter memberQueryCommand = new SqlDataAdapter(MemberQueryString, myConnection);
-                DataSet memberDs = new DataSet();
-                memberQueryCommand.Fill(memberDs, "bookCopy");
-                bookCopy.DataSource = memberDs;
-                bookCopy.DataTextField = "name";
-                bookCopy.DataValueField = "id";
-                bookCopy.DataBind();
+                    string MemberQueryString = "select * from members";
+                    SqlDataAdapter memberQueryCommand = new SqlDataAdapter(MemberQueryString, myConnection);
+                    DataSet memberDs = new DataSet();
+                    memberQueryCommand.Fill(memberDs, "bookCopy");
+                    bookCopy.DataSource = memberDs;
+                    bookCopy.DataTextField = "name";
+                    bookCopy.DataValueField = "id";
+                    bookCopy.DataBind();
 
-                string UserQueryString = "select * from users";
-                SqlDataAdapter userQueryCommand = new SqlDataAdapter(UserQueryString, myConnection);
-                DataSet userDs = new DataSet();
-                userQueryCommand.Fill(userDs, "user");
-                user.DataSource = userDs;
-                user.DataTextField = "name";
-                user.DataValueField = "id";
-                user.DataBind();
+                    string UserQueryString = "select * from users";
+                    SqlDataAdapter userQueryCommand = new SqlDataAdapter(UserQueryString, myConnection);
+                    DataSet userDs = new DataSet();
+                    userQueryCommand.Fill(userDs, "user");
+                    user.DataSource = userDs;
+                    user.DataTextField = "name";
+                    user.DataValueField = "id";
+                    user.DataBind();
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx");
             }
         }
 
