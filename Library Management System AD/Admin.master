@@ -160,7 +160,9 @@
                                                 <%--Framework Scripts--%>
                                                 <asp:ScriptReference Name="MsAjaxBundle" />
                                                 <asp:ScriptReference Name="jquery" />
+                                                <asp:ScriptReference Path="~/Scripts/moment.js" />
                                                 <asp:ScriptReference Name="bootstrap" />
+                                                <asp:ScriptReference Path="~/Scripts/bootstrap-datetimepicker.js" />
                                                 <asp:ScriptReference Name="respond" />
                                                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
                                                 <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
@@ -190,5 +192,23 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        //Date Time Picker
+        $(function () {
+            $('#lmsDatetimePicker').datetimepicker({
+                viewMode: 'days',
+                format: 'YYYY-MM-DD',
+                defaultDate: new Date()
+            });
+        });
+
+        $(function () {
+            $('#lmsDatetimePicker1').datetimepicker({
+                viewMode: 'days',
+                format: 'YYYY-MM-DD',
+                defaultDate: new Date()
+            });
+        });
+    </script>
 </body>
 </html>

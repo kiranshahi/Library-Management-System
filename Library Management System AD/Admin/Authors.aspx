@@ -8,10 +8,12 @@
             <h3 class = "panel-title"><%: Title %> </h3> <asp:Label ID="lblMessage" runat="server" Font-Bold="True"></asp:Label>
         </div>
        <div class = "panel-body" >
+           
            <div class="form-group row">
                <label for="txtFUllName" class="col-sm-2">Full Name:</label>
                <div class="col-sm-8">
                    <asp:TextBox ID="txtFUllName" CssClass="form-control" placeHolder="Enter Name" runat="server" required="required"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="reqValTxtFUllName" runat="server" ControlToValidate="txtFUllName" Display="Dynamic" EnableClientScript="False" ErrorMessage="Author's name is required." ForeColor="Red"></asp:RequiredFieldValidator>
                </div>
            </div>
            
@@ -19,6 +21,7 @@
                <label for="txtAddress" class="col-sm-2">Author's Address:</label>
                <div class="col-sm-8">
                    <asp:TextBox ID="txtAddress" CssClass="form-control" placeHolder="Author's Address" runat="server" required="required"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="reqValTxtAddress" runat="server" ControlToValidate="txtAddress" Display="Dynamic" EnableClientScript="False" ErrorMessage="Author's location is required." ForeColor="Red"></asp:RequiredFieldValidator>
                </div>
            </div>
 
@@ -26,6 +29,7 @@
                 <asp:Button ID="Reset_Button" runat="server" Text="Reset" CssClass="btn btn-primary" OnClientClick="this.form.reset();return false;" />
                 <asp:Button ID="btnSingup" runat="server" Text="Add Author" CssClass="btn btn-success" OnClick="BtnAddAuthor" />
             </div>
+
        </div>
     </div>
 </asp:Content>

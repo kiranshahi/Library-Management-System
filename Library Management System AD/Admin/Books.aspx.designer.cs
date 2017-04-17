@@ -13,6 +13,15 @@ namespace Library_Management_System_AD.Admin {
     public partial class Books {
         
         /// <summary>
+        /// bookPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel bookPanel;
+        
+        /// <summary>
         /// lblMessage control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtTitle;
         
         /// <summary>
+        /// reqValTxtTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValTxtTitle;
+        
+        /// <summary>
         /// txtOverview control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace Library_Management_System_AD.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIsbn;
+        
+        /// <summary>
+        /// reqValTxtOverview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValTxtOverview;
         
         /// <summary>
         /// publisherList control.
@@ -76,6 +103,24 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtEdition;
         
         /// <summary>
+        /// reqValtxtEdition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValtxtEdition;
+        
+        /// <summary>
+        /// RegExpValtxtEdition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExpValtxtEdition;
+        
+        /// <summary>
         /// txtBarCode control.
         /// </summary>
         /// <remarks>
@@ -85,31 +130,31 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtBarCode;
         
         /// <summary>
-        /// Reset_Button control.
+        /// btnReset control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Reset_Button;
+        protected global::System.Web.UI.WebControls.Button btnReset;
         
         /// <summary>
-        /// btnSingup control.
+        /// btnAddBook control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSingup;
+        protected global::System.Web.UI.WebControls.Button btnAddBook;
         
         /// <summary>
-        /// Button1 control.
+        /// authorPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Panel authorPanel;
         
         /// <summary>
         /// txtFUllName control.
@@ -121,6 +166,15 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtFUllName;
         
         /// <summary>
+        /// reqValTxtFUllName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValTxtFUllName;
+        
+        /// <summary>
         /// txtAddress control.
         /// </summary>
         /// <remarks>
@@ -130,21 +184,30 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
         
         /// <summary>
-        /// Button2 control.
+        /// reqValTxtAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValTxtAddress;
         
         /// <summary>
-        /// Button3 control.
+        /// btnResetAuthor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button btnResetAuthor;
+        
+        /// <summary>
+        /// btnAddNewAuthor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddNewAuthor;
     }
 }

@@ -9,11 +9,11 @@
             A telemetry initializer that will gather Azure Web App Role Environment context information.
             </summary>
         </member>
-        <member name="F:Microsoft.ApplicationInsights.WindowsServer.AzureWebAppRoleEnvironmentTelemetryInitializer.WebAppNameEnvironmentVariable">
-            <summary>Azure Web App name corresponding to the resource name.</summary>
-        </member>
         <member name="F:Microsoft.ApplicationInsights.WindowsServer.AzureWebAppRoleEnvironmentTelemetryInitializer.WebAppHostNameEnvironmentVariable">
             <summary>Azure Web App Hostname. This will include the deployment slot, but will be same across instances of same slot.</summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.WindowsServer.AzureWebAppRoleEnvironmentTelemetryInitializer.WebAppSuffix">
+            <summary>Predefined suffix for Azure Web App Hostname.</summary>
         </member>
         <member name="M:Microsoft.ApplicationInsights.WindowsServer.AzureWebAppRoleEnvironmentTelemetryInitializer.#ctor">
             <summary>
@@ -41,6 +41,12 @@
             Initializes <see cref="T:Microsoft.ApplicationInsights.Channel.ITelemetry" /> device context.
             </summary>
             <param name="telemetry">The telemetry to initialize.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.AzureRoleEnvironmentTelemetryInitializer.IsAppRunningInAzureWebApp">
+            <summary>
+            Searches for the environment variable specific to Azure web applications and confirms if the current application is a web application or not.
+            </summary>
+            <returns>Boolean, which is true if the current application is an Azure web application.</returns>
         </member>
         <member name="T:Microsoft.ApplicationInsights.WindowsServer.BuildInfoConfigComponentVersionTelemetryInitializer">
             <summary>
@@ -130,11 +136,6 @@
         <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader.Instance">
             <summary>
             Gets or sets the singleton instance for our application context reader.
-            </summary>
-        </member>
-        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader.BaseDirectory">
-            <summary>
-            Gets or sets the base directly where hunting for application DLLs is to start.
             </summary>
         </member>
         <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureRoleEnvironmentContextReader.Initialize">
@@ -238,11 +239,12 @@
             Represents a role that is defined as part of a hosted service. 
             </summary>
         </member>
-        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.Role.#ctor(System.Object)">
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.Role.#ctor(System.Object,System.Reflection.Assembly)">
             <summary>
             Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.Role"/> class.
             </summary>
             <param name="targetObject">The target object.</param>
+            <param name="loadedAssembly">The loaded assembly.</param>
         </member>
         <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.Role.Name">
             <summary>
@@ -264,7 +266,7 @@
             Provides information about the configuration, endpoints, and status of running role instances. 
             </summary>
         </member>
-        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleEnvironment.#ctor">
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleEnvironment.#ctor(System.Reflection.Assembly)">
             <summary>
             Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleEnvironment"/> class.
             </summary>
@@ -299,11 +301,12 @@
             Represents an instance of a role. 
             </summary>
         </member>
-        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleInstance.#ctor(System.Object)">
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleInstance.#ctor(System.Object,System.Reflection.Assembly)">
             <summary>
             Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleInstance"/> class.
             </summary>
             <param name="targetObject">The target object.</param>
+            <param name="loadedAssembly">The loaded assembly.</param>
         </member>
         <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.RoleInstance.Id">
             <summary>
@@ -340,11 +343,17 @@
             The target object.
             </summary>
         </member>
-        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.#ctor(System.Type,System.Object[])">
+        <member name="F:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.loadedAssembly">
+            <summary>
+            The assembly which is loaded reflectively.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.#ctor(System.Type,System.Reflection.Assembly,System.Object[])">
             <summary>
             Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject"/> class.
             </summary>
             <param name="targetType">Type of the target.</param>
+            <param name="loadedAssembly">The loaded assembly.</param>
             <param name="activationArgs">The activation arguments.</param>
         </member>
         <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.TargetType">
@@ -355,6 +364,11 @@
         <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.TargetObject">
             <summary>
             Gets or sets the target object.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.LoadedAssembly">
+            <summary>
+            Gets or sets the loaded assembly.
             </summary>
         </member>
         <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.RuntimeBindingObject.GetTargetObjectInstance(System.Type,System.Object[])">
@@ -407,22 +421,13 @@
             The wrapper for the Azure Service Runtime.
             </summary>
         </member>
-        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.ServiceRuntime.GetRoleEnvironment(System.String)">
+        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.ServiceRuntime.GetRoleEnvironment">
             <summary>
             Gets the role environment.
-            </summary>
-            <param name="baseDirectory">The base directory.</param>
+            </summary>        
             <returns>
             The role environment object.
             </returns>
-        </member>
-        <member name="M:Microsoft.ApplicationInsights.WindowsServer.Implementation.TypeHelpers.GetLoadedType(System.String,System.String)">
-            <summary>
-            Gets the type by type name from the assembly.
-            </summary>
-            <param name="typeName">The type name.</param>
-            <param name="assemblyName">The assembly name.</param>
-            <returns>Return type from assembly loaded in the process by assembly and type name.</returns>
         </member>
         <member name="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.WindowsServerEventSource">
             <summary>
@@ -443,6 +448,12 @@
             <summary>
             Key word for user actionable events.
             </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.WindowsServer.Implementation.AzureServiceRuntimeAssemblyLoader">
+            <summary>
+            Contains logic to load AzureServiceRuntime assembly and read context using reflection.
+            Inherits MarshalByRefObject so that methods of this class can be executed remotely in separate AppDomain.
+            </summary>    
         </member>
         <member name="T:Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule">
             <summary>

@@ -42,14 +42,24 @@
            <div class="form-group row">
                <label for="txtIssuedDate" class="col-sm-2">Issued Date:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtIssuedDate" CssClass="form-control" placeHolder="YYYY-MM-DD" runat="server" required="required"></asp:TextBox>
+                   <div class='input-group date' id='lmsDatetimePicker'>
+                       <asp:TextBox ID="txtIssuedDate" CssClass="form-control" placeHolder="YYYY-MM-DD" runat="server" required="required"></asp:TextBox>
+                       <span class="input-group-addon">
+                           <span class="glyphicon glyphicon-calendar"></span>
+                       </span>
+                   </div>
                </div>
            </div>
            
            <div class="form-group row">
                <label for="txtReturnedDate" class="col-sm-2">Returned Date:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtReturnedDate" CssClass="form-control" placeHolder="YYYY-MM-DD" runat="server" required="required"></asp:TextBox>
+                   <div class='input-group date' id='lmsDatetimePicker1'>
+                       <asp:TextBox ID="txtReturnedDate" CssClass="form-control" placeHolder="YYYY-MM-DD" runat="server" required="required"></asp:TextBox>
+                       <span class="input-group-addon">
+                           <span class="glyphicon glyphicon-calendar"></span>
+                       </span>
+                   </div>
                </div>
            </div>
            

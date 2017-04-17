@@ -46,25 +46,29 @@ namespace Library_Management_System_AD.Admin
 
         protected void BtnAddAuthor(object sender, EventArgs e)
         {
-            if (!newAuthor.CheckAuthor(txtFUllName.Text))
+            if ((txtFUllName.Text != "" && txtAddress.Text !=""))
             {
-                try
+                if (!newAuthor.CheckAuthor(txtFUllName.Text))
                 {
-                    newAuthor.CreateAuthor(txtFUllName.Text, txtAddress.Text);
-                    lblMessage.Text = "Author added successfully.";
-                    lblMessage.ForeColor = Color.Green;
+                    try
+                    {
+                        newAuthor.CreateAuthor(txtFUllName.Text, txtAddress.Text);
+                        lblMessage.Text = "Author added successfully.";
+                        lblMessage.ForeColor = Color.Green;
+                    }
+                    catch (Exception exception)
+                    {
+                        lblMessage.Text = "Some error has been occured. Error details: " + exception.Message;
+                        lblMessage.ForeColor = Color.Red;
+                    }
                 }
-                catch (Exception exception)
+                else
                 {
-                    lblMessage.Text = "Some error has been occured. Error details: " + exception.Message;
+                    lblMessage.Text = "Author already exist!";
                     lblMessage.ForeColor = Color.Red;
                 }
             }
-            else
-            {
-                lblMessage.Text = "Author already exist!";
-                lblMessage.ForeColor = Color.Red;
-            }
+            
         }
     }
 }

@@ -21,7 +21,12 @@
            <div class="form-group row">
                <label for="txtPurchasedDate" class="col-sm-2">Purchased Date:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtPurchasedDate" CssClass="form-control" placeHolder="YYYY-MM-DD" runat="server" required="required" TextMode="Date"></asp:TextBox>
+                   <div class='input-group date' id='lmsDatetimePicker'>
+                       <asp:TextBox ID="txtPurchasedDate" CssClass="form-control" placeHolder="YYYY-MM-DD" runat="server" required="required" TextMode="Date"></asp:TextBox>
+                       <span class="input-group-addon">
+                           <span class="glyphicon glyphicon-calendar"></span>
+                       </span>
+                   </div>
                </div>
            </div>
            
@@ -29,6 +34,7 @@
                <label for="txtLocation" class="col-sm-2">Location</label>
                <div class="col-sm-8">
                    <asp:TextBox ID="txtLocation" CssClass="form-control" placeHolder="Location" runat="server" required="required"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="reqValTxtLocation" runat="server" ControlToValidate="txtLocation" Display="Dynamic" EnableClientScript="False" ErrorMessage="Location is required." ForeColor="Red" ValidationGroup="second"></asp:RequiredFieldValidator>
                </div>
            </div>
 

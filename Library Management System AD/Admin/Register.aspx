@@ -39,7 +39,12 @@
            <div class="form-group row">
                <label for="txtJoinedDate" class="col-sm-2">Joined Date:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtJoinedDate" CssClass="form-control" placeHolder="YYYY-MM-DD" runat="server" TextMode="Date"></asp:TextBox>
+                   <div class='input-group date' id='lmsDatetimePicker'>
+                       <asp:TextBox ID="txtJoinedDate" CssClass="form-control" placeHolder="YYYY-MM-DD" runat="server" TextMode="Date"></asp:TextBox>
+                       <span class="input-group-addon">
+                           <span class="glyphicon glyphicon-calendar"></span>
+                       </span>
+                   </div>
                </div>
            </div>
            
