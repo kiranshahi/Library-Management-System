@@ -52,6 +52,7 @@ namespace Library_Management_System_AD.Admin
                     string MemberQueryString = "select * from members";
                     SqlDataAdapter memberQueryCommand = new SqlDataAdapter(MemberQueryString, myConnection);
                     DataSet memberDs = new DataSet();
+
                     memberQueryCommand.Fill(memberDs, "member");
                     member.DataSource = memberDs;
                     member.DataTextField = "name";
@@ -71,6 +72,7 @@ namespace Library_Management_System_AD.Admin
             try
             {
                 newLoan.AddToLoan(Convert.ToInt32(loanType.Value), Convert.ToInt32(bookCopy.Value), Convert.ToInt32(member.Value), Convert.ToInt32(Session["userid"]), Convert.ToDateTime(txtIssuedDate.Text), txtReturnedDate.Text);
+
                 lblMessage.Text = "Book has been added to loan successfully.";
                 lblMessage.ForeColor = Color.Green;
             }
