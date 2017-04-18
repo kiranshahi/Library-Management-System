@@ -51,6 +51,15 @@
                 </div>
                 
                 <div class="form-group row">
+                    <label for="authorList" class="col-sm-2">Author:</label>
+                    <div class="col-sm-8">
+                        <select id="authorList" class="form-control" name="authorList" multiple="true" runat="server">
+                            
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
                     <label for="txtPublishedDate" class="col-sm-2">Published Date:</label>
                     <div class="col-sm-8">
                         <div class='input-group date' id='lmsDatetimePicker1'>

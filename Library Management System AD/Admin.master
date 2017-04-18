@@ -168,6 +168,7 @@
                                                 <asp:ScriptReference Path="~/Scripts/moment.js" />
                                                 <asp:ScriptReference Name="bootstrap" />
                                                 <asp:ScriptReference Path="~/Scripts/bootstrap-datetimepicker.js" />
+                                                <asp:ScriptReference Path="~/Scripts/bootstrap-multiselect.js" />
                                                 <asp:ScriptReference Name="respond" />
                                                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
                                                 <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
@@ -211,6 +212,12 @@
             $('#lmsDatetimePicker1').datetimepicker({
                 viewMode: 'days',
                 format: 'YYYY-MM-DD'
+            });
+        });
+
+        $(document).ready(function () {
+            $('#AdminContent_authorList').multiselect({
+                includeSelectAllOption: true
             });
         });
     </script>
