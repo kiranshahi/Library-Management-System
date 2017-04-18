@@ -29,7 +29,7 @@ namespace Library_Management_System_AD.Admin
             {
 
                 int i = newUser.CreateUser(txtFUllName.Text, txtUsername.Text, txtEmailID.Text, txtMobileNo.Text,
-                    strpassword, "User", Convert.ToDateTime(txtJoinedDate.Text));
+                    strpassword, "User", Convert.ToDateTime(txtRegisteredDate.Text));
                 if (i > 0)
                 {
                     try

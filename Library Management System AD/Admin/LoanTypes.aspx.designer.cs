@@ -49,6 +49,15 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtType;
         
         /// <summary>
+        /// reqValTxtType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValTxtType;
+        
+        /// <summary>
         /// txtMaxDuration control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,24 @@ namespace Library_Management_System_AD.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMaxDuration;
+        
+        /// <summary>
+        /// reqValTxtMaxDuration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValTxtMaxDuration;
+        
+        /// <summary>
+        /// RegExpValTxtMaxDuration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExpValTxtMaxDuration;
         
         /// <summary>
         /// Reset_Button control.

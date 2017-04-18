@@ -18,6 +18,7 @@
                <label for="txtFUllName" class="col-sm-2">Full Name:</label>
                <div class="col-sm-8">
                    <asp:TextBox ID="txtFUllName" CssClass="form-control" placeHolder="Enter Name" runat="server" required="required"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="reqValTxtFUllName" runat="server" ControlToValidate="txtFUllName" Display="Dynamic" EnableClientScript="True" ErrorMessage="Name is required." ForeColor="Red"></asp:RequiredFieldValidator>
                </div>
            </div>
            
@@ -25,6 +26,7 @@
                <label for="txtEmail" class="col-sm-2">E-mail:</label>
                <div class="col-sm-8">
                    <asp:TextBox ID="txtEmail" CssClass="form-control" placeHolder="example@yourdomain.com" runat="server" required="required" TextMode="Email"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="reqValTxtEmail" runat="server" ControlToValidate="txtEmail" Display="Dynamic" EnableClientScript="True" ErrorMessage="Email is required." ForeColor="Red"></asp:RequiredFieldValidator>
                    <asp:RegularExpressionValidator ID="regExpValEmail" runat="server" ControlToValidate="txtEmail" Display="Dynamic" EnableClientScript="True" ErrorMessage="Please enter valid email account.!" ForeColor="Red" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                </div>
            </div>
@@ -33,6 +35,7 @@
                <label for="txtPhone" class="col-sm-2">Phone Number:</label>
                <div class="col-sm-8">
                    <asp:TextBox ID="txtPhone" CssClass="form-control" placeHolder="Phone Number" runat="server" required="required" TextMode="Phone"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPhone" Display="Dynamic" EnableClientScript="True" ErrorMessage="Phone number is required." ForeColor="Red"></asp:RequiredFieldValidator>
                    <asp:RegularExpressionValidator ID="regExpValPhone" runat="server" SetFocusOnError="true" ErrorMessage="Phone is invalid" ControlToValidate="txtPhone" ValidationExpression= "^([0-9\+\-]*)$"></asp:RegularExpressionValidator>
                </div>
            </div>
@@ -45,6 +48,14 @@
                </div>
            </div>
            
+           <div class="form-group row">
+               <label for="txtAddress" class="col-sm-2">Address:</label>
+               <div class="col-sm-8">
+                   <asp:TextBox ID="txtAddress" CssClass="form-control" placeHolder="Address" runat="server" required="required"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="reqValTxtPhone" runat="server" ControlToValidate="txtAddress" Display="Dynamic" EnableClientScript="True" ErrorMessage="Address is required." ForeColor="Red"></asp:RequiredFieldValidator>
+               </div>
+           </div>
+
            <div class="form-group row">
                <label for="txtJoinedDate" class="col-sm-2">Joined Date:</label>
                <div class="col-sm-8">

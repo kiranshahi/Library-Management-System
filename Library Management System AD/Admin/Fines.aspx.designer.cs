@@ -49,6 +49,33 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtRate;
         
         /// <summary>
+        /// RegExpValTxtRate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExpValTxtRate;
+        
+        /// <summary>
+        /// txtDays control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDays;
+        
+        /// <summary>
+        /// RegExpValTxtDays control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExpValTxtDays;
+        
+        /// <summary>
         /// loanList control.
         /// </summary>
         /// <remarks>

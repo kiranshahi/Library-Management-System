@@ -20,6 +20,7 @@
                <label for="txtType" class="col-sm-2">Type:</label>
                <div class="col-sm-8">
                    <asp:TextBox ID="txtType" CssClass="form-control" placeHolder="Loan Type" runat="server" required="required"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="reqValTxtType" runat="server" ControlToValidate="txtType" Display="Dynamic" EnableClientScript="True" ErrorMessage="Loan type is required." ForeColor="Red" ValidationGroup="first"></asp:RequiredFieldValidator>
                </div>
            </div>
            
@@ -27,6 +28,8 @@
                <label for="txtMaxDuration" class="col-sm-2">Maximum Duration:</label>
                <div class="col-sm-8">
                    <asp:TextBox ID="txtMaxDuration" CssClass="form-control" placeHolder="Maximum Duration" runat="server" required="required"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="reqValTxtMaxDuration" runat="server" ControlToValidate="txtMaxDuration" Display="Dynamic" EnableClientScript="True" ErrorMessage="Maximum Duration is required." ForeColor="Red" ValidationGroup="first"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegExpValTxtMaxDuration" runat="server" ControlToValidate="txtMaxDuration" ErrorMessage="Please Enter Only Numbers" ForeColor="Red" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
                </div>
            </div>
 

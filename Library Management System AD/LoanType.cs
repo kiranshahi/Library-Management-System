@@ -8,15 +8,15 @@ namespace Library_Management_System_AD
     {
         public int AddLoanType(String type, Int32 maxDuration)
         {
-            SqlConnection connStr = new SqlConnection(WebConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString);
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
             string sql = "insert into loan_types values(@a,@b)";
-            SqlCommand cmd = new SqlCommand(sql, connStr);
+            SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@a", type);
             cmd.Parameters.AddWithValue("@b", maxDuration);
 
-            connStr.Open();
+            con.Open();
             int i = cmd.ExecuteNonQuery();
-            connStr.Close();
+            con.Close();
             return i;
         }
     }

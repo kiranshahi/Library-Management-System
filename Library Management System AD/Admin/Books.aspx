@@ -22,7 +22,7 @@
                     <label for="txtTitle" class="col-sm-2">Title:</label>
                     <div class="col-sm-8">
                         <asp:TextBox ID="txtTitle" CssClass="form-control" placeHolder="Book's Title" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="reqValTxtTitle" runat="server" ControlToValidate="txtTitle" Display="Dynamic" EnableClientScript="False" ErrorMessage="Title is required." ForeColor="Red" ValidationGroup="first"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="reqValTxtTitle" runat="server" ControlToValidate="txtTitle" Display="Dynamic" EnableClientScript="True" ErrorMessage="Title is required." ForeColor="Red" ValidationGroup="first"></asp:RequiredFieldValidator>
                     </div>
                 </div>
                 
@@ -37,7 +37,7 @@
                     <label for="txtIsbn" class="col-sm-2">ISBN No:</label>
                     <div class="col-sm-8">
                         <asp:TextBox ID="txtIsbn" CssClass="form-control" placeHolder="ISBN No" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="reqValTxtOverview" runat="server" ControlToValidate="txtOverview" Display="Dynamic" EnableClientScript="True" ErrorMessage="ISBN number is required." ForeColor="Red" ValidationGroup="first"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="reqValTxtOverview" runat="server" ControlToValidate="txtIsbn" Display="Dynamic" EnableClientScript="True" ErrorMessage="ISBN number is required." ForeColor="Red" ValidationGroup="first"></asp:RequiredFieldValidator>
                     </div>
                 </div>
                 
@@ -53,7 +53,7 @@
                 <div class="form-group row">
                     <label for="txtPublishedDate" class="col-sm-2">Published Date:</label>
                     <div class="col-sm-8">
-                        <div class='input-group date' id='lmsDatetimePicker'>
+                        <div class='input-group date' id='lmsDatetimePicker1'>
                             <asp:TextBox ID="txtPublishedDate" CssClass="form-control" placeHolder="YYYY-MM-DD" runat="server" TextMode="Date"></asp:TextBox>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
@@ -68,13 +68,6 @@
                         <asp:TextBox ID="txtEdition" CssClass="form-control" placeHolder="Edition" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="reqValtxtEdition" runat="server" ControlToValidate="txtEdition" Display="Dynamic" EnableClientScript="False" ErrorMessage="Edition is required." ForeColor="Red" ValidationGroup="first"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegExpValtxtEdition" runat="server" ControlToValidate="txtEdition" ErrorMessage="Please Enter Only Numbers" ForeColor="Red" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
-                    </div>
-                </div>
-                
-                <div class="form-group row">
-                    <label for="txtBarCode" class="col-sm-2">Bar Code:</label>
-                    <div class="col-sm-8">
-                        <asp:TextBox ID="txtBarCode" CssClass="form-control" placeHolder="Bar Code" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 
@@ -110,7 +103,6 @@
                             <label for="txtAddress" class="col-sm-2">Author's Address:</label>
                             <div class="col-sm-8">
                                 <asp:TextBox ID="txtAddress" CssClass="form-control" placeHolder="Author's Address" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="reqValTxtAddress" runat="server" ControlToValidate="txtAddress" Display="Dynamic" EnableClientScript="False" ErrorMessage="Author's location is required." ForeColor="Red" ValidationGroup="second"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                     </div>

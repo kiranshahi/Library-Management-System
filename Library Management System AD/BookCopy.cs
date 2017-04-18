@@ -6,14 +6,15 @@ namespace Library_Management_System_AD
 {
     public class BookCopy
     {
-        public int CreateBookCopies(Int32 bookId, DateTime purchaseDate, String location)
+        public int CreateBookCopies( Int32 copyNo, Int32 bookId, DateTime purchaseDate, String location)
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
-            string sql = "insert into book_copies values(@a,@b, @c)";
+            string sql = "insert into book_copies values(@a,@b, @c, @d)";
             SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("@a", bookId);
-            cmd.Parameters.AddWithValue("@b", purchaseDate);
-            cmd.Parameters.AddWithValue("@c", location);
+            cmd.Parameters.AddWithValue("@a", copyNo);
+            cmd.Parameters.AddWithValue("@b", bookId);
+            cmd.Parameters.AddWithValue("@c", purchaseDate);
+            cmd.Parameters.AddWithValue("@d", location);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();

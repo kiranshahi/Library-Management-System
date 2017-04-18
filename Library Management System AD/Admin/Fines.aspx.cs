@@ -47,7 +47,7 @@ namespace Library_Management_System_AD.Admin
         {
             try
             {
-                newFine.ChargeFine(Convert.ToInt32(txtRate.Text), Convert.ToInt32(loanList.Value));
+                newFine.ChargeFine(Convert.ToInt32(txtRate.Text), Convert.ToInt32(txtDays.Text), Convert.ToInt32(loanList.Value));
                 lblMessage.Text = "Fine charged successfully.";
                 lblMessage.ForeColor = Color.Green;
             }
