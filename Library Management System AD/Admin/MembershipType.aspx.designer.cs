@@ -49,6 +49,15 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtType;
         
         /// <summary>
+        /// reqValTxtType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValTxtType;
+        
+        /// <summary>
         /// txtBooksAllowed control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,24 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtBooksAllowed;
         
         /// <summary>
+        /// reqValTxtBooksAllowed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValTxtBooksAllowed;
+        
+        /// <summary>
+        /// RegExpValTxtBooksAllowed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExpValTxtBooksAllowed;
+        
+        /// <summary>
         /// txtPenaltyCharge control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,24 @@ namespace Library_Management_System_AD.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPenaltyCharge;
+        
+        /// <summary>
+        /// reqValTxtPenaltyCharge control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValTxtPenaltyCharge;
+        
+        /// <summary>
+        /// RegExpValTxtPenaltyCharge control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExpValTxtPenaltyCharge;
         
         /// <summary>
         /// Reset_Button control.

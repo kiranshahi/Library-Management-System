@@ -6,10 +6,10 @@ namespace Library_Management_System_AD
 {
     public class Loan
     {
-        public int AddToLoan(Int32 loanType, Int32 bookCopy, Int32 member, Int32 user, DateTime issuedDate, DateTime returnDate, String location)
+        public int AddToLoan(Int32 loanType, Int32 bookCopy, Int32 member, Int32 user, DateTime issuedDate, DateTime returnDate)
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
-            string sql = "insert into loans values(@a,@b,@c,@d,@e,@f,@g)";
+            string sql = "insert into loans values(@a,@b,@c,@d,@e,@f)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@a", loanType);
             cmd.Parameters.AddWithValue("@b", bookCopy);
@@ -17,7 +17,6 @@ namespace Library_Management_System_AD
             cmd.Parameters.AddWithValue("@d", user);
             cmd.Parameters.AddWithValue("@e", issuedDate);
             cmd.Parameters.AddWithValue("@f", returnDate);
-            cmd.Parameters.AddWithValue("@g", location);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();

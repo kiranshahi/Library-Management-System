@@ -67,15 +67,6 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlSelect member;
         
         /// <summary>
-        /// user control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect user;
-        
-        /// <summary>
         /// txtIssuedDate control.
         /// </summary>
         /// <remarks>
@@ -92,15 +83,6 @@ namespace Library_Management_System_AD.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtReturnedDate;
-        
-        /// <summary>
-        /// txtLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLocation;
         
         /// <summary>
         /// Reset_Button control.

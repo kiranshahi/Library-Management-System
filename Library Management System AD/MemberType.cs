@@ -9,10 +9,10 @@ namespace Library_Management_System_AD
 {
     public class MemberType
     {
-        public int AddMemberType(String type, Int32 booksAllowed, String penaltyCharge)
+        public int AddMemberType(String type, Int32 booksAllowed, Int32 penaltyCharge)
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
-            string sql = "insert into membership_types values(@a,@b, @c, @d, @e, @f, @g)";
+            string sql = "insert into membership_types values(@a,@b, @c)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@a", type);
             cmd.Parameters.AddWithValue("@b", booksAllowed);

@@ -106,7 +106,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/img.jpg" alt="" />
+                                    <img src="../images/user.png" alt="" />
                                     <asp:ContentPlaceHolder id="userName1" runat="server">
                                     </asp:ContentPlaceHolder>
                                     <span class=" fa fa-angle-down"></span>
@@ -210,8 +210,7 @@
         $(function () {
             $('#lmsDatetimePicker1').datetimepicker({
                 viewMode: 'days',
-                format: 'YYYY-MM-DD',
-                defaultDate: new Date()
+                format: 'YYYY-MM-DD'
             });
         });
     </script>

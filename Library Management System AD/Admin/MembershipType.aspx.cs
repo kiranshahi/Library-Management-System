@@ -28,7 +28,7 @@ namespace Library_Management_System_AD.Admin
         {
             try
             {
-                newMemberType.AddMemberType(txtType.Text, Convert.ToInt32(txtBooksAllowed.Text), txtPenaltyCharge.Text);
+                newMemberType.AddMemberType(txtType.Text, Convert.ToInt32(txtBooksAllowed.Text), Convert.ToInt32(txtPenaltyCharge.Text));
                 lblMessage.Text = "Member type added successfully.";
                 lblMessage.ForeColor = Color.Green;
             }

@@ -16,6 +16,16 @@
             <h3 class = "panel-title"><%: Title %> </h3> <asp:Label ID="lblMessage" runat="server" Font-Bold="True"></asp:Label>
         </div>
        <div class = "panel-body" >
+           
+           <div class="form-group row">
+               <label for="txtCopyNumber" class="col-sm-2">Copy Number: </label>
+               <div class="col-sm-8">
+                   <asp:TextBox ID="txtCopyNumber" CssClass="form-control" placeHolder="Copy Number" runat="server" required="required"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="reqValTxtCopyNumber" runat="server" ControlToValidate="txtCopyNumber" Display="Dynamic" EnableClientScript="False" ErrorMessage="Copy number is required." ForeColor="Red"></asp:RequiredFieldValidator>
+                   <asp:RegularExpressionValidator ID="reqValTxtCopyNumber1" runat="server" ControlToValidate="txtCopyNumber" ErrorMessage="Please Enter Only Numbers." ForeColor="Red" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
+               </div>
+           </div>
+
            <div class="form-group row">
                <label for="book" class="col-sm-2">Books</label>
                <div class="col-sm-8">
@@ -41,7 +51,7 @@
                <label for="txtLocation" class="col-sm-2">Location</label>
                <div class="col-sm-8">
                    <asp:TextBox ID="txtLocation" CssClass="form-control" placeHolder="Location" runat="server" required="required"></asp:TextBox>
-                   <asp:RequiredFieldValidator ID="reqValTxtLocation" runat="server" ControlToValidate="txtLocation" Display="Dynamic" EnableClientScript="False" ErrorMessage="Location is required." ForeColor="Red" ValidationGroup="second"></asp:RequiredFieldValidator>
+                   <asp:RequiredFieldValidator ID="reqValTxtLocation" runat="server" ControlToValidate="txtLocation" Display="Dynamic" EnableClientScript="True" ErrorMessage="Location is required." ForeColor="Red" ValidationGroup="second"></asp:RequiredFieldValidator>
                </div>
            </div>
 

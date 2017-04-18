@@ -14,16 +14,17 @@
         </div>
        <div class = "panel-body" >
            <div class="form-group row">
-               <label for="txtFUllName" class="col-sm-2">Full Name:</label>
+               <label for="txtFUllName" class="col-sm-2">Publisher's Name:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtFUllName" CssClass="form-control" placeHolder="Enter Name" runat="server" required="required"></asp:TextBox>
+                   <asp:TextBox ID="txtFUllName" CssClass="form-control" placeHolder="Publisher's Name:" runat="server" required="required"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="reqValTxtFUllName" runat="server" ControlToValidate="txtFUllName" Display="Dynamic" EnableClientScript="True" ErrorMessage="Publisher's name is required." ForeColor="Red"></asp:RequiredFieldValidator>
                </div>
            </div>
            
            <div class="form-group row">
-               <label for="txtAddress" class="col-sm-2">Author's Address:</label>
+               <label for="txtAddress" class="col-sm-2">Publisher's Address:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtAddress" CssClass="form-control" placeHolder="Author's Address" runat="server" required="required"></asp:TextBox>
+                   <asp:TextBox ID="txtAddress" CssClass="form-control" placeHolder="Publisher's Address" runat="server"></asp:TextBox>
                </div>
            </div>
            

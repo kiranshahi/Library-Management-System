@@ -9,10 +9,10 @@ namespace Library_Management_System_AD
 {
     public class Book
     {
-        public int CreateBook(String title, String overview, String isbn, Int32 publisherId, DateTime publishedDate, Int32 edition, String barCode)
+        public int CreateBook(String title, String overview, String isbn, Int32 publisherId, DateTime publishedDate, Int32 edition)
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
-            string sql = "insert into books values(@a,@b, @c, @d, @e, @f, @g)";
+            string sql = "insert into books values(@a,@b, @c, @d, @e, @f)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@a", title);
             cmd.Parameters.AddWithValue("@b", overview);
@@ -20,7 +20,6 @@ namespace Library_Management_System_AD
             cmd.Parameters.AddWithValue("@d", publisherId);
             cmd.Parameters.AddWithValue("@e", publishedDate);
             cmd.Parameters.AddWithValue("@f", edition);
-            cmd.Parameters.AddWithValue("@g", barCode);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();

@@ -41,15 +41,18 @@ namespace Library_Management_System_AD.Admin
 
         protected void BtnAddBooks(object sender, EventArgs e)
         {
+            
+
             try
             {
-                newBook.CreateBook(txtTitle.Text, txtOverview.Text, txtIsbn.Text, Convert.ToInt32(publisherList.Value), Convert.ToDateTime(txtPublishedDate.Text), Convert.ToInt32(txtEdition.Text), txtBarCode.Text);
+                newBook.CreateBook(txtTitle.Text, txtOverview.Text, txtIsbn.Text, Convert.ToInt32(publisherList.Value), Convert.ToDateTime(txtPublishedDate.Text), Convert.ToInt32(txtEdition.Text));
                 lblMessage.Text = "Book added successfully.";
                 lblMessage.ForeColor = Color.Green;
             }
             catch (Exception exception)
             {
                 lblMessage.Text = "Error occurred while saving data. Error details : " + exception.Message;
+
                 lblMessage.ForeColor = Color.Red;
             }
         }

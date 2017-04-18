@@ -7,7 +7,7 @@ namespace Library_Management_System_AD
 {
     public class User
     {
-        public int CreateUser(string name, string username, string email, string phone, string password, string role, DateTime joinedDate)
+        public int CreateUser(string name, string username, string email, string phone, string password, string role, DateTime registeredDate)
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
             string sql = "insert into users values(@a,@b,@c,@d,@e,@f,@g)";
@@ -19,7 +19,7 @@ namespace Library_Management_System_AD
             cmd.Parameters.AddWithValue("@d", phone);
             cmd.Parameters.AddWithValue("@e", password);
             cmd.Parameters.AddWithValue("@f", role);
-            cmd.Parameters.AddWithValue("@g", joinedDate);
+            cmd.Parameters.AddWithValue("@g", registeredDate);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();

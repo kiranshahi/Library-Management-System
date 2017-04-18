@@ -26,8 +26,7 @@
            <div class="form-group row">
                <label for="txtAddress" class="col-sm-2">Author's Address:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtAddress" CssClass="form-control" placeHolder="Author's Address" runat="server" required="required"></asp:TextBox>
-                   <asp:RequiredFieldValidator ID="reqValTxtAddress" runat="server" ControlToValidate="txtAddress" Display="Dynamic" EnableClientScript="False" ErrorMessage="Author's location is required." ForeColor="Red"></asp:RequiredFieldValidator>
+                   <asp:TextBox ID="txtAddress" CssClass="form-control" placeHolder="Author's Address" runat="server"></asp:TextBox>
                </div>
            </div>
 

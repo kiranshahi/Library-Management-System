@@ -57,15 +57,7 @@ namespace Library_Management_System_AD.Admin
                     bookCopy.DataTextField = "name";
                     bookCopy.DataValueField = "id";
                     bookCopy.DataBind();
-
-                    string UserQueryString = "select * from users";
-                    SqlDataAdapter userQueryCommand = new SqlDataAdapter(UserQueryString, myConnection);
-                    DataSet userDs = new DataSet();
-                    userQueryCommand.Fill(userDs, "user");
-                    user.DataSource = userDs;
-                    user.DataTextField = "name";
-                    user.DataValueField = "id";
-                    user.DataBind();
+                    
                 }
             }
             else
@@ -78,7 +70,7 @@ namespace Library_Management_System_AD.Admin
         {
             try
             {
-                newLoan.AddToLoan(Convert.ToInt32(loanType.Value), Convert.ToInt32(bookCopy.Value), Convert.ToInt32(member.Value), Convert.ToInt32(user.Value), Convert.ToDateTime(txtIssuedDate.Text), Convert.ToDateTime(txtReturnedDate.Text), txtLocation.Text);
+                newLoan.AddToLoan(Convert.ToInt32(loanType.Value), Convert.ToInt32(bookCopy.Value), Convert.ToInt32(member.Value), Convert.ToInt32(Session["userid"]), Convert.ToDateTime(txtIssuedDate.Text), Convert.ToDateTime(txtReturnedDate.Text));
                 lblMessage.Text = "Book has been added to loan successfully.";
                 lblMessage.ForeColor = Color.Green;
             }

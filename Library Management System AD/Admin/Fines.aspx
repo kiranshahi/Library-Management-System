@@ -16,24 +16,36 @@
             <h3 class = "panel-title"><%: Title %> </h3> <asp:Label ID="lblMessage" runat="server" Font-Bold="True"></asp:Label>
         </div>
        <div class = "panel-body" >
+           
            <div class="form-group row">
                <label for="txtRate" class="col-sm-2">Rate:</label>
                <div class="col-sm-8">
-                   <asp:TextBox ID="txtRate" CssClass="form-control" placeHolder="Rate" runat="server" required="required"></asp:TextBox>
+                   <asp:TextBox ID="txtRate" CssClass="form-control" placeHolder="Rate" runat="server"></asp:TextBox>
+                   <asp:RegularExpressionValidator ID="RegExpValTxtRate" runat="server" ControlToValidate="txtRate" ErrorMessage="Please Enter Only Numbers" ForeColor="Red" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
                </div>
            </div>
            
            <div class="form-group row">
-               <label for="loan" class="col-sm-2">Loan :</label>
+               <label for="txtRate" class="col-sm-2">Days:</label>
                <div class="col-sm-8">
-                   <select id="loanList" class="form-control" runat="server"></select>
+                   <asp:TextBox ID="txtDays" CssClass="form-control" placeHolder="Days" runat="server"></asp:TextBox>
+                   <asp:RegularExpressionValidator ID="RegExpValTxtDays" runat="server" ControlToValidate="txtDays" ErrorMessage="Please Enter Only Numbers" ForeColor="Red" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
                </div>
            </div>
+           
+           <div class="form-group row">
+               <label for="loan" class="col-sm-2">Loan:</label>
+               <div class="col-sm-8">
+                   <select id="loanList" class="form-control" runat="server">
+                   </select>
+               </div>
+           </div>
+           
+           <div class="form-group row">
+               <asp:Button ID="Reset_Button" runat="server" Text="Reset" CssClass="btn btn-primary" OnClientClick="this.form.reset();return false;" />
+               <asp:Button ID="btnSingup" runat="server" Text="Charge Fine" CssClass="btn btn-success" OnClick="BtnAddFines" />
+           </div>
 
-            <div class="form-group row">
-                <asp:Button ID="Reset_Button" runat="server" Text="Reset" CssClass="btn btn-primary" OnClientClick="this.form.reset();return false;" />
-                <asp:Button ID="btnSingup" runat="server" Text="Charge Fine" CssClass="btn btn-success" OnClick="BtnAddFines" />
-            </div>
        </div>
     </div>
 </asp:Content>

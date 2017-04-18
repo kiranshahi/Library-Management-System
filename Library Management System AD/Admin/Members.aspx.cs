@@ -43,7 +43,7 @@ namespace Library_Management_System_AD.Admin
             try
             {
                 newMember.AddMember(txtFUllName.Text, txtEmail.Text, txtPhone.Text, Convert.ToInt32(membershipType.Value),
-                Convert.ToDateTime(txtJoinedDate.Text));
+                Convert.ToDateTime(txtJoinedDate.Text), txtAddress.Text);
                 lblMessage.Text = "Member added successfully.";
                 lblMessage.ForeColor = Color.Green;
             }
