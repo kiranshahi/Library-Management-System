@@ -39,10 +39,8 @@
 
                                   <asp:CheckBox ID="includeLoaned" CssClass="pull-right" style="margin: 10px auto" runat="server" AutoPostBack="True" Text="Include loaned books?" />
                               </div>
-                              <asp:GridView ID="BookList" CssClass="table table-striped table-bordered" runat="server">
-                                  <Columns>
-                                      <asp:ButtonField ButtonType="Button" CommandName="Edit" HeaderText="Actions" ShowHeader="True" Text="Edit" />
-                                  </Columns>
+                              <asp:GridView ID="BookLister" CssClass="table table-striped table-bordered" runat="server">
+                              
                                   
                               </asp:GridView>
                               <div class="row">

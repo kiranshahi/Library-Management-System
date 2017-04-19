@@ -55,8 +55,8 @@ namespace Library_Management_System_AD
                 this.info.Text = this.info.Text.Replace("text-danger", "");
                 this.info.Text = "Total records displayed: " + books.Count.ToString();
             }
-            this.BookList.DataSource = books;
-            this.BookList.DataBind();
+            this.BookLister.DataSource = books;
+            this.BookLister.DataBind();
         }
 
     }

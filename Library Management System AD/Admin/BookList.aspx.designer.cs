@@ -67,13 +67,13 @@ namespace Library_Management_System_AD {
         protected global::System.Web.UI.WebControls.CheckBox includeLoaned;
         
         /// <summary>
-        /// BookList control.
+        /// BookLister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView BookList;
+        protected global::System.Web.UI.WebControls.GridView BookLister;
         
         /// <summary>
         /// info control.
