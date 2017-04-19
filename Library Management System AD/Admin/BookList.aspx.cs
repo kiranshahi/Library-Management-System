@@ -16,18 +16,17 @@ namespace Library_Management_System_AD
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["name"] != null)
-            //{
-            //    lblUserName.Text = Session["name"].ToString();
-            //    lblUserName1.Text = Session["name"].ToString();
+            if (Session["name"] != null)
+            {
+                lblUserName.Text = Session["name"].ToString();
+                lblUserName1.Text = Session["name"].ToString();
 
-            //    this.polulateTable();
-            //}
-            //else
-            //{
-            //    Response.Redirect("~/Login.aspx");
-            //}
-            this.populateTable();
+                this.populateTable();
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx");
+            }
         }
 
         private void populateTable()
