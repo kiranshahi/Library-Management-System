@@ -4,13 +4,17 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
-using System.Collections.Generic;
+
 using System.Data;
+
+using Microsoft.Ajax.Utilities;
+
 
 namespace Library_Management_System_AD
 {   
     public class Book
     {
+
         public string Title { get; set; }
         public string Overview { get; set; }
         public string Isbn { get; set; }
@@ -37,8 +41,19 @@ namespace Library_Management_System_AD
             this.Quantity = quantity;
         }
 
-        public int CreateBook(String title, String overview, String isbn, Int32 publisherId, DateTime publishedDate, Int32 edition)
+        public int CreateBook(String title, String overview, String isbn, Int32 publisherId, String publishedDate, Int32 edition)
         {
+            Boolean hasPd =false;
+            DateTime pd;
+            if (String.IsNullOrEmpty(publishedDate))
+            {
+                hasPd = false;
+            }
+            else
+            {
+                hasPd = true;
+            }
+
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
             string sql = "insert into books values(@a,@b, @c, @d, @e, @f)";
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -46,7 +61,17 @@ namespace Library_Management_System_AD
             cmd.Parameters.AddWithValue("@b", overview);
             cmd.Parameters.AddWithValue("@c", isbn);
             cmd.Parameters.AddWithValue("@d", publisherId);
-            cmd.Parameters.AddWithValue("@e", publishedDate);
+            if (hasPd)
+            {
+                pd = Convert.ToDateTime(publishedDate);
+                cmd.Parameters.AddWithValue("@e", pd);
+
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@e", DBNull.Value);
+
+            }
             cmd.Parameters.AddWithValue("@f", edition);
 
             con.Open();

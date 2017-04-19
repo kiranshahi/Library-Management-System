@@ -103,6 +103,15 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlSelect publisherList;
         
         /// <summary>
+        /// authorList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect authorList;
+        
+        /// <summary>
         /// txtPublishedDate control.
         /// </summary>
         /// <remarks>

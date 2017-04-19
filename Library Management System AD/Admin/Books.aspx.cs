@@ -31,6 +31,16 @@ namespace Library_Management_System_AD.Admin
                     publisherList.DataTextField = "name";
                     publisherList.DataValueField = "id";
                     publisherList.DataBind();
+
+                    string AuthorString = "select * from authors";
+                    SqlDataAdapter getAuthorCommand = new SqlDataAdapter(AuthorString, myConnection);
+                    DataSet authorDs = new DataSet();
+                    getAuthorCommand.Fill(authorDs, "authors");
+
+                    authorList.DataSource = authorDs;
+                    authorList.DataTextField = "name";
+                    authorList.DataValueField = "id";
+                    authorList.DataBind();
                 }
             }
             else
@@ -45,7 +55,7 @@ namespace Library_Management_System_AD.Admin
 
             try
             {
-                newBook.CreateBook(txtTitle.Text, txtOverview.Text, txtIsbn.Text, Convert.ToInt32(publisherList.Value), Convert.ToDateTime(txtPublishedDate.Text), Convert.ToInt32(txtEdition.Text));
+                newBook.CreateBook(txtTitle.Text, txtOverview.Text, txtIsbn.Text, Convert.ToInt32(publisherList.Value), txtPublishedDate.Text, Convert.ToInt32(txtEdition.Text));
                 lblMessage.Text = "Book added successfully.";
                 lblMessage.ForeColor = Color.Green;
             }
@@ -59,13 +69,14 @@ namespace Library_Management_System_AD.Admin
 
         protected void BtnAddAuthor(object sender, EventArgs e)
         {
-            if ((txtFUllName.Text != "" && txtAddress.Text !=""))
+            if ((txtFUllName.Text != ""))
             {
                 if (!newAuthor.CheckAuthor(txtFUllName.Text))
                 {
                     try
                     {
                         newAuthor.CreateAuthor(txtFUllName.Text, txtAddress.Text);
+                        Response.Redirect("~/Admin/Books.aspx");
                         lblMessage.Text = "Author added successfully.";
                         lblMessage.ForeColor = Color.Green;
                     }
@@ -80,6 +91,10 @@ namespace Library_Management_System_AD.Admin
                     lblMessage.Text = "Author already exist!";
                     lblMessage.ForeColor = Color.Red;
                 }
+            }
+            else
+            {
+                
             }
             
         }

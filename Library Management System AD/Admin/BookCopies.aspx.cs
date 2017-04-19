@@ -42,7 +42,7 @@ namespace Library_Management_System_AD.Admin
         {
             try
             {
-                newBookCopies.CreateBookCopies(Convert.ToInt32(bookOption.Value), Convert.ToDateTime(txtPurchasedDate.Text), txtLocation.Text);
+                newBookCopies.CreateBookCopies(Convert.ToInt32(txtCopyNumber.Text), Convert.ToInt32(bookOption.Value), Convert.ToDateTime(txtPurchasedDate.Text), txtLocation.Text);
                 lblMessage.Text = "Book Copy has been added.";
                 lblMessage.ForeColor = Color.Green;
             }
