@@ -117,3 +117,4 @@ C:\Users\Sirjan\Documents\Visual Studio 2013\Projects\Library Management System 
 C:\Users\Sirjan\Documents\Visual Studio 2013\Projects\Library Management System AD\Library Management System AD\bin\Newtonsoft.Json.xml
 C:\Users\Sirjan\Documents\Visual Studio 2013\Projects\Library Management System AD\Library Management System AD\bin\System.Web.Optimization.xml
 C:\Users\Sirjan\Documents\Visual Studio 2013\Projects\Library Management System AD\Library Management System AD\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\Sirjan\Documents\Visual Studio 2013\Projects\Library Management System AD\Library Management System AD\obj\Debug\Library Management System AD.csprojResolveAssemblyReference.cache
