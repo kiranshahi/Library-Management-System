@@ -105,7 +105,7 @@
                             <label for="txtFUllName" class="col-sm-2">Full Name:</label>
                             <div class="col-sm-8">
                                 <asp:TextBox ID="txtFUllName" CssClass="form-control" placeHolder="Enter Name" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="reqValTxtFUllName" runat="server" ControlToValidate="txtFUllName" Display="Dynamic" EnableClientScript="False" ErrorMessage="Author's name is required." ForeColor="Red" ValidationGroup="second"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="reqValTxtFUllName" runat="server" ControlToValidate="txtFUllName" Display="Dynamic" EnableClientScript="True" ErrorMessage="Author's name is required." ForeColor="Red" ValidationGroup="second"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-group row">
