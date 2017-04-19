@@ -4,8 +4,10 @@ using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Data;
 
+
+
 namespace Library_Management_System_AD
-{
+{   
     public class Book
     {
 
