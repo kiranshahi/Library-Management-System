@@ -40,7 +40,7 @@ namespace Library_Management_System_AD.Admin
                      * bookCopy Query
                      */
 
-                    string BookCopyQueryString = "select * from book_copies";
+                    string BookCopyQueryString = "select * from book_copies where deleted is null";
                     SqlDataAdapter bookCopyQueryCommand = new SqlDataAdapter(BookCopyQueryString, myConnection);
                     DataSet bookCopyDs = new DataSet();
                     bookCopyQueryCommand.Fill(bookCopyDs, "bookCopy");

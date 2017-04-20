@@ -10,6 +10,7 @@ AS
 			SELECT COUNT(bc.id) 
 			FROM book_copies bc 
 			WHERE bc.book_id = b.id
+			AND bc.deleted IS NULL
 		) quantity
 
 
@@ -19,7 +20,7 @@ AS
 		ON b.publisher_id=p.id
 
 		LEFT JOIN author_book ab
-		ON b.id = ab.	book_id
+		ON b.id = ab.book_id
 
 		LEFT JOIN 
 		(
@@ -40,6 +41,7 @@ AS
 				SELECT COUNT(bc.id) 
 				FROM book_copies bc 
 				WHERE bc.book_id = b.id
+				AND bc.deleted IS NULL
 			) > 0
 		)
 		
@@ -60,10 +62,13 @@ AS
 		(
 			SELECT COUNT(bc.id) - COUNT(l.id) as qty
 			FROM book_copies bc
+	
 			LEFT JOIN loans l
 			ON l.book_copy_id = bc.id
 			AND l.returned_date IS NULL
+	
 			WHERE bc.book_id = b.id
+			AND bc.deleted IS NULL
 		)
 
 
@@ -94,10 +99,13 @@ AS
 			(
 				SELECT COUNT(bc.id) - COUNT(l.id)
 				FROM book_copies bc
+				
 				LEFT JOIN loans l
 				ON l.book_copy_id = bc.id
 				AND l.returned_date IS NULL
+				
 				WHERE bc.book_id = b.id
+				AND bc.deleted IS NULL
 			) > 0
 		ORDER BY b.published_date
 	END 
@@ -174,6 +182,8 @@ BEGIN
 
 			INNER JOIN book_copies bc
 			ON bc.id = b.id
+			AND bc.deleted IS NULL
+
 
 			INNER JOIN loans l 
 			ON l.book_copy_id = bc.id
@@ -213,6 +223,8 @@ AS
 		ON m.id = l.member_id
 
 		WHERE bc.id = @id
+		AND bc.deleted IS NULL
+
 
 		ORDER BY issued_date DESC
 
@@ -231,9 +243,12 @@ AS
 
 
 		WHERE bc.purchased_date < CURRENT_TIMESTAMP-365
+		AND bc.deleted IS NULL
 		AND bc.id NOT IN 
 		(
-			SELECT book_copy_id FROM LOANS WHERE returned_date IS NULL
+			SELECT book_copy_id 
+			FROM LOANS 
+			WHERE returned_date IS NULL
 		)
 	END
 
@@ -251,8 +266,10 @@ AS
 			GROUP BY member_id, book_copy_id
 		) l
 		ON l.member_id = m.id
+
 		LEFT JOIN book_copies bc
 		ON bc.id = l.book_copy_id
+		AND bc.deleted IS NULL
 
 		LEFT JOIN books b
 		ON b.id = bc.book_id
@@ -279,7 +296,10 @@ AS
 	BEGIN
 		SELECT b.id, b.title, b.isbn, a.name author, p.name publisher, b.published_date, b.edition, 
 		(
-			SELECT count(*) from book_copies bc where bc.book_id = b.id
+			SELECT count(*) 
+			FROM book_copies bc 
+			WHERE bc.book_id = b.id
+			AND bc.deleted IS NULL
 		) quantity
 
 		FROM books b
@@ -295,11 +315,21 @@ AS
 
 		WHERE 
 		(
-			SELECT MAX(issued_date) from loans l inner join book_copies bc on bc.id = l.book_copy_id WHERE book_id=b.id
+			SELECT MAX(issued_date) 
+			FROM loans l 
+			INNER JOIN book_copies bc 
+			ON bc.id = l.book_copy_id
+			AND bc.deleted IS NULL
+			WHERE book_id=b.id
 		) < CURRENT_TIMESTAMP-31
 		OR
 		(
-			SELECT MAX(issued_date) from loans l inner join book_copies bc on bc.id = l.book_copy_id WHERE book_id=b.id
+			SELECT MAX(issued_date) 
+			FROM loans l 
+			INNER JOIN book_copies bc 
+			ON bc.id = l.book_copy_id
+			AND bc.deleted IS NULL
+			WHERE book_id=b.id
 		) IS NULL
 
 	END
@@ -319,6 +349,28 @@ AS
 		JOIN loan_types lt
 		ON l.loan_type_id = lt.id
 
+		WHERE bc.deleted IS NULL
+
+
+
 		ORDER BY l.issued_date
 	END
 
+
+
+CREATE PROCEDURE DeleteOldCopies
+AS
+	BEGIN
+		UPDATE book_copies
+		SET deleted = 1
+		WHERE purchased_date < CURRENT_TIMESTAMP-365
+		AND deleted IS NULL
+		AND id NOT IN 
+		(
+			SELECT book_copy_id 
+			FROM LOANS 
+			WHERE returned_date IS NULL
+		)
+	END
+
+GO

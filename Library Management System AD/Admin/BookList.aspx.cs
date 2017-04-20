@@ -64,15 +64,15 @@ namespace Library_Management_System_AD
             switch(this.Filter.SelectedIndex)
             {
                 case 0 : default:
-                    this.HideFilters();
+                    this.ShowFilters();
                     this.books = Book.GetBooks(searchBook, searchAuthor, searchPublisher);
                     break;
                 case 1:
-                    this.HideFilters();
+                    this.ShowFilters();
                     this.books = Book.GetAvailableBooks(searchBook, searchAuthor, searchPublisher);
                     break;
                 case 2:
-                    this.ShowFilters();
+                    this.HideFilters();
                     this.books = Book.GetInactiveBook();
                     break;
             }

@@ -26,14 +26,14 @@
                               <!-- asp components for search -->
                                   
                               </div>
-                              <asp:GridView ID="MemberLister" CssClass="table table-striped table-bordered" runat="server">
+                              <asp:GridView ID="BookLister" CssClass="table table-striped table-bordered" runat="server">
                               
                                   
                               </asp:GridView>
                               <div class="row">
                                   <asp:Label ID="info" CssClass="clearfix col-md-12" runat="server" Text=""></asp:Label>
+                                    <asp:Button ID="deleteBtn" CssClass="pull-right btn btn-danger" runat="server" Text="Delete All" OnClientClick="return confirm('Are you sure you want to delete the listed book copies?')" OnClick="deleteBtn_Click"/>
                               </div>
-
 
                           </div>
                     </div>

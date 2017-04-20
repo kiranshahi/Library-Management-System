@@ -47,7 +47,7 @@ namespace Library_Management_System_AD
         }
 
 
-        public static List<BookCopy> GetOldBooks()
+        public static List<BookCopy> GetOldCopies()
         {
             List<BookCopy> books = new List<BookCopy>();
             using (SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString))
@@ -79,6 +79,25 @@ namespace Library_Management_System_AD
 
             member.Location = reader["location"].ToString();
             return member;
+        }
+
+        internal static int DeleteOldCopies()
+        {
+            using (SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString))
+            {
+                string sql = "UPDATE book_copies SET deleted = 1 WHERE purchased_date < CURRENT_TIMESTAMP-365 AND deleted IS NULL";
+                SqlCommand cmd = new SqlCommand("DeleteOldCopies", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+
+                con.Open();
+
+                int affectedRows = cmd.ExecuteNonQuery();
+                
+                con.Close();
+
+                return affectedRows;
+            }
         }
     }
 }

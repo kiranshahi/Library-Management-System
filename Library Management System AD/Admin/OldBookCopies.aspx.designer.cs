@@ -31,13 +31,13 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.Label lblUserName1;
         
         /// <summary>
-        /// MemberLister control.
+        /// BookLister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView MemberLister;
+        protected global::System.Web.UI.WebControls.GridView BookLister;
         
         /// <summary>
         /// info control.
@@ -47,5 +47,14 @@ namespace Library_Management_System_AD.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label info;
+        
+        /// <summary>
+        /// deleteBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button deleteBtn;
     }
 }

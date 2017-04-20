@@ -12,6 +12,14 @@ namespace Library_Management_System_AD.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                this.HandlePageLoad();
+            }
+        }
+
+        private void HandlePageLoad()
+        {
             if (Session["name"] != null)
             {
                 lblUserName.Text = Session["name"].ToString();
@@ -23,8 +31,8 @@ namespace Library_Management_System_AD.Admin
                         string memberId = Request.QueryString["id"];
 
                         string connectString =
-                            WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
-                        string queryString = "SELECT * from members where id =' " + memberId + " ' ";
+                        WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
+                        string queryString = "select * from members where id = ' " + memberId + " ' ";
 
                         SqlConnection myConnection = new SqlConnection(connectString);
                         myConnection.Open();
@@ -39,9 +47,18 @@ namespace Library_Management_System_AD.Admin
                             txtEmail.Text = (myReader["email"].ToString());
                             txtPhone.Text = (myReader["phone"].ToString());
                             txtAddress.Text = (myReader["address"].ToString());
-//                        membershipType.Value = 
                         }
                         myReader.Close();
+
+                        string memberTypeQueryString = "select * from membership_types";
+                        SqlDataAdapter memberTypeCommand = new SqlDataAdapter(memberTypeQueryString, myConnection);
+                        DataSet ds = new DataSet();
+                        memberTypeCommand.Fill(ds, "membershipTypes");
+
+                        membershipType.DataSource = ds;
+                        membershipType.DataTextField = "type";
+                        membershipType.DataValueField = "id";
+                        membershipType.DataBind();
                     }
                 }
             }
@@ -50,21 +67,13 @@ namespace Library_Management_System_AD.Admin
                 Response.Redirect("~/Login.aspx");
             }
         }
-
-        protected void BtnUpdateDetails(object sender, EventArgs e)
+        protected void UpdateMemberDetails(object sender, EventArgs e)
         {
             try
             {
-                newMember.UpdateMemberDetails(Convert.ToInt32(memberId.Value), txtName.Text, txtEmail.Text, txtPhone.Text, txtAddress.Text);
-                //Response.Redirect("~/Admin/MemberList.aspx");
-                //                lblMessage.Text = "Member updated successfully.";
-                //                lblMessage.ForeColor = Color.Green;
-                lblMessage.Text += memberId.Value + " <br />";
-                lblMessage.Text += txtName.Text + " <br />";
-                lblMessage.Text += txtEmail.Text + " <br />";
-                lblMessage.Text += txtPhone.Text + " <br />";
-                lblMessage.Text += membershipType.Value + " <br />";
-                lblMessage.Text += txtAddress.Text;
+                int a = newMember.UpdateMemberDetails(Convert.ToInt32(memberId.Value), txtName.Text, txtEmail.Text, txtPhone.Text, Convert.ToInt32(membershipType.Value), txtAddress.Text);
+                lblMessage.Text = "Member updated successfully.";
+                lblMessage.ForeColor = Color.Green;
             }
             catch (Exception exception)
             {
