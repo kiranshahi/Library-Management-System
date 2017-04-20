@@ -11,6 +11,14 @@ namespace Library_Management_System_AD.Admin
         Member newMember = new Member();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                this.HandlePageLoad();
+            }
+        }
+
+        private void HandlePageLoad()
+        {
             if (Session["name"] != null)
             {
                 lblUserName.Text = Session["name"].ToString();
@@ -40,7 +48,7 @@ namespace Library_Management_System_AD.Admin
                     myReader.Close();
 
                     string QueryString = "select * from membership_types";
-                    
+
                     SqlDataAdapter membershipTypeCommand = new SqlDataAdapter(QueryString, myConnection);
                     DataSet ds = new DataSet();
                     membershipTypeCommand.Fill(ds, "membershipTypes");
@@ -59,21 +67,20 @@ namespace Library_Management_System_AD.Admin
                 Response.Redirect("~/Login.aspx");
             }
         }
-
         protected void UpdateMemberDetails(object sender, EventArgs e)
         {
             try
             {
-                newMember.UpdateMemberDetails(Convert.ToInt32(memberId.Value), txtName.Text, txtEmail.Text, txtPhone.Text, Convert.ToInt32(membershipType.Value), txtAddress.Text);
+                int a = newMember.UpdateMemberDetails(Convert.ToInt32(memberId.Value), txtName.Text, txtEmail.Text, txtPhone.Text, Convert.ToInt32(membershipType.Value), txtAddress.Text);
                 Response.Redirect("~/Admin/MemberList.aspx");
-                //                lblMessage.Text = "Member updated successfully.";
+                lblMessage.Text = "id: "+a.ToString()+" ";
                 //                lblMessage.ForeColor = Color.Green;
-                lblMessage.Text = memberId.Value + " <br />";
-                lblMessage.Text = txtName.Text + " <br />";
-                lblMessage.Text = txtEmail.Text + " <br />";
-                lblMessage.Text = txtPhone.Text + " <br />";
-                lblMessage.Text = membershipType.Value + " <br />";
-                lblMessage.Text = txtAddress.Text;
+                lblMessage.Text += memberId.Value + " <br />";
+                lblMessage.Text += txtName.Text + " <br />";
+                lblMessage.Text += txtEmail.Text + " <br />";
+                lblMessage.Text += txtPhone.Text + " <br />";
+                lblMessage.Text += membershipType.Value + " <br />";
+                lblMessage.Text += txtAddress.Text;
             }
             catch (Exception exception)
             {
