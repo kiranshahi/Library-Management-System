@@ -144,5 +144,20 @@ namespace Library_Management_System_AD
             }
             return loans;
         }
+
+        public int ReturnTheBook(Int32 loandId, DateTime returnedDate)
+        {
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
+            string sql = "UPDATE loans SET returned_date=@returnedDate WHERE id=@loanId;";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@loanId", loandId);
+            cmd.Parameters.AddWithValue("@returnedDate", returnedDate);
+
+            con.Open();
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            return i;
+        }
+
     }
 }

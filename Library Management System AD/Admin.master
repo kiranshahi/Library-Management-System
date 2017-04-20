@@ -57,6 +57,7 @@
                                         <li><a href="MemberList">Member List</a></li>
                                         <li><a href="MemberLoans">Member Loans</a></li>
                                         <li><a href="OldBookCopies">Old Book Copies</a></li>
+                                        <li><a href="UserList">User List</a></li>
                                     </ul>
                                 </li>
 

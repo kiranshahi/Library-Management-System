@@ -128,6 +128,7 @@ namespace Library_Management_System_AD
    
                 string sql = "SELECT * FROM users";
                 SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
