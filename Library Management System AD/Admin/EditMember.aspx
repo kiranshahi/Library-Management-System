@@ -57,7 +57,7 @@
             </div>
 
             <div class="form-group row">
-                <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Member" CssClass="btn btn-success" OnClick="UpdateMemberDetails"/>
+                <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Member" CssClass="btn btn-success" OnClick="BtnUpdateDetails"/>
             </div>
         </div>
     </div>

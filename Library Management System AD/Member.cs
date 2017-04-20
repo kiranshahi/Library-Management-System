@@ -119,17 +119,17 @@ namespace Library_Management_System_AD
             return member;
         }
 
-        public int UpdateMemberDetails(Int32 memberId, String name, String email, String mobile, Int32 membershipType, String address)
+        public int UpdateMemberDetails(Int32 memberId, String name, String email, String mobile, String address)
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
-            string sql = "UPDATE members SET name=@name, email=@email, phone=@mobile, membership_type_id=@membershipId, address=@address WHERE id=@memberId;";
+            string sql = "UPDATE members SET name=@name, email=@email, phone=@mobile, address=@address WHERE id=@memberId;";
             SqlCommand cmd = new SqlCommand(sql, con);
 
             cmd.Parameters.AddWithValue("@memberId", memberId);
             cmd.Parameters.AddWithValue("@name", name);
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@mobile", mobile);
-            cmd.Parameters.AddWithValue("@membershipId", membershipType);
+//            cmd.Parameters.AddWithValue("@membershipId", membershipType);
             cmd.Parameters.AddWithValue("@address", address);
 
             con.Open();
