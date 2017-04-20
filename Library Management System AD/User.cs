@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
@@ -7,6 +8,14 @@ namespace Library_Management_System_AD
 {
     public class User
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string Username { get; set; }
+        public string Role { get; set; }
+        public string RegisteredDate { get; set; }
+
         public int CreateUser(string name, string username, string email, string phone, string password, string role, DateTime registeredDate)
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
@@ -109,6 +118,41 @@ namespace Library_Management_System_AD
                 con.Close();
                 return i;
             }
+        }
+
+        internal static List<User> GetUsers()
+        {
+            List<User> users = new List<User>();
+            using (SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString))
+            {
+   
+                string sql = "SELECT * FROM users";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        users.Add(User.CreateFromReader(reader));
+                    }
+                }
+                con.Close();
+            }
+            return users;
+        }
+
+        private static User CreateFromReader(SqlDataReader reader)
+        {
+            User user = new User();
+            user.Id = Convert.ToInt32(reader["id"].ToString());
+            user.Name = reader["name"].ToString();
+            user.Email = DBNull.Value.Equals(reader["email"]) ?
+                        null : reader["email"].ToString();
+            user.Phone = reader["phone"].ToString();
+
+            user.Id = Convert.ToInt32(reader["Id"].ToString());
+            user.Username = reader["username"].ToString();
+            user.RegisteredDate = Convert.ToDateTime(reader["registered_date"].ToString()).ToShortDateString();
+            return user;
         }
     }
 }

@@ -48,7 +48,7 @@ AS
 	END
 
 
--------------------QUESTION NO 2---------------------
+GO-------------------QUESTION NO 2---------------------
 CREATE PROCEDURE GetAvailableBooks
 @book varchar(20),
 @author varchar(20),
@@ -103,7 +103,7 @@ AS
 	END 
 
 
-
+GO
 -- CREATE PROCEDURE GetMembers
 -- @search VARCHAR(20)
 -- AS
@@ -114,7 +114,7 @@ AS
 -- 		ON m.membership_type_id = mt.id;
 -- 	END
 
-
+GO
 CREATE PROCEDURE GetMembers
 @searchTerm VARCHAR(20)
 AS
@@ -163,7 +163,7 @@ AS
 			END
 	END
 
-
+GO
 CREATE PROCEDURE GetMemberLoans
 @id int
 AS
@@ -187,11 +187,12 @@ BEGIN
 			WHERE 
 			( 
 				l.issued_date < CURRENT_TIMESTAMP-31---before 31 days
+				OR l.returned_date IS NULL
 				AND m.id = @id
 			)
 END
 
-
+GO
 CREATE PROCEDURE GetCopyLoans
 @id int
 AS
@@ -218,7 +219,7 @@ AS
 	END
 
 
-
+GO
 CREATE PROCEDURE GetOldBooks
 AS
 	BEGIN
@@ -236,11 +237,12 @@ AS
 		)
 	END
 
+GO
 
 CREATE PROCEDURE GetInactiveMembers
 AS
 	BEGIN
-		SELECT m.name, m.address, m.email, m.phone, b.title book, l.issued_date from members m
+		SELECT m.id, m.name, m.address, m.email, m.phone, b.title book, l.issued_date from members m
 
 		LEFT JOIN --------------- to get only one entry for 1 user
 		(
@@ -271,7 +273,7 @@ AS
 
 	END
 
-
+GO
 CREATE PROCEDURE GetInactiveBooks 
 AS
 	BEGIN
@@ -301,7 +303,7 @@ AS
 		) IS NULL
 
 	END
-
+GO
 CREATE PROCEDURE GetActiveLoans
 AS
 	BEGIN
@@ -319,3 +321,5 @@ AS
 
 		ORDER BY l.issued_date
 	END
+
+	
