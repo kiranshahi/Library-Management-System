@@ -73,5 +73,42 @@ namespace Library_Management_System_AD
             con.Close();
             return i;
         }
+
+        public int UpdateUserDetails(string username, string name, string email, string mobile, string password)
+        {
+            if (String.IsNullOrEmpty(password))
+            {
+                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
+                string sql = "UPDATE users SET name=@name, email=@email, phone=@mobile WHERE username=@username;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@mobile", mobile);
+
+                con.Open();
+                int i = cmd.ExecuteNonQuery();
+                con.Close();
+                return i;
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
+                string sql = "UPDATE users SET name=@name, email=@email, phone=@mobile, password=@pass WHERE username=@username;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@mobile", mobile);
+                cmd.Parameters.AddWithValue("@pass", password);
+
+                con.Open();
+                int i = cmd.ExecuteNonQuery();
+                con.Close();
+                return i;
+            }
+        }
     }
 }
