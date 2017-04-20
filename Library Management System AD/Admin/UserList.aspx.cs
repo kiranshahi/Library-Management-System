@@ -56,10 +56,7 @@ namespace Library_Management_System_AD.Admin
                                 + this.users[e.Row.RowIndex].Id
                                 + "\">"
                                 + "Edit </a>";
-                newCell.Text += "<a class=\"btn btn-primary\" href=\"/admin/memberloans?member="
-                                 + this.users[e.Row.RowIndex].Id
-                                 + "\">"
-                                 + "Loans </a>";
+               
                 int col = e.Row.Cells.Add(newCell);
             }
         }

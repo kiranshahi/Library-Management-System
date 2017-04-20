@@ -188,8 +188,8 @@ BEGIN
 			( 
 				l.issued_date < CURRENT_TIMESTAMP-31---before 31 days
 				OR l.returned_date IS NULL
-				AND m.id = @id
 			)
+			AND m.id = @id
 END
 
 GO
@@ -322,4 +322,3 @@ AS
 		ORDER BY l.issued_date
 	END
 
-	
