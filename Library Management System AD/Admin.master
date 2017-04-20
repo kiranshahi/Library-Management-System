@@ -1,5 +1,4 @@
 ﻿<%@ Master Language="C#" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -45,7 +44,7 @@
                                 <li><a><i class="fa fa-book"></i> Book <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="Books">Add New Book</a></li>
-                                        <li><a href="#">List all Books</a></li>
+                                        <li><a href="BookList">List all Books</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-edit"></i> Authors <span class="fa fa-chevron-down"></span></a>
@@ -84,12 +83,14 @@
                                         <li><a href="#">List all Membership Type</a></li>
                                     </ul>
                                 </li>
+                                <% if(Session["role"].ToString().ToLower() == "Admin".ToLower()){%>
                                 <li><a><i class="fa fa-user"></i> User <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="Register">Add New User</a></li>
                                         <li><a href="#">List all Books</a></li>
                                     </ul>
                                 </li>
+                                <%}%>
                             </ul>
                         </div>
                     </div>
