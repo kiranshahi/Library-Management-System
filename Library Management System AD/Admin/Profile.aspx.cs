@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
@@ -53,12 +54,14 @@ namespace Library_Management_System_AD.Admin
         {
             try
             {
-                updateUser.UpdateUserDetails(txtUserName.Text, txtName.Text, txtEmail.Text, txtPhone.Text, txtPassword.Text);
-                lblMessage.Text = "Updated successfully.";
+                updateUser.UpdateUserDetails(Convert.ToInt32(Session["userid"]), txtName.Text, txtEmail.Text, txtPhone.Text, txtPassword.Text);
+                lblMessage.Text = "Profile details updated successfully.";
+                lblMessage.ForeColor = Color.Green;
             }
             catch (Exception exception)
             {
                 lblMessage.Text = exception.Message;
+                lblMessage.ForeColor = Color.Red;
             }
         }
     }
