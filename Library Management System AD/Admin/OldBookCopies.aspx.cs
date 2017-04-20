@@ -9,6 +9,8 @@ namespace Library_Management_System_AD.Admin
 {
     public partial class OldBookCopies : System.Web.UI.Page
     {
+
+        List<BookCopy> books;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["name"] == null)
@@ -24,7 +26,7 @@ namespace Library_Management_System_AD.Admin
         {
 
 
-            List<BookCopy> books = BookCopy.GetOldBooks();
+            List<BookCopy> books = BookCopy.GetOldCopies();
 
             if (books.Count == 0)
             {
@@ -39,8 +41,20 @@ namespace Library_Management_System_AD.Admin
                 this.info.Text = this.info.Text.Replace("text-danger", "");
                 this.info.Text = "Total records displayed: " + books.Count.ToString();
             }
-            this.MemberLister.DataSource = books;
-            this.MemberLister.DataBind();
+            this.books = books;
+            this.deleteBtn.Visible = this.books.Count > 0 ? true : false;
+            this.BookLister.DataSource = this.books;
+            this.BookLister.DataBind();
+        }
+
+        protected void deleteBtn_Click(object sender, EventArgs e)
+        {
+            int deletedRowsCount = BookCopy.DeleteOldCopies();
+            this.books = BookCopy.GetOldCopies();
+            this.BookLister.DataSource = this.books;
+            this.BookLister.DataBind();
+            this.info.Text = deletedRowsCount + " Book Copies deleted";
+            
         }
         
     }

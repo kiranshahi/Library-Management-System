@@ -39,7 +39,8 @@ CREATE TABLE book_copies (
   copy_number int NOT NULL,
   book_id int NOT NULL,
   purchased_date date NOT NULL,
-  location varchar(255)  NOT NULL
+  location varchar(255)  NOT NULL,
+  deleted bit DEFAULT NULL
 );
 
 
