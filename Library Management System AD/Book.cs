@@ -14,9 +14,8 @@ namespace Library_Management_System_AD
 {   
     public class Book
     {
-
+        public int Id { get; set; }
         public string Title { get; set; }
-        public string Overview { get; set; }
         public string Isbn { get; set; }
         public string Authors { get; set; }
         public string Publisher { get; set; }
@@ -24,22 +23,6 @@ namespace Library_Management_System_AD
         public int Edition { get; set; }
         public int Quantity { get; set; }
 
-
-        public Book ()
-        {
-
-        }
-
-        public Book (string title, string isbn, string publisher, DateTime publishedDate, int edition, string authors, int quantity)
-        {
-            this.Title = title;
-            this.Isbn = isbn;
-            this.Publisher = publisher;
-            this.PublishedDate = publishedDate.ToShortDateString();
-            this.Edition = edition;
-            this.Authors = authors;
-            this.Quantity = quantity;
-        }
 
         public int CreateBook(String title, String overview, String isbn, Int32 publisherId, String publishedDate, Int32 edition)
         {
@@ -99,22 +82,7 @@ namespace Library_Management_System_AD
                 {
                     while (reader.Read())
                     {
-                            var title = reader["title"].ToString();
-                            var isbn = reader["isbn"].ToString();
-                            var publisher = reader["publisher"].ToString();
-                            var published_date = Convert.ToDateTime(reader["published_date"].ToString());
-                            var edition = Convert.ToInt16(reader["edition"].ToString());
-                            var author = reader["author"].ToString();
-                            var quantity = Convert.ToInt16(reader["quantity"].ToString());
-                        bookList.Add(new Book(
-                            title,
-                            isbn,
-                            publisher,
-                            published_date,
-                            edition,
-                            author,
-                            quantity
-                         ));
+                        bookList.Add(Book.CreateFromReader(reader));
                     }
                 }
             }
@@ -142,22 +110,7 @@ namespace Library_Management_System_AD
                 {
                     while (reader.Read())
                     {
-                        var title = reader["title"].ToString();
-                        var isbn = reader["isbn"].ToString();
-                        var publisher = reader["publisher"].ToString();
-                        var published_date = Convert.ToDateTime(reader["published_date"].ToString());
-                        var edition = Convert.ToInt16(reader["edition"].ToString());
-                        var author = reader["author"].ToString();
-                        var quantity = Convert.ToInt16(reader["available_quantity"].ToString());
-                        bookList.Add(new Book(
-                            title,
-                            isbn,
-                            publisher,
-                            published_date,
-                            edition,
-                            author, 
-                            quantity
-                         ));
+                        bookList.Add(Book.CreateFromReader(reader));
                     }
                 }
             }
@@ -166,6 +119,21 @@ namespace Library_Management_System_AD
             return bookList;
         }
 
+        private static Book CreateFromReader(SqlDataReader reader)
+        {
+            Book book= new Book();
+            book.Id = Convert.ToInt32(reader["id"].ToString());
+            book.Title = reader["title"].ToString();
+            book.Isbn = reader["isbn"].ToString();
+            book.Publisher = reader["publisher"].ToString();
+            book.PublishedDate = DBNull.Value.Equals(reader["published_date"])
+                ? null : Convert.ToDateTime(reader["published_date"]).ToShortDateString();
+                ;
+            book.Edition = Convert.ToInt16(reader["edition"].ToString());
+            book.Authors = reader["author"].ToString();
+            book.Quantity = Convert.ToInt16(reader["quantity"].ToString());
+            return book;
+        }
 
         public static List<Book> concatAuthors(List<Book> bookList) 
         {
@@ -193,6 +161,33 @@ namespace Library_Management_System_AD
                 }
 	        }
             return newList;
+        }
+
+
+        internal static List<Book> GetInactiveBook()
+        {
+            List<Book> bookList = new List<Book>();
+
+
+            using (SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("GetInactiveBooks", con);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+              
+                con.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        bookList.Add(Book.CreateFromReader(reader));
+                    }
+                }
+            }
+            bookList = Book.concatAuthors(bookList);
+
+            return bookList;
         }
 
     }

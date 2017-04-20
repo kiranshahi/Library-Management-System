@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Library_Management_System_AD {
+namespace Library_Management_System_AD.Admin {
     
     
-    public partial class BookList {
+    public partial class BookCopyLoans {
         
         /// <summary>
         /// lblUserName control.
@@ -31,58 +31,31 @@ namespace Library_Management_System_AD {
         protected global::System.Web.UI.WebControls.Label lblUserName1;
         
         /// <summary>
-        /// submit control.
+        /// bookId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit submit;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bookId;
         
         /// <summary>
-        /// bookName control.
+        /// copyNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox bookName;
+        protected global::System.Web.UI.WebControls.TextBox copyNumber;
         
         /// <summary>
-        /// publisherName control.
+        /// LoanLister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox publisherName;
-        
-        /// <summary>
-        /// authorName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox authorName;
-        
-        /// <summary>
-        /// Filter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Filter;
-        
-        /// <summary>
-        /// BookLister control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView BookLister;
+        protected global::System.Web.UI.WebControls.GridView LoanLister;
         
         /// <summary>
         /// info control.

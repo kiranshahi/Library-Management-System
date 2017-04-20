@@ -115,15 +115,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin\ActiveLoans.aspx" />
     <Content Include="Admin\Authors.aspx" />
     <Content Include="Admin\BookCopies.aspx" />
+    <Content Include="Admin\BookCopyLoans.aspx" />
     <Content Include="Admin\Books.aspx" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\Fines.aspx" />
+    <Content Include="Admin\InactiveMembers.aspx" />
     <Content Include="Admin\Loans.aspx" />
     <Content Include="Admin\LoanTypes.aspx" />
+    <Content Include="Admin\MemberList.aspx" />
     <Content Include="Admin\Members.aspx" />
     <Content Include="Admin\MembershipType.aspx" />
+    <Content Include="Admin\OldBookCopies.aspx" />
     <Content Include="Admin\Publishers.aspx" />
     <Content Include="Admin\Register.aspx" />
     <Content Include="Contact.aspx" />
@@ -243,6 +248,7 @@
     <Content Include="Admin\BookList.aspx" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Admin\Logout.aspx" />
+    <Content Include="Admin\MemberLoans.aspx" />
     <Content Include="ResetPassword.aspx" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -291,6 +297,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\ActiveLoans.aspx.cs">
+      <DependentUpon>ActiveLoans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ActiveLoans.aspx.designer.cs">
+      <DependentUpon>ActiveLoans.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Authors.aspx.cs">
       <DependentUpon>Authors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,6 +317,13 @@
     </Compile>
     <Compile Include="Admin\BookCopies.aspx.designer.cs">
       <DependentUpon>BookCopies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BookCopyLoans.aspx.cs">
+      <DependentUpon>BookCopyLoans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BookCopyLoans.aspx.designer.cs">
+      <DependentUpon>BookCopyLoans.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Books.aspx.cs">
       <DependentUpon>Books.aspx</DependentUpon>
@@ -326,6 +346,13 @@
     <Compile Include="Admin\Fines.aspx.designer.cs">
       <DependentUpon>Fines.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\InactiveMembers.aspx.cs">
+      <DependentUpon>InactiveMembers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\InactiveMembers.aspx.designer.cs">
+      <DependentUpon>InactiveMembers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Loans.aspx.cs">
       <DependentUpon>Loans.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -340,6 +367,13 @@
     <Compile Include="Admin\LoanTypes.aspx.designer.cs">
       <DependentUpon>LoanTypes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\MemberList.aspx.cs">
+      <DependentUpon>MemberList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MemberList.aspx.designer.cs">
+      <DependentUpon>MemberList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Members.aspx.cs">
       <DependentUpon>Members.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -353,6 +387,13 @@
     </Compile>
     <Compile Include="Admin\MembershipType.aspx.designer.cs">
       <DependentUpon>MembershipType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\OldBookCopies.aspx.cs">
+      <DependentUpon>OldBookCopies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\OldBookCopies.aspx.designer.cs">
+      <DependentUpon>OldBookCopies.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Publishers.aspx.cs">
       <DependentUpon>Publishers.aspx</DependentUpon>
@@ -399,6 +440,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="InactiveMember.cs" />
     <Compile Include="Loan.cs" />
     <Compile Include="LoanType.cs" />
     <Compile Include="Login.aspx.cs">
@@ -416,6 +458,13 @@
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member.cs" />
+    <Compile Include="Admin\MemberLoans.aspx.cs">
+      <DependentUpon>MemberLoans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MemberLoans.aspx.designer.cs">
+      <DependentUpon>MemberLoans.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MemberType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publisher.cs" />

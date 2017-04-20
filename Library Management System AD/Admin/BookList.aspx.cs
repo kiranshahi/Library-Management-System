@@ -13,6 +13,7 @@ namespace Library_Management_System_AD
 {
     public partial class BookList : System.Web.UI.Page
     {
+        List<Book> books;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,12 +22,36 @@ namespace Library_Management_System_AD
                 lblUserName.Text = Session["name"].ToString();
                 lblUserName1.Text = Session["name"].ToString();
 
-                this.populateTable();
             }
             else
             {
-                Response.Redirect("~/Login.aspx");
+                lblUserName.Text = "Guest";
+                lblUserName1.Text = "Guest";
             }
+            this.populateTable();
+            this.populateFilters();
+        }
+
+        private void populateFilters()
+        {
+            int selectedIndex;
+            if(IsPostBack)
+            {
+                selectedIndex = this.Filter.SelectedIndex;
+            } else {
+                selectedIndex = -1;
+            }
+            this.Filter.Items.Clear();
+            
+            this.Filter.Items.Add("All books");
+            this.Filter.Items.Add("Available books");
+            if (Session["name"] != null)
+            {
+                this.Filter.Items.Add("Inactive Books");
+            }
+            this.Filter.SelectedIndex = IsPostBack && selectedIndex > this.Filter.Items.Count-1 ?
+                this.Filter.Items.Count-1: selectedIndex;
+            
         }
 
         private void populateTable()
@@ -36,13 +61,25 @@ namespace Library_Management_System_AD
             string searchPublisher = this.publisherName.Text;
 
 
-            List<Book> books =
-                this.includeLoaned.Checked ?
-                Book.GetBooks(searchBook, searchAuthor, searchPublisher) :
-                Book.GetAvailableBooks(searchBook, searchAuthor, searchPublisher);
-
-            if (books.Count == 0)
+            switch(this.Filter.SelectedIndex)
             {
+                case 0 : default:
+                    this.HideFilters();
+                    this.books = Book.GetBooks(searchBook, searchAuthor, searchPublisher);
+                    break;
+                case 1:
+                    this.HideFilters();
+                    this.books = Book.GetAvailableBooks(searchBook, searchAuthor, searchPublisher);
+                    break;
+                case 2:
+                    this.ShowFilters();
+                    this.books = Book.GetInactiveBook();
+                    break;
+            }
+
+            if (this.books.Count == 0)
+            {
+                this.BookLister.Visible = false;
                 this.info.Text = "No Record Available";
                 if (!this.info.CssClass.Contains("text-danger"))
                 {
@@ -51,12 +88,46 @@ namespace Library_Management_System_AD
             }
             else
             {
+                this.BookLister.Visible = true;
                 this.info.Text = this.info.Text.Replace("text-danger", "");
                 this.info.Text = "Total records displayed: " + books.Count.ToString();
             }
-            this.BookLister.DataSource = books;
+            this.BookLister.DataSource = this.books;
             this.BookLister.DataBind();
         }
 
+        private void HideFilters()
+        {
+            this.authorName.Visible = false;
+            this.bookName.Visible = false;
+            this.publisherName.Visible = false;
+            this.submit.Visible = false;
+        }
+
+        private void ShowFilters()
+        {
+            this.authorName.Visible = true;
+            this.bookName.Visible = true;
+            this.publisherName.Visible = true;
+            this.submit.Visible = true;
+        }
+
+        public void BookLister_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            int row = e.Row.RowIndex;
+            e.Row.Cells.RemoveAt(0);  //don't show the book id to the user
+
+            if (Session["name"] == null) return; //don't show edit option to guest
+
+            if (row >= 0)
+            {
+                TableCell newCell = new TableCell();
+                newCell.Text = "<a class=\"btn btn-primary\" href=\"/admin/EditBook?id="
+                                + this.books[e.Row.RowIndex].Id
+                                + "\">"
+                                + "Edit </a>";
+                int col = e.Row.Cells.Add(newCell);
+            }
+        }
     }
 }
