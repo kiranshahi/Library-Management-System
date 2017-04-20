@@ -22,7 +22,7 @@
                           <div class="x_content">
 
                             <div class="col-md-2 pull-right clearfix">
-                                      <input id="submit" type="submit" value="submit" class="btn btn-primary" runat="server"/>
+                                      <input id="submit" type="submit" value="Search" class="btn btn-primary" runat="server"/>
                               </div>
 
                               <!-- asp components for search -->
