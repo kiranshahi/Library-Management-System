@@ -24,14 +24,8 @@ namespace Library_Management_System_AD
             {
                 Session.Add("userid", dt.Rows[0]["id"].ToString());
                 Session.Add("name", dt.Rows[0]["name"].ToString());
-                if (dt.Rows[0]["role"].ToString().ToLower() == "Admin".ToLower())
-                {
-                    Response.Redirect("~/Admin/Register.aspx");
-                }
-                else if (dt.Rows[0]["role"].ToString().ToLower() == "User".ToLower())
-                {
-                    Response.Redirect("~/Admin/Default.aspx");
-                }
+                Session.Add("role", dt.Rows[0]["role"].ToString());
+                Response.Redirect("~/Admin/Default.aspx");
             }
             else
             {

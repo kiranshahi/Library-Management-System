@@ -10,14 +10,14 @@ namespace Library_Management_System_AD.Admin
         User newUser = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["name"] != null)
+            if (Session["name"] != null && Session["role"].ToString().ToLower() == "Admin".ToLower())
             {
                 lblUserName.Text = Session["name"].ToString();
                 lblUserName1.Text = Session["name"].ToString();
             }
             else
             {
-                Response.Redirect("~/Login.aspx");
+                Response.Redirect("~/Admin/Default.aspx");
             }
 
         }
