@@ -52,6 +52,7 @@
                                 <li><a><i class="fa fa-users"></i> Test <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="ActiveLoans">Active Loans</a></li>
+                                        <li><a href="ReturnLoan">Return Loans</a></li>
                                         <li><a href="BookCopyLoans">Book Copy Loans</a></li>
                                         <li><a href="InactiveMembers">Inactive Member</a></li>
                                         <li><a href="MemberList">Member List</a></li>
@@ -103,14 +104,20 @@
                                     </ul>
                                 </li>
 
-                                <% if(Session["role"].ToString().ToLower() == "Admin".ToLower()){%>
+                                <% if (Session["name"] == null)
+                                   {
+                                       Response.Redirect("~/Login.aspx");
+                                   }
+                                    
+                                    else if (Session["role"].ToString().ToLower() == "Admin".ToLower())
+                                   { %>
                                 <li><a><i class="fa fa-user"></i> User <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="Register">Add New User</a></li>
                                         <li><a href="#">List all Books</a></li>
                                     </ul>
                                 </li>
-                                <%}%>
+                                <% } %>
                             </ul>
                         </div>
                     </div>

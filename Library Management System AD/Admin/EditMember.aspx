@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="Library_Management_System_AD.Admin.Profile" %>
+﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="EditMember.aspx.cs" Inherits="Library_Management_System_AD.Admin.EditMember" %>
 
 <asp:Content ID="userName" ContentPlaceHolderID="userName" runat="server">
     <asp:Label ID="lblUserName" runat="server"></asp:Label>
@@ -18,13 +18,8 @@
         </div>
         <div class = "panel-body" >
             
-            <div class="form-group row">
-                <label for="txtUserName" class="col-sm-2">Username:</label>
-                <div class="col-sm-8">
-                    <asp:TextBox ID="txtUserName" CssClass="form-control" runat="server" readonly="True"></asp:TextBox>
-                </div>
-            </div>
-            
+            <asp:HiddenField id="memberId" runat="server"/>
+
             <div class="form-group row">
                 <label for="txtName" class="col-sm-2">Name:</label>
                 <div class="col-sm-8">
@@ -46,22 +41,23 @@
                 </div>
             </div>
             
-            <div class="form-group row" id="password">
-                <label for="txtPassword" class="col-sm-2">Password:</label>
-                <div class="col-sm-8">
-                    <asp:TextBox ID="txtPassword" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-            </div>
+            <div class="form-group row">
+               <label for="membershipType" class="col-sm-2">Membership Type:</label>
+               <div class="col-sm-8">
+                   <select id="membershipType" class="form-control" runat="server" name="membershipType">
+                   </select>
+               </div>
+           </div>
             
             <div class="form-group row">
-                <label for="txtPhone" class="col-sm-2"></label>
+                <label for="txtAddress" class="col-sm-2">Address:</label>
                 <div class="col-sm-8">
-                    <button type="button" class="btn btn-default" id="showPasswordFields" onclick="makeid()"> Generate Password </button>
+                    <asp:TextBox ID="txtAddress" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
 
             <div class="form-group row">
-                <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" CssClass="btn btn-success" OnClick="UpdateProfile"/>
+                <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Member" CssClass="btn btn-success" OnClick="UpdateMemberDetails"/>
             </div>
         </div>
     </div>
