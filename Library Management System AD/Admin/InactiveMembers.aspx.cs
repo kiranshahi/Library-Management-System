@@ -7,6 +7,15 @@ using System.Web.UI.WebControls;
 
 namespace Library_Management_System_AD.Admin
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  InactiveMembers
+    ///
+    /// @brief  An inactive member. 
+    ///             -who has not borrowed in last 31 days
+    ///
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public partial class InactiveMembers : System.Web.UI.Page
     {
         List<InactiveMember> members;
@@ -20,6 +29,14 @@ namespace Library_Management_System_AD.Admin
             lblUserName1.Text = Session["name"].ToString();
             this.populateTable();
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private void populateTable()
+        ///
+        /// @brief  Populate table with inactive user details.
+        ///
+        /// @date   21/04/2017
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         private void populateTable()
         {
@@ -44,6 +61,18 @@ namespace Library_Management_System_AD.Admin
             this.MemberLister.DataBind();
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public void MemberLister_RowDataBound(object sender, GridViewRowEventArgs e)
+        ///
+        /// @brief  Event handler. Called by MemberLister for row data bound events.
+        ///         -Adds edit option for members
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Grid view row event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public void MemberLister_RowDataBound(object sender, GridViewRowEventArgs e)
         {

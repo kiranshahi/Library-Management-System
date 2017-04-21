@@ -11,9 +11,28 @@ using System.Web.UI.WebControls;
 
 namespace Library_Management_System_AD
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  BookList
+    ///
+    /// @brief  List of books.
+    ///
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public partial class BookList : System.Web.UI.Page
     {
         List<Book> books;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn protected void Page_Load(object sender, EventArgs e)
+        ///
+        /// @brief  Event handler. Called by Page for load events.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,6 +50,17 @@ namespace Library_Management_System_AD
             this.populateTable();
             this.populateFilters();
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private void populateFilters()
+        ///
+        /// @brief  Populate filters for displayed books
+        ///         - all books  
+        ///         - books available currently  
+        ///         - books not borrowed in last 31 days (only to registered users)
+        ///
+        /// @date   21/04/2017
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         private void populateFilters()
         {
@@ -54,6 +84,14 @@ namespace Library_Management_System_AD
             
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private void populateTable()
+        ///
+        /// @brief  Populate table with books data.
+        ///
+        /// @date   21/04/2017
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         private void populateTable()
         {
             string searchBook = this.bookName.Text;
@@ -64,15 +102,15 @@ namespace Library_Management_System_AD
             switch(this.Filter.SelectedIndex)
             {
                 case 0 : default:
-                    this.ShowFilters();
+                    this.ShowSearch();
                     this.books = Book.GetBooks(searchBook, searchAuthor, searchPublisher);
                     break;
                 case 1:
-                    this.ShowFilters();
+                    this.ShowSearch();
                     this.books = Book.GetAvailableBooks(searchBook, searchAuthor, searchPublisher);
                     break;
                 case 2:
-                    this.HideFilters();
+                    this.HideSearch();
                     this.books = Book.GetInactiveBook();
                     break;
             }
@@ -96,7 +134,15 @@ namespace Library_Management_System_AD
             this.BookLister.DataBind();
         }
 
-        private void HideFilters()
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private void HideSearch()
+        ///
+        /// @brief  Hides the text based search fields.
+        ///
+        /// @date   21/04/2017
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        private void HideSearch()
         {
             this.authorName.Visible = false;
             this.bookName.Visible = false;
@@ -104,13 +150,34 @@ namespace Library_Management_System_AD
             this.submit.Visible = false;
         }
 
-        private void ShowFilters()
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private void ShowSearch()
+        ///
+        /// @brief  Shows the text based search fields
+        ///
+        /// @date   21/04/2017
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        private void ShowSearch()
         {
             this.authorName.Visible = true;
             this.bookName.Visible = true;
             this.publisherName.Visible = true;
             this.submit.Visible = true;
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public void BookLister_RowDataBound(object sender, GridViewRowEventArgs e)
+        ///
+        /// @brief  Event handler. Called by BookLister for row data bound events.
+        ///         Hides book id
+        ///         Add edit option for each book.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Grid view row event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public void BookLister_RowDataBound(object sender, GridViewRowEventArgs e)
         {

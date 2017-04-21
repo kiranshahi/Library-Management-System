@@ -7,8 +7,30 @@ using System.Web.Configuration;
 
 namespace Library_Management_System_AD
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  MemberType
+    ///
+    /// @brief  A member type.
+    ///
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public class MemberType
     {
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public int AddMemberType(String type, Int32 booksAllowed, Int32 penaltyCharge)
+        ///
+        /// @brief  Adds a member type.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  type            The type.
+        /// @param  booksAllowed    The books allowed.
+        /// @param  penaltyCharge   The penalty charge.
+        ///
+        /// @return An int.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public int AddMemberType(String type, Int32 booksAllowed, Int32 penaltyCharge)
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);

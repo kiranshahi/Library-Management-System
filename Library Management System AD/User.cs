@@ -6,6 +6,14 @@ using System.Web.Configuration;
 
 namespace Library_Management_System_AD
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  User
+    ///
+    /// @brief  An user.
+    ///
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public class User
     {
         public int Id { get; set; }
@@ -15,6 +23,24 @@ namespace Library_Management_System_AD
         public string Username { get; set; }
         public string Role { get; set; }
         public string RegisteredDate { get; set; }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public int CreateUser(string name, string username, string email, string phone, string password, string role, DateTime registeredDate)
+        ///
+        /// @brief  Creates a user.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  name            The name.
+        /// @param  username        The username.
+        /// @param  email           The email.
+        /// @param  phone           The phone.
+        /// @param  password        The password.
+        /// @param  role            The role.
+        /// @param  registeredDate  The registered date.
+        ///
+        /// @return The new user.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public int CreateUser(string name, string username, string email, string phone, string password, string role, DateTime registeredDate)
         {
@@ -36,6 +62,21 @@ namespace Library_Management_System_AD
             return i;
 
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public DataTable CheckUserLogin(string username, string password)
+        ///
+        /// @brief  Checks user login.
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  username    The username.
+        /// @param  password    The password.
+        ///
+        /// @return A DataTable.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public DataTable CheckUserLogin(string username, string password)
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
@@ -48,6 +89,20 @@ namespace Library_Management_System_AD
             da.Fill(dt);
             return dt;
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public bool UsernameCheck(string username, string email)
+        ///
+        /// @brief  Checks username
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  username    The username.
+        /// @param  email       The email.
+        ///
+        /// @return True if it succeeds, false if it fails.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public bool UsernameCheck(string username, string email)
         {
             bool isUserExisted = false;
@@ -69,6 +124,19 @@ namespace Library_Management_System_AD
             return isUserExisted;
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public int ResetPassword(string email,string password)
+        ///
+        /// @brief  Resets the password.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  email       The email.
+        /// @param  password    The password.
+        ///
+        /// @return changed row number.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public int ResetPassword(string email,string password)
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
@@ -82,6 +150,22 @@ namespace Library_Management_System_AD
             con.Close();
             return i;
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public int UpdateUserDetails(int userid, string name, string email, string mobile, string password)
+        ///
+        /// @brief  Updates the user details.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  userid      The userid.
+        /// @param  name        The name.
+        /// @param  email       The email.
+        /// @param  mobile      The mobile.
+        /// @param  password    The password.
+        ///
+        /// @return An int.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public int UpdateUserDetails(int userid, string name, string email, string mobile, string password)
         {
@@ -120,6 +204,16 @@ namespace Library_Management_System_AD
             }
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn internal static List<User> GetUsers()
+        ///
+        /// @brief  Gets all users from the database.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @return The users.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         internal static List<User> GetUsers()
         {
             List<User> users = new List<User>();
@@ -140,6 +234,18 @@ namespace Library_Management_System_AD
             }
             return users;
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private static User CreateFromReader(SqlDataReader reader)
+        ///
+        /// @brief  Creates new user instance from sql reader.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  reader  The reader.
+        ///
+        /// @return The new from reader.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         private static User CreateFromReader(SqlDataReader reader)
         {

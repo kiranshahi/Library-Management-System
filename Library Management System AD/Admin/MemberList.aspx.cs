@@ -7,6 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace Library_Management_System_AD.Admin
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  MemberList
+    ///
+    /// @brief  List of members.
+    ///
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public partial class MemberList : System.Web.UI.Page
     {
         List<Member> members;
@@ -22,6 +30,14 @@ namespace Library_Management_System_AD.Admin
             
 
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private void populateTable()
+        ///
+        /// @brief  Populate table with member details.
+        ///
+        /// @date   21/04/2017
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         private void populateTable()
         {
@@ -48,6 +64,20 @@ namespace Library_Management_System_AD.Admin
             this.MemberLister.DataSource = members;
             this.MemberLister.DataBind();
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn protected void MemberLister_RowDataBound(object sender, GridViewRowEventArgs e)
+        ///
+        /// @brief  Event handler. Called by MemberLister for row data bound events.
+        ///         - Edit button for members  
+        ///         - Loans button to see loans by the member.
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Grid view row event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         protected void MemberLister_RowDataBound(object sender, GridViewRowEventArgs e)
         {

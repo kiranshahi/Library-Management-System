@@ -7,6 +7,15 @@ using System.Web.UI.WebControls;
 
 namespace Library_Management_System_AD.Admin
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  UserList
+    ///
+    /// @brief  List of users.
+    ///
+    /// @author Sirjan
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public partial class UserList : System.Web.UI.Page
     {
         List<User> users;
@@ -22,6 +31,15 @@ namespace Library_Management_System_AD.Admin
 
 
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private void populateTable()
+        ///
+        /// @brief  Populate table with users detail.
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         private void populateTable()
         {
@@ -44,6 +62,19 @@ namespace Library_Management_System_AD.Admin
             this.UserLister.DataSource = users;
             this.UserLister.DataBind();
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn protected void UserLister_RowDataBound(object sender, GridViewRowEventArgs e)
+        ///
+        /// @brief  Event handler. Called by UserLister for row data bound events.
+        ///         - Add edit button for each user
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Grid view row event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         protected void UserLister_RowDataBound(object sender, GridViewRowEventArgs e)
         {

@@ -5,6 +5,15 @@ using System.Web;
 
 namespace Library_Management_System_AD
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  InactiveMember
+    ///
+    /// @brief  An inactive member.
+    ///         -- member that hasn't borrowed in last 31 days.
+    ///
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public class InactiveMember
     {
         public int Id { get; set; }

@@ -6,6 +6,15 @@ using System.Web.Configuration;
 
 namespace Library_Management_System_AD.Admin
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  Members
+    ///
+    /// @brief  A members
+    ///
+    /// @author Sirjan
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public partial class Members : System.Web.UI.Page
     {
         Member newMember = new Member();
@@ -37,6 +46,18 @@ namespace Library_Management_System_AD.Admin
                 Response.Redirect("~/Login.aspx");
             }
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn protected void BtnAddMember(object sender, EventArgs e)
+        ///
+        /// @brief  Button add member.
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         protected void BtnAddMember(object sender, EventArgs e)
         {

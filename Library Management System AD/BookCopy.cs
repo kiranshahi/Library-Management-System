@@ -6,12 +6,35 @@ using System.Web.Configuration;
 
 namespace Library_Management_System_AD
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  BookCopy
+    ///
+    /// @brief  A book copy.
+    ///
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public class BookCopy
     {
         public int CopyNumber { get; set; }
         public string Title { get; set; }
         public string PurchasedDate { get; set; }
         public string Location { get; set; }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public int CreateBookCopies( Int32 copyNo, Int32 bookId, DateTime purchaseDate, String location)
+        ///
+        /// @brief  Creates book copies.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  copyNo          The copy no.
+        /// @param  bookId          Identifier for the book.
+        /// @param  purchaseDate    The purchase date.
+        /// @param  location        The location.
+        ///
+        /// @return The new book copies.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public int CreateBookCopies( Int32 copyNo, Int32 bookId, DateTime purchaseDate, String location)
         {
@@ -28,6 +51,18 @@ namespace Library_Management_System_AD
             con.Close();
             return i;
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public static bool exists(int copyNumber)
+        ///
+        /// @brief  Determine if 'copyNumber' exists.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  copyNumber  The copy number.
+        ///
+        /// @return True if it succeeds, false if it fails.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public static bool exists(int copyNumber)
         {
@@ -46,6 +81,16 @@ namespace Library_Management_System_AD
             }
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public static List<BookCopy> GetOldCopies()
+        ///
+        /// @brief  Gets old copies.
+        ///         -- copies older than 1 year.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @return The old copies.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public static List<BookCopy> GetOldCopies()
         {
@@ -70,6 +115,18 @@ namespace Library_Management_System_AD
             return books;
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private static BookCopy CreateFromReader(SqlDataReader reader)
+        ///
+        /// @brief  Creates from sql data reader
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  reader  The reader with data from database.
+        ///
+        /// @return The new from reader.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         private static BookCopy CreateFromReader(SqlDataReader reader)
         {
             BookCopy member = new BookCopy();
@@ -80,6 +137,17 @@ namespace Library_Management_System_AD
             member.Location = reader["location"].ToString();
             return member;
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn internal static int DeleteOldCopies()
+        ///
+        /// @brief  Deletes all old copies 
+        ///          - copies older than 1 years.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @return An int.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         internal static int DeleteOldCopies()
         {

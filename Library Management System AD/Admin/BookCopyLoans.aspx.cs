@@ -10,6 +10,14 @@ using System.Web.UI.WebControls;
 
 namespace Library_Management_System_AD.Admin
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  BookCopyLoans
+    ///
+    /// @brief  Book copy displayer
+    ///
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public partial class BookCopyLoans : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -26,6 +34,16 @@ namespace Library_Management_System_AD.Admin
             lblUserName1.Text = Session["name"].ToString();
             this.populateTable();
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private void populateTable ()
+        ///
+        /// @brief  Populate display table with data
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @exception  FormatException Thrown when the format of the copyNumber provided is incorrect.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         private void populateTable () 
         {
@@ -83,6 +101,14 @@ namespace Library_Management_System_AD.Admin
             this.LoanLister.DataBind();
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @class  CopyLoan
+        ///
+        /// @brief  A loan for a particular book copy
+        ///
+        /// @date   21/04/2017
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public class CopyLoan 
         {
             public string Book { get; set; }
@@ -92,8 +118,19 @@ namespace Library_Management_System_AD.Admin
             public string ReturnedDate { get; set; }
             public string DueDate { get; set; }
 
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                /// @fn public static List<CopyLoan> GetLoans(int copyId)
+                ///
+                /// @brief  Gets the loans of given book copy
+                ///
+                /// @date   21/04/2017
+                ///
+                /// @param  copyId  Identifier for the copy
+                ///
+                /// @return The loans.
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                public static List<CopyLoan> GetLoans(int memberId)
+                public static List<CopyLoan> GetLoans(int copyId)
                 {
 
                     List<CopyLoan> loans = new List<CopyLoan>();
@@ -102,7 +139,7 @@ namespace Library_Management_System_AD.Admin
                         SqlCommand cmd = new SqlCommand("GetCopyLoans", con);
 
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add(new SqlParameter("@id", memberId));
+                        cmd.Parameters.Add(new SqlParameter("@id", copyId));
 
                         con.Open();
 
@@ -116,6 +153,18 @@ namespace Library_Management_System_AD.Admin
                     }
                     return loans;
                 }
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                /// @fn private static CopyLoan CreateFromReader(SqlDataReader reader)
+                ///
+                /// @brief  Creates and instance of CopyLoan from given sql reader
+                ///
+                /// @date   21/04/2017
+                ///
+                /// @param  reader  SqlDataReader containing result of query
+                ///
+                /// @return The new from reader.
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 private static CopyLoan CreateFromReader(SqlDataReader reader)
                 {

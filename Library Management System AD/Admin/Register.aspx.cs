@@ -5,6 +5,15 @@ using System.Net.Mail;
 
 namespace Library_Management_System_AD.Admin
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  Register
+    ///
+    /// @brief  A register.
+    ///
+    /// @author Sirjan
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public partial class Register : System.Web.UI.Page
     {
         User newUser = new User();
@@ -21,6 +30,18 @@ namespace Library_Management_System_AD.Admin
             }
 
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn protected void BtnAddUser(object sender, EventArgs e)
+        ///
+        /// @brief  Button add user.
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         protected void BtnAddUser(object sender, EventArgs e)
         {
