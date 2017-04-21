@@ -12,7 +12,7 @@ namespace Library_Management_System_AD
     ///
     /// @brief  A publisher.
     ///
-    /// @author Sirjan
+    /// 
     /// @date   21/04/2017
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -23,7 +23,7 @@ namespace Library_Management_System_AD
         ///
         /// @brief  Adds a publisher 
         ///
-        /// @author Sirjan
+        ///
         /// @date   21/04/2017
         ///
         /// @param  name        The name.

@@ -13,7 +13,7 @@ namespace Library_Management_System_AD.Admin
     ///
     /// @brief  A membership type.
     ///
-    /// @author Sirjan
+    /// 
     /// @date   21/04/2017
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -38,7 +38,7 @@ namespace Library_Management_System_AD.Admin
         ///
         /// @brief  Button add membership type.
         ///
-        /// @author Sirjan
+        /// 
         /// @date   21/04/2017
         ///
         /// @param  sender  Source of the event.

@@ -46,7 +46,7 @@ namespace Library_Management_System_AD
         ///
         /// @brief  Check author int the db from the name given
         ///
-        /// @author Sirjan
+        /// 
         /// @date   21/04/2017
         ///
         /// @param  name    The name.

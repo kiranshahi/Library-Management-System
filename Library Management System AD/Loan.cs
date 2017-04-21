@@ -219,7 +219,7 @@ namespace Library_Management_System_AD
         ///
         /// @brief  Mark a book copy on loan as returned
         ///
-        /// @author Sirjan
+        ///
         /// @date   21/04/2017
         ///
         /// @param  loandId         Identifier for the loand.

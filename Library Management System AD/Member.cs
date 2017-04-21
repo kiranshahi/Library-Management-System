@@ -166,7 +166,7 @@ namespace Library_Management_System_AD
         ///
         /// @brief  Creates inactive member from reader.
         ///
-        /// @author Sirjan
+        ///
         /// @date   21/04/2017
         ///
         /// @param  reader  The reader.

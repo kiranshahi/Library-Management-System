@@ -8,7 +8,7 @@ namespace Library_Management_System_AD.Admin
     ///
     /// @brief  A publishers.
     ///
-    /// @author Sirjan
+    /// 
     /// @date   21/04/2017
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -34,7 +34,7 @@ namespace Library_Management_System_AD.Admin
         ///
         /// @brief  Button add publisher.
         ///
-        /// @author Sirjan
+        /// 
         /// @date   21/04/2017
         ///
         /// @param  sender  Source of the event.

@@ -11,7 +11,7 @@ namespace Library_Management_System_AD.Admin
     ///
     /// @brief  A members
     ///
-    /// @author Sirjan
+    ///
     /// @date   21/04/2017
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -52,7 +52,7 @@ namespace Library_Management_System_AD.Admin
         ///
         /// @brief  Button add member.
         ///
-        /// @author Sirjan
+        /// 
         /// @date   21/04/2017
         ///
         /// @param  sender  Source of the event.

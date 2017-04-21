@@ -72,7 +72,7 @@ namespace Library_Management_System_AD.Admin
         ///         - Edit button for members  
         ///         - Loans button to see loans by the member.
         ///
-        /// @author Sirjan
+        /// 
         /// @date   21/04/2017
         ///
         /// @param  sender  Source of the event.

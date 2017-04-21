@@ -80,7 +80,7 @@ namespace Library_Management_System_AD.Admin
         /// @brief  Event handler. Called by LoanLister for row data bound events.
         ///         Removes fifth column (returned_date) because books haven't been returned yet
         ///
-        /// @author Sirjan
+        /// 
         /// @date   21/04/2017
         ///
         /// @param  sender  Source of the event.

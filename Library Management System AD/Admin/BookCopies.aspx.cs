@@ -15,7 +15,7 @@ namespace Library_Management_System_AD.Admin
         ///
         /// @brief  Event handler. Called by Page for load events.
         ///
-        /// @author Sirjan
+        /// 
         /// @date   21/04/2017
         ///
         /// @param  sender  Source of the event.
@@ -56,7 +56,7 @@ namespace Library_Management_System_AD.Admin
         ///
         /// @brief  Button add book copies.
         ///
-        /// @author Sirjan
+        /// 
         /// @date   21/04/2017
         ///
         /// @param  sender  Source of the event.

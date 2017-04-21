@@ -67,7 +67,7 @@ namespace Library_Management_System_AD.Admin
         /// @brief  Event handler. Called by MemberLister for row data bound events.
         ///         -Adds edit option for members
         ///
-        /// @author Sirjan
+        /// 
         /// @date   21/04/2017
         ///
         /// @param  sender  Source of the event.
