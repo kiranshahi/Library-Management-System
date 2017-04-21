@@ -319,7 +319,7 @@ namespace Library_Management_System_AD
             }
             
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
-            string sql = "UPDATE users SET title=@title, overview=@overview, isbn=@isbn, publisher_id=@publisher, published_date=@pd, edition=@edition WHERE id=@bookid;";
+            string sql = "UPDATE books SET title=@title, overview=@overview, isbn=@isbn, publisher_id=@publisher, published_date=@pd, edition=@edition WHERE id=@bookid;";
             SqlCommand cmd = new SqlCommand(sql, con);
 
             cmd.Parameters.AddWithValue("@bookid", bookid);
