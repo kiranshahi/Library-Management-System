@@ -3,6 +3,9 @@
   <PropertyGroup>
     <UseIISExpress>true</UseIISExpress>
   </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>C:\Users\kirans\Documents\Visual Studio 2017\Projects\Library Management System AD\</ReferencePath>
+  </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">

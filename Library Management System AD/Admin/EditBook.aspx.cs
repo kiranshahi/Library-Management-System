@@ -71,8 +71,7 @@ namespace Library_Management_System_AD.Admin
         {
             try
             {
-                updateBook.UpdateBook(Convert.ToInt32(bookId.Value), txtTitle.Text, txtOverview.Text, txtIsbn.Text,
-    Convert.ToInt32(publisherList.Value), txtPublishedDate.Text, Convert.ToInt32(txtEdition));
+                updateBook.UpdateBook(Convert.ToInt32(bookId.Value), txtTitle.Text, txtOverview.Text, txtIsbn.Text, Convert.ToInt32(publisherList.Value), txtPublishedDate.Text, Convert.ToInt32(txtEdition));
                 lblMessage.Text = "Book updated successfully.";
                 lblMessage.ForeColor = Color.Green;
             }
