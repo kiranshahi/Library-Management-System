@@ -90,24 +90,25 @@ namespace Library_Management_System_AD.Admin
 
             try
             {
-                newBook.CreateBook(txtTitle.Text, txtOverview.Text, txtIsbn.Text, Convert.ToInt32(publisherList.Value), txtPublishedDate.Text, Convert.ToInt32(txtEdition.Text), Convert.ToBoolean(rbAgeRestricted.SelectedValue));
+                int bookId = newBook.CreateBook(txtTitle.Text, txtOverview.Text, txtIsbn.Text, Convert.ToInt32(publisherList.Value), txtPublishedDate.Text, Convert.ToInt32(txtEdition.Text), Convert.ToBoolean(rbAgeRestricted.SelectedValue));
 
-                //** Need to be changed here. **/
-//                foreach (ListItem item in this.authorList.Items)
-//                {
-//                    if (item.Selected)
-//                    {
-//                        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
-//                        SqlCommand insertCommand = new SqlCommand("Insert into test values(@a, @b)", con);
-//                        insertCommand.Parameters.AddWithValue("@a", Convert.ToInt32(item.Value));
-//                        insertCommand.Parameters.AddWithValue("@b", txtIsbn.Text);
-//                        con.Open();
+
+                //* Need to be changed here. **/
+                foreach (ListItem item in this.authorList.Items)
+                {
+                    if (item.Selected)
+                    {
+                        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
+                        SqlCommand insertCommand = new SqlCommand("Insert into author_book values(@a, @b)", con);
+                        insertCommand.Parameters.AddWithValue("@a", Convert.ToInt32(item.Value));
+                        insertCommand.Parameters.AddWithValue("@b", bookId);
+                        con.Open();
 //
-//                        insertCommand.ExecuteNonQuery();
+                        insertCommand.ExecuteNonQuery();
 //
-//                        con.Close();
-//                    }
-//                }
+                        con.Close();
+                    }
+                }
                 lblMessage.Text += " Book added successfully.";
                 lblMessage.ForeColor = Color.Green;
             }

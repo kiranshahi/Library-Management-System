@@ -60,7 +60,7 @@ namespace Library_Management_System_AD
 
             SqlConnection con =
                 new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
-            string sql = "insert into books values(@a,@b, @c, @d, @e, @f, @g)";
+            string sql = "insert into books output inserted.id values(@a,@b, @c, @d, @e, @f, @g)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@a", title);
             cmd.Parameters.AddWithValue("@b", overview);
@@ -81,7 +81,7 @@ namespace Library_Management_System_AD
             cmd.Parameters.AddWithValue("@g", ageRestriced);
 
             con.Open();
-            int i = cmd.ExecuteNonQuery();
+            int i = (int) cmd.ExecuteScalar();
             con.Close();
             return i;
         }
