@@ -6,15 +6,17 @@ using System.Web.Configuration;
 
 namespace Library_Management_System_AD.Admin
 {
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    /// @class  EditMember
-    ///
-    /// @brief  An edit member.
-    ///
-    /// @author Sirjan
-    /// @date   21/04/2017
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    public partial class EditMember : System.Web.UI.Page
+    {
+        Member newMember = new Member();
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                this.HandlePageLoad();
+            }
+        }
 
         private void HandlePageLoad()
         {
@@ -22,43 +24,42 @@ namespace Library_Management_System_AD.Admin
             {
                 lblUserName.Text = Session["name"].ToString();
                 lblUserName1.Text = Session["name"].ToString();
-
-                if (!string.IsNullOrEmpty(Request.QueryString["id"]))
+                if (!IsPostBack)
                 {
-                    string memberId = Request.QueryString["id"];
-
-                    string connectString =
-                        WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
-                    string queryString = "SELECT * from members where id =' " + memberId + " ' ";
-
-                    SqlConnection myConnection = new SqlConnection(connectString);
-                    myConnection.Open();
-                    SqlCommand myCommand = new SqlCommand(queryString, myConnection);
-                    SqlDataReader myReader = myCommand.ExecuteReader();
-
-                    while (myReader.Read())
+                    if (!string.IsNullOrEmpty(Request.QueryString["id"]))
                     {
-                        this.memberId.Value = memberId;
-                        txtName.Text = (myReader["name"].ToString());
-                        txtEmail.Text = (myReader["email"].ToString());
-                        txtPhone.Text = (myReader["phone"].ToString());
-                        txtAddress.Text = (myReader["address"].ToString());
+                        string memberId = Request.QueryString["id"];
+
+                        string connectString =
+                        WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
+                        string queryString = "select * from members where id = ' " + memberId + " ' ";
+
+                        SqlConnection myConnection = new SqlConnection(connectString);
+                        myConnection.Open();
+                        SqlDataReader myReader = null;
+                        SqlCommand myCommand = new SqlCommand(queryString, myConnection);
+                        myReader = myCommand.ExecuteReader();
+
+                        while (myReader.Read())
+                        {
+                            this.memberId.Value = memberId;
+                            txtName.Text = (myReader["name"].ToString());
+                            txtEmail.Text = (myReader["email"].ToString());
+                            txtPhone.Text = (myReader["phone"].ToString());
+                            txtAddress.Text = (myReader["address"].ToString());
+                        }
+                        myReader.Close();
+
+                        string memberTypeQueryString = "select * from membership_types";
+                        SqlDataAdapter memberTypeCommand = new SqlDataAdapter(memberTypeQueryString, myConnection);
+                        DataSet ds = new DataSet();
+                        memberTypeCommand.Fill(ds, "membershipTypes");
+
+                        membershipType.DataSource = ds;
+                        membershipType.DataTextField = "type";
+                        membershipType.DataValueField = "id";
+                        membershipType.DataBind();
                     }
-                    myReader.Close();
-
-                    string QueryString = "select * from membership_types";
-
-                    SqlDataAdapter membershipTypeCommand = new SqlDataAdapter(QueryString, myConnection);
-                    DataSet ds = new DataSet();
-                    membershipTypeCommand.Fill(ds, "membershipTypes");
-
-                    membershipType.DataSource = ds;
-                    membershipType.DataTextField = "type";
-                    membershipType.DataValueField = "id";
-                    membershipType.DataBind();
-
-                    myConnection.Close();
-
                 }
             }
             else
@@ -66,33 +67,13 @@ namespace Library_Management_System_AD.Admin
                 Response.Redirect("~/Login.aspx");
             }
         }
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// @fn protected void UpdateMemberDetails(object sender, EventArgs e)
-        ///
-        /// @brief  Updates the member details.
-        ///
-        /// @author Sirjan
-        /// @date   21/04/2017
-        ///
-        /// @param  sender  Source of the event.
-        /// @param  e       Event information.
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
         protected void UpdateMemberDetails(object sender, EventArgs e)
         {
             try
             {
                 int a = newMember.UpdateMemberDetails(Convert.ToInt32(memberId.Value), txtName.Text, txtEmail.Text, txtPhone.Text, Convert.ToInt32(membershipType.Value), txtAddress.Text);
-                Response.Redirect("~/Admin/MemberList.aspx");
-                lblMessage.Text = "id: "+a.ToString()+" ";
-                //                lblMessage.ForeColor = Color.Green;
-                lblMessage.Text += memberId.Value + " <br />";
-                lblMessage.Text += txtName.Text + " <br />";
-                lblMessage.Text += txtEmail.Text + " <br />";
-                lblMessage.Text += txtPhone.Text + " <br />";
-                lblMessage.Text += membershipType.Value + " <br />";
-                lblMessage.Text += txtAddress.Text;
+                lblMessage.Text = "Member updated successfully.";
+                lblMessage.ForeColor = Color.Green;
             }
             catch (Exception exception)
             {

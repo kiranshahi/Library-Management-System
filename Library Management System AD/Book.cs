@@ -276,7 +276,47 @@ namespace Library_Management_System_AD
             return bookList;
         }
 
-    }
+        public int UpdateBook(Int32 bookid, String title, String overview, String isbn, Int32 publisher, String publishedDate, Int32 edition)
+        {
+            Boolean hasPd = false;
+            DateTime pd;
+            if (String.IsNullOrEmpty(publishedDate))
+            {
+                hasPd = false;
+            }
+            else
+            {
+                hasPd = true;
+            }
+
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
+                string sql = "UPDATE users SET title=@title, overview=@overview, isbn=@isbn, publisher_id=@publisher, published_date=@pd, edition=@edition WHERE id=@bookid;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+            cmd.Parameters.AddWithValue("@bookid", bookid);
+            cmd.Parameters.AddWithValue("@title", title);
+            cmd.Parameters.AddWithValue("@overview", overview);
+            cmd.Parameters.AddWithValue("@isbn", isbn);
+            cmd.Parameters.AddWithValue("@publisher", publisher);
+            if (hasPd)
+            {
+                pd = Convert.ToDateTime(publishedDate);
+                cmd.Parameters.AddWithValue("@pd", pd);
+
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@pd", DBNull.Value);
+
+            }
+            cmd.Parameters.AddWithValue("@edition", edition);
+
+            con.Open();
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            return i;
+
+        }
 
 
 }

@@ -10,7 +10,7 @@
 namespace Library_Management_System_AD.Admin {
     
     
-    public partial class ReturnLoan {
+    public partial class EditBook {
         
         /// <summary>
         /// lblUserName control.
@@ -40,93 +40,120 @@ namespace Library_Management_System_AD.Admin {
         protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// loanId control.
+        /// bookId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField loanId;
+        protected global::System.Web.UI.WebControls.HiddenField bookId;
         
         /// <summary>
-        /// loanType control.
+        /// txtTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox loanType;
+        protected global::System.Web.UI.WebControls.TextBox txtTitle;
         
         /// <summary>
-        /// bookCopy control.
+        /// reqValTxtTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox bookCopy;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValTxtTitle;
         
         /// <summary>
-        /// member control.
+        /// txtOverview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox member;
+        protected global::System.Web.UI.WebControls.TextBox txtOverview;
         
         /// <summary>
-        /// txtIssuedDate control.
+        /// txtIsbn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIssuedDate;
+        protected global::System.Web.UI.WebControls.TextBox txtIsbn;
         
         /// <summary>
-        /// txtDueDate control.
+        /// reqValTxtOverview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDueDate;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValTxtOverview;
         
         /// <summary>
-        /// txtFineAmount control.
+        /// publisherList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFineAmount;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect publisherList;
         
         /// <summary>
-        /// txtReturnedDate control.
+        /// authorList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReturnedDate;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect authorList;
         
         /// <summary>
-        /// Reset_Button control.
+        /// txtPublishedDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Reset_Button;
+        protected global::System.Web.UI.WebControls.TextBox txtPublishedDate;
         
         /// <summary>
-        /// btnReturnLoan control.
+        /// txtEdition control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReturnLoan;
+        protected global::System.Web.UI.WebControls.TextBox txtEdition;
+        
+        /// <summary>
+        /// reqValtxtEdition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValtxtEdition;
+        
+        /// <summary>
+        /// RegExpValtxtEdition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExpValtxtEdition;
+        
+        /// <summary>
+        /// btnAddBook control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddBook;
     }
 }

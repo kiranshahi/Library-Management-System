@@ -46,19 +46,8 @@
                                     <ul class="nav child_menu">
                                         <li><a href="Books">Add New Book</a></li>
                                         <li><a href="BookList">List all Books</a></li>
-                                    </ul>
-                                </li>
-
-                                <li><a><i class="fa fa-users"></i> Test <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="ActiveLoans">Active Loans</a></li>
-                                        <li><a href="ReturnLoan">Return Loans</a></li>
                                         <li><a href="BookCopyLoans">Book Copy Loans</a></li>
-                                        <li><a href="InactiveMembers">Inactive Member</a></li>
-                                        <li><a href="MemberList">Member List</a></li>
-                                        <li><a href="MemberLoans">Member Loans</a></li>
                                         <li><a href="OldBookCopies">Old Book Copies</a></li>
-                                        <li><a href="UserList">User List</a></li>
                                     </ul>
                                 </li>
 
@@ -72,14 +61,7 @@
                                 <li><a><i class="fa fa-shopping-cart"></i> Loan <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="Loans">Add Book to Loan</a></li>
-                                        <li><a href="#">List all Books</a></li>
-                                    </ul>
-                                </li>
-
-                                <li><a><i class="fa fa-money"></i> Fine <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="Fines">Add Fine</a></li>
-                                        <li><a href="#">List all Books</a></li>
+                                        <li><a href="ActiveLoans">Active Loans</a></li>
                                     </ul>
                                 </li>
 
@@ -93,14 +75,15 @@
                                 <li><a><i class="fa fa-users"></i> Member <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="Members">Add New Member</a></li>
-                                        <li><a href="#">List all Members</a></li>
+                                        <li><a href="MemberList">List all Members</a></li>
+                                        <li><a href="InactiveMembers">Inactive Member</a></li>
                                     </ul>
                                 </li>
 
                                 <li><a><i class="fa fa-users"></i> Membership <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="MembershipType">Add Membership Type</a></li>
-                                        <li><a href="#">List all Membership Type</a></li>
+                                        <li><a href="MemberList">List all Membership Type</a></li>
                                     </ul>
                                 </li>
 
@@ -114,7 +97,7 @@
                                 <li><a><i class="fa fa-user"></i> User <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="Register">Add New User</a></li>
-                                        <li><a href="#">List all Books</a></li>
+                                        <li><a href="UserList">List all Users</a></li>
                                     </ul>
                                 </li>
                                 <% } %>
