@@ -7,8 +7,31 @@ using System.Web.Configuration;
 
 namespace Library_Management_System_AD
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  Publisher
+    ///
+    /// @brief  A publisher.
+    ///
+    /// @author Sirjan
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public class Publisher
     {
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public int AddPublisher(string name, string location)
+        ///
+        /// @brief  Adds a publisher 
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  name        The name.
+        /// @param  location    The location.
+        ///
+        /// @return An int.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public int AddPublisher(string name, string location)
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);

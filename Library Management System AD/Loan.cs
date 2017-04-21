@@ -7,6 +7,14 @@ using System.Data;
 
 namespace Library_Management_System_AD
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  Loan
+    ///
+    /// @brief  A loan.
+    ///
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public class Loan
     {
         public int Id { get; set; }
@@ -18,7 +26,23 @@ namespace Library_Management_System_AD
         public string DueDate { get; set; }
         public string LoanType { get; set; }
 
-    
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public int AddToLoan(Int32 loanType, Int32 bookCopy, Int32 member, Int32 user, DateTime issuedDate, String returnDate)
+        ///
+        /// @brief  Adds to loan.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  loanType    Type of the loan.
+        /// @param  bookCopy    The book copy.
+        /// @param  member      The member id
+        /// @param  user        The user id
+        /// @param  issuedDate  The issued date.
+        /// @param  returnDate  The return date. 
+        ///
+        /// @return An int.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public int AddToLoan(Int32 loanType, Int32 bookCopy, Int32 member, Int32 user, DateTime issuedDate, String returnDate)
         {
             Boolean hasReturnDate = false;
@@ -58,6 +82,18 @@ namespace Library_Management_System_AD
             return i;
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public static List<Loan> GetMemberLoans(int memberId)
+        ///
+        /// @brief  Gets loans taken by the given member
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  memberId    Identifier for the member.
+        ///
+        /// @return The member loans.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public static List<Loan> GetMemberLoans(int memberId)
         {
 
@@ -82,6 +118,18 @@ namespace Library_Management_System_AD
             return loans;
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private static Loan CreateFromReader(SqlDataReader reader)
+        ///
+        /// @brief  Creates a loan instance from reader.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  reader  The reader containing data from database.
+        ///
+        /// @return The new loan instance from reader.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         private static Loan CreateFromReader(SqlDataReader reader)
         {
             Loan loan = new Loan();
@@ -97,6 +145,18 @@ namespace Library_Management_System_AD
             loan.LoanType = reader["type"].ToString();
             return loan;
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public static bool existsForCopy (int copyNumber)
+        ///
+        /// @brief  Check if loan exists for given copy number
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  copyNumber  The copy number.
+        ///
+        /// @return True if it succeeds, false if it fails.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public static bool existsForCopy (int copyNumber) 
         {
@@ -120,6 +180,15 @@ namespace Library_Management_System_AD
             }
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public static List<Loan> GetActiveLoans()
+        ///
+        /// @brief  Gets active loans.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @return The active loans.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public static List<Loan> GetActiveLoans()
         {
@@ -144,6 +213,20 @@ namespace Library_Management_System_AD
             }
             return loans;
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public int ReturnTheBook(Int32 loandId, DateTime returnedDate)
+        ///
+        /// @brief  Mark a book copy on loan as returned
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  loandId         Identifier for the loand.
+        /// @param  returnedDate    The returned date.
+        ///
+        /// @return the book.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public int ReturnTheBook(Int32 loandId, DateTime returnedDate)
         {

@@ -8,9 +8,30 @@ using System.Web.UI.WebControls;
 
 namespace Library_Management_System_AD.Admin
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  LoanTypes
+    ///
+    /// @brief  A loan types.
+    ///
+    /// @author Sirjan
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public partial class LoanTypes : System.Web.UI.Page
     {
         LoanType newLoanType = new LoanType();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn protected void Page_Load(object sender, EventArgs e)
+        ///
+        /// @brief  Event handler. Called by Page for load events.
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +45,18 @@ namespace Library_Management_System_AD.Admin
                 Response.Redirect("~/Login.aspx");
             }
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn protected void BtnAddLoanType(object sender, EventArgs e)
+        ///
+        /// @brief  Button add loan type.
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         protected void BtnAddLoanType(object sender, EventArgs e)
         {

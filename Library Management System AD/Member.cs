@@ -8,7 +8,14 @@ using System.Web.Configuration;
 
 namespace Library_Management_System_AD
 {
-    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  Member
+    ///
+    /// @brief  A member.
+    ///
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public class Member
     {
         public int Id { get; set; }
@@ -21,6 +28,22 @@ namespace Library_Management_System_AD
         public int TotalLoans { get; set; }
         public int ActiveLoans { get; set; }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public int AddMember(String name, String email, String phone, Int32 memberType, DateTime joinedDate, String address)
+        ///
+        /// @brief  Adds a member.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  name        The name.
+        /// @param  email       The email.
+        /// @param  phone       The phone.
+        /// @param  memberType  Type of the member.
+        /// @param  joinedDate  The joined date.
+        /// @param  address     The address.
+        ///
+        /// @return An int.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public int AddMember(String name, String email, String phone, Int32 memberType, DateTime joinedDate, String address)
         {
@@ -39,6 +62,19 @@ namespace Library_Management_System_AD
             con.Close();
             return i;
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public static List<Member> GetMembers(string searchTerm)
+        ///
+        /// @brief  Gets the members where the search term matches
+        ///          - search term can be numeric to match with member id.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  searchTerm  The search term.
+        ///
+        /// @return The members.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public static List<Member> GetMembers(string searchTerm) 
         {
@@ -63,6 +99,18 @@ namespace Library_Management_System_AD
             return memList;
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private static Member CreateFromReader(SqlDataReader reader)
+        ///
+        /// @brief  Creates a member instance from sql reader.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  reader  The reader containing data from the database.
+        ///
+        /// @return The new from reader.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         private static Member CreateFromReader(SqlDataReader reader)
         {
             Member member = new Member();
@@ -79,6 +127,17 @@ namespace Library_Management_System_AD
             member.ActiveLoans = Convert.ToInt16(reader["active_loans"].ToString());
             return member;
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public static List<InactiveMember> GetInactiveMembers()
+        ///
+        /// @brief  Gets inactive members
+        ///         - members with no loans in last 31 days.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @return The inactive members.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public static List<InactiveMember> GetInactiveMembers()
         {
@@ -102,6 +161,19 @@ namespace Library_Management_System_AD
             return memList;
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private static InactiveMember CreateInactiveMemberFromReader(SqlDataReader reader)
+        ///
+        /// @brief  Creates inactive member from reader.
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  reader  The reader.
+        ///
+        /// @return The new inactive member from reader.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         private static InactiveMember CreateInactiveMemberFromReader(SqlDataReader reader)
         {
             InactiveMember member = new InactiveMember();
@@ -118,6 +190,23 @@ namespace Library_Management_System_AD
             ;
             return member;
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn public int UpdateMemberDetails(Int32 memberId, String name, String email, String mobile, Int32 membershipType, String address)
+        ///
+        /// @brief  Updates the member details.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  memberId        Identifier for the member.
+        /// @param  name            The name.
+        /// @param  email           The email.
+        /// @param  mobile          The mobile.
+        /// @param  membershipType  Type of the membership.
+        /// @param  address         The address.
+        ///
+        /// @return An int.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public int UpdateMemberDetails(Int32 memberId, String name, String email, String mobile, Int32 membershipType, String address)
         {

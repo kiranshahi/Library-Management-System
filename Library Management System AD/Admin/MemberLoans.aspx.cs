@@ -7,6 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace Library_Management_System_AD
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  MemberLoans
+    ///
+    /// @brief  Loans by a member.
+    ///
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public partial class MemberLoans : System.Web.UI.Page
     {
         List<Loan> loans;
@@ -22,6 +30,16 @@ namespace Library_Management_System_AD
 
 
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private void populateTable()
+        ///
+        /// @brief  Populate table with loans of a member.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @exception  FormatException Thrown when the format of the member id is incorrect.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         private void populateTable()
         {
@@ -61,6 +79,18 @@ namespace Library_Management_System_AD
             this.LoanLister.DataSource = loans;
             this.LoanLister.DataBind();
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn protected void LoanLister_RowDataBound(object sender, GridViewRowEventArgs e)
+        ///
+        /// @brief  Event handler. Called by LoanLister for row data bound events.
+        ///         - Add option for returning the loaned book.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Grid view row event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         protected void LoanLister_RowDataBound(object sender, GridViewRowEventArgs e)
         {

@@ -7,6 +7,15 @@ using System.Web.UI.WebControls;
 
 namespace Library_Management_System_AD.Admin
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  OldBookCopies
+    ///
+    /// @brief  Old book copies.
+    ///         -Older than 1 year old.
+    ///
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public partial class OldBookCopies : System.Web.UI.Page
     {
 
@@ -21,6 +30,14 @@ namespace Library_Management_System_AD.Admin
             lblUserName1.Text = Session["name"].ToString();
             this.populateTable();
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn private void populateTable()
+        ///
+        /// @brief  Populate table with the books details.
+        ///
+        /// @date   21/04/2017
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         private void populateTable()
         {
@@ -46,6 +63,18 @@ namespace Library_Management_System_AD.Admin
             this.BookLister.DataSource = this.books;
             this.BookLister.DataBind();
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn protected void deleteBtn_Click(object sender, EventArgs e)
+        ///
+        /// @brief  Event handler. Called by deleteBtn for click events.
+        ///         - If deleted, show info mentioning so.
+        ///
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         protected void deleteBtn_Click(object sender, EventArgs e)
         {

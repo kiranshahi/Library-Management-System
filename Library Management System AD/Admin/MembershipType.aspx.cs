@@ -8,6 +8,15 @@ using System.Web.UI.WebControls;
 
 namespace Library_Management_System_AD.Admin
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  MembershipType
+    ///
+    /// @brief  A membership type.
+    ///
+    /// @author Sirjan
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public partial class MembershipType : System.Web.UI.Page
     {
         MemberType newMemberType = new MemberType();
@@ -23,6 +32,18 @@ namespace Library_Management_System_AD.Admin
                 Response.Redirect("~/Login.aspx");
             }
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn protected void BtnAddMembershipType(object sender, EventArgs e)
+        ///
+        /// @brief  Button add membership type.
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         protected void BtnAddMembershipType(object sender, EventArgs e)
         {

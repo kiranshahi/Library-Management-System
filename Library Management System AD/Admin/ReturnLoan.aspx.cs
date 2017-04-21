@@ -5,9 +5,31 @@ using System.Web.Configuration;
 
 namespace Library_Management_System_AD.Admin
 {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @class  ReturnLoan
+    ///
+    /// @brief  A return loan.
+    ///
+    /// @author Sirjan
+    /// @date   21/04/2017
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public partial class ReturnLoan : System.Web.UI.Page
     {
         Loan newLoan = new Loan();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn protected void Page_Load(object sender, EventArgs e)
+        ///
+        /// @brief  Event handler. Called by Page for load events.
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["name"] != null)
@@ -71,6 +93,18 @@ namespace Library_Management_System_AD.Admin
                 Response.Redirect("~/Login.aspx");
             }
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @fn protected void BtnReturnLoan(object sender, EventArgs e)
+        ///
+        /// @brief  Button return loan.
+        ///
+        /// @author Sirjan
+        /// @date   21/04/2017
+        ///
+        /// @param  sender  Source of the event.
+        /// @param  e       Event information.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         protected void BtnReturnLoan(object sender, EventArgs e)
         {

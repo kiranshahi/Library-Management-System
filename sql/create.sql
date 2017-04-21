@@ -107,14 +107,6 @@ CREATE TABLE users (
 );
 
 
-CREATE TABLE fines (
-  id int IDENTITY(1,1),
-  rate int,
-  days int,
-  loan_id int
-);
-
-
 CREATE TABLE logs (
   id int IDENTITY(1,1),
   user_id int,
@@ -160,9 +152,6 @@ ALTER TABLE publishers
 ALTER TABLE users
   ADD CONSTRAINT users_pk PRIMARY KEY (id);
 
-ALTER TABLE fines 
-  ADD CONSTRAINT fines_pk PRIMARY KEY (id);
-
 ALTER TABLE logs 
   ADD CONSTRAINT logs_pk PRIMARY KEY (id);
 
@@ -188,10 +177,6 @@ ALTER TABLE members
   ADD CONSTRAINT members_membership_type_id_foreign FOREIGN KEY (membership_type_id) REFERENCES membership_types (id);
 
   
-ALTER TABLE fines 
-  ADD CONSTRAINT fines_loan_id_foreign FOREIGN KEY (loan_id) REFERENCES loans (id);
-
-
 ALTER TABLE logs 
   ADD CONSTRAINT logs_user_id_foreign FOREIGN KEY (user_id) REFERENCES users (id);
 
