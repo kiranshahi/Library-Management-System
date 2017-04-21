@@ -48,6 +48,13 @@
             </div>
             
             <div class="form-group row">
+                <label for="txtDueDate" class="col-sm-2">Due Date:</label>
+                <div class="col-sm-8">
+                   <asp:TextBox ID="txtDueDate" CssClass="form-control" runat="server" readonly="True"></asp:TextBox>
+                </div>
+            </div>
+            
+            <div class="form-group row">
                 <label for="txtReturnedDate" class="col-sm-2">Returned Date:</label>
                 <div class="col-sm-8">
                     <div class='input-group date' id='lmsDatetimePicker'>

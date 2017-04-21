@@ -21,7 +21,7 @@ namespace Library_Management_System_AD.Admin
 
                     string connectString =
                         WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
-                    string queryString = "SELECT loan_types.type, book_copies.copy_number, members.name, loans.issued_date FROM loans JOIN loan_types ON loan_types.id = loans.loan_type_id JOIN book_copies ON book_copies.id =loans.book_copy_id JOIN members ON members.id =loans.member_id where loans.id =' " + loanId + " ' ";
+                    string queryString = "SELECT loan_types.type, book_copies.copy_number, members.name, loans.issued_date, loans.returned_date FROM loans JOIN loan_types ON loan_types.id = loans.loan_type_id JOIN book_copies ON book_copies.id =loans.book_copy_id JOIN members ON members.id =loans.member_id where loans.id =' " + loanId + " ' ";
 
                     SqlConnection myConnection = new SqlConnection(connectString);
                     myConnection.Open();
@@ -35,6 +35,11 @@ namespace Library_Management_System_AD.Admin
                         bookCopy.Text = (myReader["copy_number"].ToString());
                         member.Text = (myReader["name"].ToString());
                         txtIssuedDate.Text = String.Format("{0:yyyy-MM-dd }", myReader["issued_date"]);
+                        if (!String.IsNullOrWhiteSpace(myReader["returned_date"].ToString()))
+                        {
+                            txtReturnedDate.Text = String.Format("{0:yyyy-MM-dd }", myReader["returned_date"]);
+                            txtReturnedDate.Attributes.Add("readonly", "readonly");
+                        }
                     }
                     myReader.Close();
 

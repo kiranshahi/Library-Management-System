@@ -65,13 +65,6 @@
                                     </ul>
                                 </li>
 
-                                <li><a><i class="fa fa-money"></i> Fine <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="Fines">Add Fine</a></li>
-                                        <li><a href="#">List all Books</a></li>
-                                    </ul>
-                                </li>
-
                                 <li><a><i class="fa fa-male"></i> Publisher <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="Publishers">Add New Publisher</a></li>
