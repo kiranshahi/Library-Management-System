@@ -17,6 +17,8 @@
             </div>
             <div class = "panel-body" >
                 
+                <asp:HiddenField id="bookId" runat="server"/>
+
                 <div class="form-group row">
                     <label for="txtTitle" class="col-sm-2">Title:</label>
                     <div class="col-sm-8">
@@ -80,7 +82,6 @@
                 </div>
                 
                 <div class="form-group row">
-                    <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="btn btn-primary" OnClientClick="this.form.reset();return false;" />
                     <asp:Button ID="btnAddBook" runat="server" Text="Update Book" CssClass="btn btn-success" OnClick="updateBookDetails"/>
                 </div>
             </div>
