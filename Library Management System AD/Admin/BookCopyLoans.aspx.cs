@@ -18,6 +18,10 @@ namespace Library_Management_System_AD.Admin
             {
                 Response.Redirect("~/Login");
             }
+            if (!IsPostBack) 
+            {
+                this.info.Text = "Select Copy Number to display loans for."; 
+            }
             lblUserName.Text = Session["name"].ToString();
             lblUserName1.Text = Session["name"].ToString();
             this.populateTable();

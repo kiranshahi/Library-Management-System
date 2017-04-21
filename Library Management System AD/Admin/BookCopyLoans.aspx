@@ -26,7 +26,7 @@
                     <!-- asp components for search -->
                     <div class="row search-field clearfix" style="float: right; margin-bottom: 15px">
 
-                        <div class="col-md-5">
+                        <div class="col-md-12">
                             <asp:TextBox placeholder="Copy Number" ID="copyNumber" CssClass="form-control" runat="server" MaxLength="20" AutoPostBack="true"></asp:TextBox>
                         </div>
                     </div>
