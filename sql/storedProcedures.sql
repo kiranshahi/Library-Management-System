@@ -16,7 +16,7 @@ AS
 
 		FROM books b
 
-		JOIN publishers p
+		LEFT JOIN publishers p
 		ON b.publisher_id=p.id
 
 		LEFT JOIN author_book ab
@@ -36,13 +36,6 @@ AS
 			(b.title LIKE '%'+@book+'%' OR b.isbn = @book)
 			--if publisher is searched
 			AND p.name LIKE '%'+@publisher+'%'
-			AND
-			(
-				SELECT COUNT(bc.id) 
-				FROM book_copies bc 
-				WHERE bc.book_id = b.id
-				AND bc.deleted IS NULL
-			) > 0
 		)
 		
 		ORDER BY b.published_date
