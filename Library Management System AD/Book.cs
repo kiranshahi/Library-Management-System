@@ -7,7 +7,7 @@ using System.Data;
 
 
 namespace Library_Management_System_AD
-{   
+{
     public class Book
     {
         public int Id { get; set; }
@@ -20,9 +20,10 @@ namespace Library_Management_System_AD
         public int Quantity { get; set; }
 
 
-        public int CreateBook(String title, String overview, String isbn, Int32 publisherId, String publishedDate, Int32 edition)
+        public int CreateBook(String title, String overview, String isbn, Int32 publisherId, String publishedDate,
+            Int32 edition, Boolean ageRestriced)
         {
-            Boolean hasPd =false;
+            Boolean hasPd = false;
             DateTime pd;
             if (String.IsNullOrEmpty(publishedDate))
             {
@@ -33,8 +34,9 @@ namespace Library_Management_System_AD
                 hasPd = true;
             }
 
-            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
-            string sql = "insert into books values(@a,@b, @c, @d, @e, @f)";
+            SqlConnection con =
+                new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
+            string sql = "insert into books values(@a,@b, @c, @d, @e, @f, @g)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@a", title);
             cmd.Parameters.AddWithValue("@b", overview);
@@ -52,6 +54,7 @@ namespace Library_Management_System_AD
 
             }
             cmd.Parameters.AddWithValue("@f", edition);
+            cmd.Parameters.AddWithValue("@g", ageRestriced);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();
@@ -63,7 +66,9 @@ namespace Library_Management_System_AD
         {
             List<Book> bookList = new List<Book>();
 
-            using (SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString))
+            using (
+                SqlConnection con =
+                    new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand("GetBooks", con);
 
@@ -91,7 +96,9 @@ namespace Library_Management_System_AD
             List<Book> bookList = new List<Book>();
 
 
-            using (SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString))
+            using (
+                SqlConnection con =
+                    new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand("GetAvailableBooks", con);
 
@@ -117,45 +124,46 @@ namespace Library_Management_System_AD
 
         private static Book CreateFromReader(SqlDataReader reader)
         {
-            Book book= new Book();
+            Book book = new Book();
             book.Id = Convert.ToInt32(reader["id"].ToString());
             book.Title = reader["title"].ToString();
             book.Isbn = reader["isbn"].ToString();
             book.Publisher = reader["publisher"].ToString();
             book.PublishedDate = DBNull.Value.Equals(reader["published_date"])
-                ? null : Convert.ToDateTime(reader["published_date"]).ToShortDateString();
-                ;
+                ? null
+                : Convert.ToDateTime(reader["published_date"]).ToShortDateString();
+            ;
             book.Edition = Convert.ToInt16(reader["edition"].ToString());
             book.Authors = reader["author"].ToString();
             book.Quantity = Convert.ToInt16(reader["quantity"].ToString());
             return book;
         }
 
-        public static List<Book> concatAuthors(List<Book> bookList) 
+        public static List<Book> concatAuthors(List<Book> bookList)
         {
             if (bookList.Count == 0) return bookList;
             List<Book> newList = new List<Book>();
             newList.Add(bookList[0]);
             foreach (Book book in bookList)
-	        {
+            {
                 int count = newList.Count;
-                for (int i=0; i<count; i++)
+                for (int i = 0; i < count; i++)
                 {
                     Book mergedBook = newList[i];
-                    if(book.Isbn == mergedBook.Isbn)
+                    if (book.Isbn == mergedBook.Isbn)
                     {
-                        if(!mergedBook.Authors.Contains(book.Authors)) 
+                        if (!mergedBook.Authors.Contains(book.Authors))
                         {
                             mergedBook.Authors += ", " + book.Authors;
                         }
                         break;
                     }
-                    else if (i==count-1)
+                    else if (i == count - 1)
                     {
                         newList.Add(book);
                     }
                 }
-	        }
+            }
             return newList;
         }
 
@@ -165,12 +173,14 @@ namespace Library_Management_System_AD
             List<Book> bookList = new List<Book>();
 
 
-            using (SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString))
+            using (
+                SqlConnection con =
+                    new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand("GetInactiveBooks", con);
 
                 cmd.CommandType = CommandType.StoredProcedure;
-              
+
                 con.Open();
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -186,7 +196,8 @@ namespace Library_Management_System_AD
             return bookList;
         }
 
-        public int UpdateBook(Int32 bookid, String title, String overview, String isbn, Int32 publisher, String publishedDate, Int32 edition)
+        public int UpdateBook(Int32 bookid, String title, String overview, String isbn, Int32 publisher,
+            String publishedDate, Int32 edition)
         {
             Boolean hasPd = false;
             DateTime pd;
@@ -199,9 +210,11 @@ namespace Library_Management_System_AD
                 hasPd = true;
             }
 
-            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
-                string sql = "UPDATE users SET title=@title, overview=@overview, isbn=@isbn, publisher_id=@publisher, published_date=@pd, edition=@edition WHERE id=@bookid;";
-                SqlCommand cmd = new SqlCommand(sql, con);
+            SqlConnection con =
+                new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
+            string sql =
+                "UPDATE users SET title=@title, overview=@overview, isbn=@isbn, publisher_id=@publisher, published_date=@pd, edition=@edition WHERE id=@bookid;";
+            SqlCommand cmd = new SqlCommand(sql, con);
 
             cmd.Parameters.AddWithValue("@bookid", bookid);
             cmd.Parameters.AddWithValue("@title", title);
@@ -228,5 +241,5 @@ namespace Library_Management_System_AD
 
         }
 
-
+    }
 }

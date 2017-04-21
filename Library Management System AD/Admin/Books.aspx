@@ -70,7 +70,16 @@
                         </div>
                     </div>
                 </div>
-                
+                <div class="form-group row">
+                    <label for="rbAgeRestricted" class="col-sm-2">Age Restricted:</label>
+                    <asp:RadioButtonList ID="rbAgeRestricted" runat="server">
+                        <asp:ListItem Text="Yes" Value="true" />
+                        <asp:ListItem Text="No" Value="false" Selected="True"/>
+                    </asp:RadioButtonList>
+                    <asp:RequiredFieldValidator ID="valrbAgeRestricted" runat="server" ControlToValidate="rbAgeRestricted" ErrorMessage="RequiredFieldValidator">
+                    </asp:RequiredFieldValidator>
+                </div>
+
                 <div class="form-group row">
                     <label for="txtEdition" class="col-sm-2">Edition:</label>
                     <div class="col-sm-8">
