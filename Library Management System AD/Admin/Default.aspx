@@ -7,33 +7,33 @@
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="AdminHome" runat="server">
     <!-- page content -->
+    <asp:Label ID="info" CssClass="clearfix col-md-12" runat="server" Text=""></asp:Label>
             <div class="row top_tiles">
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
-                  <div class="count">179</div>
-                  <h3>Total Mambers</h3>
-                  <p>Lorem ipsum psdea itgum rixt.</p>
+                  <div class="count" id="memberCount" runat="server"></div>
+                  <h3>Total Members</h3>
+                  
                 </div>
               </div>
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
-                  <div class="count">179</div>
+                  <div class="count" id="bookCount" runat="server"></div>
                   <h3>Total Books</h3>
-                  <p>Lorem ipsum psdea itgum rixt.</p>
+                  
                 </div>
               </div>
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
-                  <div class="count">179</div>
+                  <div class="count" id="activeLoanCount" runat="server"></div>
                   <h3>Books on Loan</h3>
-                  <p>Lorem ipsum psdea itgum rixt.</p>
+                  
                 </div>
               </div>
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
-                  <div class="count">179</div>
-                  <h3>New Books</h3>
-                  <p>Lorem ipsum psdea itgum rixt.</p>
+                  <div class="count" id="loanCount" runat="server"></div>
+                  <h3>total loans</h3>
                 </div>
               </div>
             </div>

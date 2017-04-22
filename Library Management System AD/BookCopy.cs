@@ -153,7 +153,6 @@ namespace Library_Management_System_AD
         {
             using (SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString))
             {
-                string sql = "UPDATE book_copies SET deleted = 1 WHERE purchased_date < CURRENT_TIMESTAMP-365 AND deleted IS NULL";
                 SqlCommand cmd = new SqlCommand("DeleteOldCopies", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -165,6 +164,20 @@ namespace Library_Management_System_AD
                 con.Close();
 
                 return affectedRows;
+            }
+        }
+
+        internal static object GetCopiesCount()
+        {
+            using (SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString))
+            {
+                string sql = "select count(*) from book_copies where deleted is null";
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                con.Open();
+                int i = (int) cmd.ExecuteScalar();
+                con.Close();
+                return i;
             }
         }
     }

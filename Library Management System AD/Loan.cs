@@ -242,5 +242,17 @@ namespace Library_Management_System_AD
             return i;
         }
 
+
+        internal static int GetLoansCount()
+        {
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
+            string sql = "select count(*) from loans";
+            SqlCommand cmd = new SqlCommand(sql, con);
+
+            con.Open();
+            int i = (int) cmd.ExecuteScalar();
+            con.Close();
+            return i;
+        }
     }
 }
