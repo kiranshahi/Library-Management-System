@@ -11,7 +11,7 @@ namespace Library_Management_System_AD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Login");
         }
     }
 }
