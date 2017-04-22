@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -32,7 +33,25 @@ namespace Library_Management_System_AD.Admin
             }
             lblUserName.Text = Session["name"].ToString();
             lblUserName1.Text = Session["name"].ToString();
-            this.populateTable();
+            try
+            {
+                this.populateTable();
+            }
+            catch (Exception ex)
+            {
+                this.info.CssClass = "text-danger";
+                if (ex is SqlException || ex is IndexOutOfRangeException)
+                {
+                    this.info.Text = "Database Error Occurred";
+                    return;
+                }
+                if (ex is Win32Exception)
+                {
+                    this.info.Text = "Database is not installed or not started.";
+                    return;
+                }
+                throw;
+            }
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -47,8 +47,26 @@ namespace Library_Management_System_AD
                 lblUserName.Text = "Guest";
                 lblUserName1.Text = "Guest";
             }
-            this.populateTable();
-            this.populateFilters();
+            try
+            {
+                this.populateTable();
+                this.populateFilters();
+            }
+            catch (Exception ex)
+            {
+                this.info.CssClass = "text-danger";
+                if (ex is SqlException || ex is IndexOutOfRangeException)
+                {
+                    this.info.Text = "Database Error Occurred";
+                    return;
+                }
+                if (ex is Win32Exception)
+                {
+                    this.info.Text = "Database is not installed or not started.";
+                    return;
+                }
+                throw;
+            }
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
