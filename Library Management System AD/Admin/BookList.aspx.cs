@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.Configuration;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Library_Management_System_AD
@@ -49,8 +44,8 @@ namespace Library_Management_System_AD
             }
             try
             {
-                this.populateTable();
-                this.populateFilters();
+                this.PopulateTable();
+                this.PopulateFilters();
             }
             catch (Exception ex)
             {
@@ -80,7 +75,7 @@ namespace Library_Management_System_AD
         /// @date   21/04/2017
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        private void populateFilters()
+        private void PopulateFilters()
         {
             int selectedIndex;
             if(IsPostBack)
@@ -110,7 +105,7 @@ namespace Library_Management_System_AD
         /// @date   21/04/2017
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        private void populateTable()
+        private void PopulateTable()
         {
             string searchBook = this.bookName.Text;
             string searchAuthor = this.authorName.Text;
