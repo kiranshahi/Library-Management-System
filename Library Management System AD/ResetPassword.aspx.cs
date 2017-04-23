@@ -21,26 +21,34 @@ namespace Library_Management_System_AD
                 int i = newUser.ResetPassword(txtEmail.Text, strpassword);
                 if (i > 0)
                 {
-
-                    using (MailMessage mm = new MailMessage("librarymgmtsys@gmail.com", txtEmail.Text))
+                    try
                     {
-                        mm.Subject = "Library Management System Credential";
-                        mm.Body = "Hi, somebody requested to change your password.\n";
-                        mm.Body += "Here is your new password. Password: " + strpassword + "\n";
-                        mm.Body += "Your account password has been changed. \n";
-                        mm.Body += "Please update your password immediately.";
+                        using (MailMessage mm = new MailMessage("librarymgmtsys@gmail.com", txtEmail.Text))
+                        {
+                            mm.Subject = "Library Management System Credential";
+                            mm.Body = "Hi, somebody requested to change your password.\n";
+                            mm.Body += "Here is your new password. Password: " + strpassword + "\n";
+                            mm.Body += "Your account password has been changed. \n";
+                            mm.Body += "Please update your password immediately.";
 
-                        mm.IsBodyHtml = false;
-                        SmtpClient smtp = new SmtpClient();
-                        smtp.Host = "smtp.gmail.com";
-                        smtp.EnableSsl = true;
-                        NetworkCredential networkCred = new NetworkCredential("librarymgmtsys@gmail.com", "testing!@12");
-                        smtp.UseDefaultCredentials = true;
-                        smtp.Credentials = networkCred;
-                        smtp.Port = 587;
-                        smtp.Send(mm);
+                            mm.IsBodyHtml = false;
+                            SmtpClient smtp = new SmtpClient();
+                            smtp.Host = "smtp.gmail.com";
+                            smtp.EnableSsl = true;
+                            NetworkCredential networkCred = new NetworkCredential("librarymgmtsys@gmail.com", "testing!@12");
+                            smtp.UseDefaultCredentials = true;
+                            smtp.Credentials = networkCred;
+                            smtp.Port = 587;
+                            smtp.Send(mm);
 
+                        }
                     }
+                    catch (Exception)
+                    {
+                        lblMessage.Text = "Failed to connect to internet. Check your internet connection.";
+                    }
+
+                    
                     lblMessage.Text = "New password has been sent to email.";
                     lblMessage.ForeColor = Color.Green;
                 }
